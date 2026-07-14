@@ -1,0 +1,2 @@
+﻿ensure_defaults,seed_species,notes
+true,true,run ensure_default_census_setup for ANIMAL+HUMAN definitions

@@ -1,0 +1,39 @@
+# LAHIS edge proxy (step 2 skeleton)
+# Hostnames come from CONTRACT.md / .env (DASHBOARD_HOST, API_HOST, MINIO_PUBLIC_HOST).
+# Caddy env placeholders require Caddyfile adapted for {$VAR} syntax.
+
+{
+	# email {$ACME_EMAIL}
+	# Uncomment and set ACME_EMAIL when ready for public Let's Encrypt.
+}
+
+# Dashboard — lahis-ms
+{$DASHBOARD_HOST:lahis.ohtk.org} {
+	encode gzip
+	reverse_proxy ms:3000
+}
+
+# API parent host — GraphQL, /api/servers/, admin, etc.
+{$API_HOST:api.lahis.ohtk.org} {
+	encode gzip
+	reverse_proxy api:8000
+}
+
+# Explicit demo tenant (HTTP-01 cert works). Prefer this over wildcard for practice.
+demo.{$API_HOST:api.lahis.ohtk.org} {
+	encode gzip
+	reverse_proxy api:8000
+}
+
+# Other tenant hosts: *.api.lahis.ohtk.org
+# Wildcard TLS needs DNS-01 (not configured here); add per-tenant blocks as needed.
+*.{$API_HOST:api.lahis.ohtk.org} {
+	encode gzip
+	reverse_proxy api:8000
+}
+
+# MinIO S3 API (public media URLs). Console stays on 127.0.0.1:9001 via compose.
+{$MINIO_PUBLIC_HOST:minio.lahis.ohtk.org} {
+	encode gzip
+	reverse_proxy minio:9000
+}

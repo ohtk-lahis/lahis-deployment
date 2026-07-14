@@ -1,0 +1,39 @@
+# Host secrets and runtime pins — never commit
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Live image pins written by deploy.sh on the host
+RELEASE
+RELEASE.prev
+RELEASE.history/
+
+# Local / host data (if someone copies tree under deploy root)
+data/
+backups/
+*.sql
+*.sql.gz
+*.dump
+*.tar
+*.tar.gz
+
+# TLS / keys
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*.keystore
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Python / shell noise
+__pycache__/
+*.pyc
+.venv/

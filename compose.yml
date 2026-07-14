@@ -1,0 +1,177 @@
+# LAHIS one-machine stack (step 2 skeleton)
+# Contract: CONTRACT.md
+# Env: copy .env.example → .env (or /opt/lahis/.env on host)
+#
+# Usage (host):
+#   cd /opt/lahis
+#   docker compose --env-file .env -p lahis up -d
+#
+# Safety:
+#   Never run: docker compose down -v
+#   Do not delete /data/*
+#
+# Known debt (later steps):
+#   - API image must include step-4 entrypoint + step-5 MinIO settings; pin that build in RELEASE
+#   - proxy Caddyfile is minimal; wildcard TLS strategy TBD
+
+name: lahis
+
+services:
+  # ---------------------------------------------------------------------------
+  # Data plane
+  # ---------------------------------------------------------------------------
+  db:
+    image: postgis/postgis:14-3.3-alpine
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-lahis}
+      POSTGRES_USER: ${POSTGRES_USER:-lahis}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - ${DATA_ROOT:-/data}/pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [lahis]
+    # No host ports: not public
+
+  redis:
+    image: redis:6.2.5-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ${DATA_ROOT:-/data}/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    networks: [lahis]
+    # No host ports: not public
+
+  minio:
+    image: minio/minio:RELEASE.2024-12-18T13-15-44Z
+    restart: unless-stopped
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?set MINIO_ROOT_USER in .env}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?set MINIO_ROOT_PASSWORD in .env}
+    volumes:
+      - ${DATA_ROOT:-/data}/minio:/data
+    healthcheck:
+      # minio/minio image includes curl in recent releases; live endpoint needs no auth
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    # Console only on loopback for host admins (not public internet)
+    ports:
+      - "127.0.0.1:9001:9001"
+    networks: [lahis]
+
+  # ---------------------------------------------------------------------------
+  # Application
+  # ---------------------------------------------------------------------------
+  api:
+    image: ${IMAGE_API:-ghcr.io/onehealthtoolkit/ohtk-api:latest}
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+      USE_INMEMORY_CHANNEL_LAYER: ${USE_INMEMORY_CHANNEL_LAYER:-False}
+      CELERY_TASK_ALWAYS_EAGER: ${CELERY_TASK_ALWAYS_EAGER:-False}
+      # Internal MinIO (app must support endpoint; see CONTRACT.md)
+      AWS_S3_ENDPOINT_URL: ${AWS_S3_ENDPOINT_URL:-http://minio:9000}
+      # Shared staging: do not migrate on every api start (use scripts/migrate.sh)
+      RUN_MIGRATIONS: ${RUN_MIGRATIONS:-0}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    # Image entrypoint (step 4+): collectstatic → gated migrate → daphne ASGI
+    expose:
+      - "8000"
+    networks: [lahis]
+
+  celery:
+    image: ${IMAGE_API:-ghcr.io/onehealthtoolkit/ohtk-api:latest}
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+      USE_INMEMORY_CHANNEL_LAYER: ${USE_INMEMORY_CHANNEL_LAYER:-False}
+      CELERY_TASK_ALWAYS_EAGER: ${CELERY_TASK_ALWAYS_EAGER:-False}
+      AWS_S3_ENDPOINT_URL: ${AWS_S3_ENDPOINT_URL:-http://minio:9000}
+      RUN_MIGRATIONS: "0"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    # Worker only — no web entrypoint (see ohtk-api/celery-entrypoint.sh)
+    entrypoint: ["/usr/src/app/celery-entrypoint.sh"]
+    networks: [lahis]
+
+  ms:
+    image: ${IMAGE_MS:-public.ecr.aws/g0x0v6d0/lahis-ms:latest}
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      # next.config / entrypoint keys (case-sensitive)
+      serverDomain: ${serverDomain:-api.lahis.ohtk.org}
+      tenantsApiEndpoint: ${tenantsApiEndpoint:-https://api.lahis.ohtk.org/api/servers/}
+      # Docker sets HOSTNAME to the container id; Next standalone binds only
+      # to that address, which breaks 127.0.0.1 health probes. Force all-interfaces.
+      HOSTNAME: "0.0.0.0"
+    depends_on:
+      - api
+    expose:
+      - "3000"
+    networks: [lahis]
+
+  # ---------------------------------------------------------------------------
+  # Edge
+  # ---------------------------------------------------------------------------
+  proxy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DASHBOARD_HOST: ${DASHBOARD_HOST:-lahis.ohtk.org}
+      API_HOST: ${API_HOST:-api.lahis.ohtk.org}
+      MINIO_PUBLIC_HOST: ${MINIO_PUBLIC_HOST:-minio.lahis.ohtk.org}
+      # Optional ACME email (Caddy global options can use it later)
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./proxy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${DATA_ROOT:-/data}/caddy/data:/data
+      - ${DATA_ROOT:-/data}/caddy/config:/config
+    depends_on:
+      - api
+      - ms
+      - minio
+    networks: [lahis]
+
+networks:
+  lahis:
+    name: lahis
+    driver: bridge

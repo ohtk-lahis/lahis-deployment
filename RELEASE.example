@@ -1,0 +1,13 @@
+# Copy to /opt/lahis/RELEASE and pin real digests before production-shaped deploys.
+# Consumed by: scripts/deploy.sh, scripts/rollback.sh, scripts/migrate.sh, compose.yml
+#
+# Prefer digests over floating tags:
+#   IMAGE_API=ghcr.io/onehealthtoolkit/ohtk-api@sha256:...
+#   IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:cd5a68ae757c3832d764d29772d4354af36b76cebff5720c4f17618204a13329
+#
+# deploy.sh refuses :latest unless ALLOW_LATEST=1.
+# On each deploy, previous pins are saved as RELEASE.prev and RELEASE.history/.
+
+# Current LAHIS pins — see RELEASE.pins / IMAGE_PINS.md
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:4b7413fd334a8497222d327831613e20e3ae4e5d616c629bc0720696f6b56875
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:cd5a68ae757c3832d764d29772d4354af36b76cebff5720c4f17618204a13329

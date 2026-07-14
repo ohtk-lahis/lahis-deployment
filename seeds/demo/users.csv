@@ -1,0 +1,4 @@
+﻿username,password,first_name,last_name,email,role,authority_code,is_staff,is_active,is_superuser,notes
+L01,1234,L01,,l01@lahis.demo,ADM,LA,true,true,true,superuser admin; can configure authorities
+V01,1234,V01,,v01@lahis.demo,OFC,VTN-CAP,true,true,false,dashboard officer
+S01,1234,S01,,s01@lahis.demo,OFC,VTN-SPN,true,true,false,dashboard officer
