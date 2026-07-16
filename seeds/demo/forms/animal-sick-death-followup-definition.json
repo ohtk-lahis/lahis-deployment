@@ -1,0 +1,80 @@
+{
+  "subforms": {},
+  "sections": [
+    {
+      "label": "Number of Animals",
+      "questions": [
+        {
+          "label": "Number of households",
+          "description": "",
+          "fields": [
+            {
+              "id": "num_household",
+              "label": "Number of Household",
+              "name": "num_household",
+              "type": "integer",
+              "required": false,
+              "min": 0
+            }
+          ]
+        },
+        {
+          "label": "Number of animals",
+          "description": "Total animal from all affected households",
+          "fields": [
+            {
+              "id": "num_total_animal",
+              "label": "No. total animal from all affected households",
+              "name": "num_total_animal",
+              "type": "integer",
+              "required": false,
+              "min": 0
+            }
+          ]
+        },
+        {
+          "label": "Number of sick",
+          "description": "",
+          "fields": [
+            {
+              "id": "num_sick",
+              "label": "No. sick",
+              "name": "num_sick",
+              "type": "integer",
+              "required": false,
+              "min": 0
+            }
+          ]
+        },
+        {
+          "label": "Number of dead",
+          "description": "",
+          "fields": [
+            {
+              "id": "num_dead",
+              "label": "No. Dead",
+              "name": "num_dead",
+              "type": "integer",
+              "required": false,
+              "min": 0
+            }
+          ]
+        },
+        {
+          "label": "Number of recover",
+          "description": "",
+          "fields": [
+            {
+              "id": "num_recover",
+              "label": "No. Recover",
+              "name": "num_recover",
+              "type": "integer",
+              "required": false,
+              "min": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

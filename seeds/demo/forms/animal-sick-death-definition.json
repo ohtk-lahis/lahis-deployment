@@ -49,7 +49,8 @@
                 },
                 {
                   "label": "Other",
-                  "value": "Other"
+                  "value": "Other",
+                  "textInput": true
                 }
               ]
             }
@@ -491,6 +492,11 @@
                 {
                   "label": "Giving birth problems",
                   "value": "Giving birth problems"
+                },
+                {
+                  "label": "Unknown symptom",
+                  "value": "Unknown symptom",
+                  "textInput": true
                 }
               ]
             }
