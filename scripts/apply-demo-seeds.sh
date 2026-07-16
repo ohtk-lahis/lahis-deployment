@@ -85,6 +85,31 @@ client = Client.objects.filter(schema_name=schema).first()
 if not client:
     raise SystemExit(f"tenant schema '{schema}' not found")
 
+def upsert_configuration(key, value):
+    obj = Configuration._base_manager.filter(key=key).first()
+    if obj:
+        obj.value = value
+        obj.deleted_at = None
+        obj.save()
+        return False
+    Configuration.objects.create(key=key, value=value)
+    return True
+
+
+def resolve_config_value(row):
+    """Prefer inline value; otherwise load UTF-8 text from value_file (relative to seeds/)."""
+    value = row.get("value")
+    if value is not None and str(value).strip() != "":
+        return str(value)
+    rel = (row.get("value_file") or "").strip()
+    if not rel:
+        return ""
+    path = seeds / rel
+    if not path.exists():
+        raise SystemExit(f"configuration value_file not found: {path}")
+    return path.read_text(encoding="utf-8")
+
+
 with tenant_context(client):
     # --- features ---
     for row in read_csv("features.csv"):
@@ -97,14 +122,25 @@ with tenant_context(client):
         elif key == "features.animal_census_enabled":
             set_animal_census_capability_enabled(truthy(value) or value == "enable")
         else:
-            obj = Configuration._base_manager.filter(key=key).first()
-            if obj:
-                obj.value = value
-                obj.deleted_at = None
-                obj.save()
-            else:
-                Configuration.objects.create(key=key, value=value)
+            upsert_configuration(key, value)
         print("feature", key, value)
+
+    # --- configurations (mobile.consent.*, register flags, etc.) ---
+    for row in read_csv("configurations.csv"):
+        key = (row.get("key") or "").strip()
+        if not key:
+            continue
+        value = resolve_config_value(row)
+        created = upsert_configuration(key, value)
+        preview = value.replace("\n", " ")[:80]
+        print(
+            ("created" if created else "updated"),
+            "configuration",
+            key,
+            "len",
+            len(value),
+            preview,
+        )
 
     # --- authorities (parents first: CSV should be ordered; also multi-pass) ---
     rows = read_csv("authorities.csv")
@@ -304,6 +340,9 @@ with tenant_context(client):
         ordering = int((row.get("ordering") or "0").strip() or "0")
         is_followable = truthy(row.get("is_followable"), False)
         renderer = (row.get("renderer_data_template") or "").strip() or None
+        followup_renderer = (
+            row.get("renderer_followup_data_template") or ""
+        ).strip() or None
         rt = ReportType.objects.filter(name=name).first()
         created = False
         if rt is None:
@@ -321,6 +360,8 @@ with tenant_context(client):
             rt.metric_accumulation = metric_accumulation
         if renderer is not None:
             rt.renderer_data_template = renderer
+        if followup_renderer is not None:
+            rt.renderer_followup_data_template = followup_renderer
         rt.save()
         auth_codes = [
             c.strip()
