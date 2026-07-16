@@ -1,0 +1,3 @@
+key,value,value_file,notes
+mobile.consent.msg,,forms/consent-message.html,HTML body for register + post-login consent screens (must use mobile. prefix)
+mobile.consent.accept.msg,"By tapping Agree, you accept the terms above and acknowledge the privacy notice.",,Shown as a note inside the terms sheet (checkbox uses short app l10n label)

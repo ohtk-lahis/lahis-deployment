@@ -14,9 +14,11 @@ Open any file in Excel / LibreOffice / Google Sheets. Files use **UTF-8 with BOM
 | [users.csv](./users.csv) | Dashboard users (`AuthorityUser`), including superuser flags |
 | [superusers.csv](./superusers.csv) | Tenant bootstrap superuser(s) (plain `User`, no authority) |
 | [report_categories.csv](./report_categories.csv) | Report type groups (e.g. **Animal**) |
-| [report_types.csv](./report_types.csv) | Report types + path to form definition JSON |
+| [report_types.csv](./report_types.csv) | Report types, form JSON paths, and report/follow-up summary templates |
 | [forms/](./forms/) | Form definition JSON files referenced by `report_types.csv` |
 | [features.csv](./features.csv) | Feature flags in `Configuration` |
+| [configurations.csv](./configurations.csv) | Tenant `Configuration` rows (consent HTML, accept text, register flags) |
+| [forms/consent-message.html](./forms/consent-message.html) | HTML body for `mobile.consent.msg` |
 | [census_defaults.csv](./census_defaults.csv) | Whether to ensure default census definitions |
 | [census_rounds.csv](./census_rounds.csv) | Census round definitions + materialize year(s) |
 
@@ -58,6 +60,7 @@ SEEDS_DIR=/opt/lahis/seeds/demo ./scripts/apply-demo-seeds.sh
 Script behaviour:
 
 1. Applies **features**  
+1b. Upserts **configurations** (consent message HTML + accept text; `value_file` supported)
 2. Upserts **authorities** (parents first)  
 3. Upserts **villages**  
 4. Recreates **invitations** for listed codes under each authority (idempotent by code)  
@@ -101,6 +104,17 @@ Requires:
 | `V01` | `1234` | Vientiane Capital | Officer |
 | `S01` | `1234` | Sangthong | Officer |
 | `lahisadmin` | `1234` | — | plain superuser (lab only; change on shared hosts) |
+
+## Mobile consent (from seeds)
+
+Public GraphQL `configurations` only returns keys starting with `mobile`.
+
+| Key | Source | Purpose |
+|-----|--------|---------|
+| `mobile.consent.msg` | `forms/consent-message.html` | HTML body (register + post-login consent) |
+| `mobile.consent.accept.msg` | `configurations.csv` inline | Checkbox / accept label |
+
+Empty `mobile.consent.msg` hides the register consent UI. After seed, both keys must be present for the full consent flow.
 
 ## Demo report types (from seeds)
 
