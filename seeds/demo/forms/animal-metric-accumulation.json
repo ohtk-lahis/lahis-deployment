@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "metrics": [
+    {
+      "id": "num_household",
+      "label": "Households",
+      "reportField": "num_household",
+      "followupField": "num_household",
+      "op": "sum",
+      "type": "integer"
+    },
+    {
+      "id": "num_total_animal",
+      "label": "Total animals",
+      "reportField": "num_total_animal",
+      "followupField": "num_total_animal",
+      "op": "sum",
+      "type": "integer"
+    },
+    {
+      "id": "num_sick",
+      "label": "Sick",
+      "reportField": "num_sick",
+      "followupField": "num_sick",
+      "op": "sum",
+      "type": "integer"
+    },
+    {
+      "id": "num_dead",
+      "label": "Dead",
+      "reportField": "num_dead",
+      "followupField": "num_dead",
+      "op": "sum",
+      "type": "integer"
+    },
+    {
+      "id": "num_recover",
+      "label": "Recovered",
+      "reportField": "num_recover",
+      "followupField": "num_recover",
+      "op": "sum",
+      "type": "integer"
+    }
+  ]
+}

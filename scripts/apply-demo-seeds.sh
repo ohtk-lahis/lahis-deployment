@@ -271,6 +271,8 @@ with tenant_context(client):
         name = (row.get("name") or "").strip()
         cat_name = (row.get("category_name") or "").strip()
         def_rel = (row.get("definition_file") or "").strip()
+        followup_rel = (row.get("followup_definition_file") or "").strip()
+        metric_rel = (row.get("metric_accumulation_file") or "").strip()
         if not name or not cat_name:
             continue
         cat = Category.objects.filter(name=cat_name).first()
@@ -284,6 +286,20 @@ with tenant_context(client):
                 raise SystemExit(f"report type definition not found: {def_path}")
             with def_path.open(encoding="utf-8") as f:
                 definition = json.load(f)
+        followup_definition = None
+        if followup_rel:
+            fu_path = seeds / followup_rel
+            if not fu_path.exists():
+                raise SystemExit(f"followup definition not found: {fu_path}")
+            with fu_path.open(encoding="utf-8") as f:
+                followup_definition = json.load(f)
+        metric_accumulation = None
+        if metric_rel:
+            m_path = seeds / metric_rel
+            if not m_path.exists():
+                raise SystemExit(f"metric accumulation not found: {m_path}")
+            with m_path.open(encoding="utf-8") as f:
+                metric_accumulation = json.load(f)
         published = truthy(row.get("published"), True)
         ordering = int((row.get("ordering") or "0").strip() or "0")
         is_followable = truthy(row.get("is_followable"), False)
@@ -299,6 +315,10 @@ with tenant_context(client):
         rt.published = published
         rt.ordering = ordering
         rt.is_followable = is_followable
+        if followup_definition is not None:
+            rt.followup_definition = followup_definition
+        if metric_accumulation is not None:
+            rt.metric_accumulation = metric_accumulation
         if renderer is not None:
             rt.renderer_data_template = renderer
         rt.save()
