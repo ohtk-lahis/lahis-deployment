@@ -17,7 +17,7 @@ Open any file in Excel / LibreOffice / Google Sheets. Files use **UTF-8 with BOM
 | [report_types.csv](./report_types.csv) | Report types, form JSON paths, and report/follow-up summary templates |
 | [forms/](./forms/) | Form definition JSON files referenced by `report_types.csv` |
 | [features.csv](./features.csv) | Feature flags in `Configuration` |
-| [configurations.csv](./configurations.csv) | Tenant `Configuration` rows (consent HTML, accept text, register flags) |
+| [configurations.csv](./configurations.csv) | Tenant `Configuration` rows (consent HTML, accept text, gender/age required flags) |
 | [forms/consent-message.html](./forms/consent-message.html) | HTML body for `mobile.consent.msg` |
 | [census_defaults.csv](./census_defaults.csv) | Whether to ensure default census definitions |
 | [census_rounds.csv](./census_rounds.csv) | Census round definitions + materialize year(s) |

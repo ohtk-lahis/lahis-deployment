@@ -1,26 +1,28 @@
 # Image pins
 
-**Date (UTC):** 2026-07-14  
+**Registry checked (UTC):** 2026-07-21
 
 ## ohtk-api
 
 ```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:d22af3fa7c265db97ee77c46b4cb4666ad8c27901317503efea1b6f1e2bb4fb8
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:32baab7cfb0654651631ba03c765b17c2094f8f579b9d1869e91b574a5c9ee22
 ```
 
-Git: `60cc492` — PR #85 Option A animal census group HH + species heads  
+Git: `6741c04` — PR #92 add `openpyxl` for Excel export endpoints
+
+Tags: `lahis-6741c04`, `sha-6741c04228abdd0693eed9edf622bffd9734fb90`, `latest`
 
 ## lahis-ms (dashboard)
 
 **Repo:** `git@github.com:ohtk-lahis/lahis-ms.git`  
 **Upstream:** `onehealthtoolkit/ohtk-ms`  
-**Git:** `3833451` — merge upstream PR #190 (visual Option A groups builder + MobX selectedRow fix)  
+**Git:** `25cefee` — LAHIS PR #1 census rounds admin and coverage export
 
 ```text
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:d58c806a146faedacd97e449812fcdcc5011e5bb7c431e4ffe716368fc628e48
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:ef1a40b865874906940b1c6a8f68e2e9942325eb617a6f66581c5a1127326fc6
 ```
 
-Tags: `lahis-3833451`, `sha-38334515d2adc399f63b29d95dee6a0800251009`, `latest`  
+Tags: `lahis-25cefee`, `sha-25cefee87a6d003ec37d918966445c55e97f743c`, `latest`
 
 **Do not** deploy `ohtk-ms` for LAHIS brand staging.
 
