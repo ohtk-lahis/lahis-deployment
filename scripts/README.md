@@ -64,11 +64,12 @@ Do **not** set `RUN_MIGRATIONS=1` on the long-running `api` service for shared s
 cd /opt/lahis
 docker compose up -d minio
 ./scripts/bootstrap-minio.sh
-# optional public bucket for demo media URLs:
-# PUBLIC_READ=1 ./scripts/bootstrap-minio.sh
 ```
 
-Requires MinIO root credentials and (for app keys ≠ root) will try to create a MinIO user matching `AWS_ACCESS_KEY_ID`.
+For direct public media URLs, `.env` must use a bucket-qualified
+`AWS_S3_CUSTOM_DOMAIN` and `MINIO_PUBLIC_READ=1`; the script creates a sentinel
+object that `smoke.sh` fetches through the public proxy. To use private media,
+unset `AWS_S3_CUSTOM_DOMAIN` and set `MINIO_PUBLIC_READ=0` instead.
 
 ## smoke.sh
 
@@ -145,3 +146,18 @@ cd /opt/lahis
 ```
 
 Edit CSVs in Excel (UTF-8), re-run to upsert.
+
+## run-integration-smoke.sh
+
+Runs an opt-in staging smoke for signed `report.submitted` delivery, OAuth
+client credentials, integration read/write endpoints, and idempotency:
+
+```bash
+cd /opt/lahis
+./scripts/run-integration-smoke.sh
+```
+
+See [integration-smoke/README.md](../integration-smoke/README.md) for the
+fixture lifecycle and coverage boundary. It temporarily recreates `api` and
+`celery` to load a staging-only webhook signing secret, then recreates them
+again without that secret when complete.

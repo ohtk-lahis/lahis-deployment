@@ -182,7 +182,7 @@ Locked **defaults** so step 2 can proceed. Change here if you disagree.
 | Email | optional / empty until needed |
 | First demo tenant schema host | `demo.api.lahis.ohtk.org` |
 | MinIO bucket name | `lahis-media` |
-| Media public access | Prefer `minio.lahis.ohtk.org` (path-style) once endpoint wiring exists; until then local disk only for short lab |
+| Media public access | Use `minio.lahis.ohtk.org/<bucket>` (path-style) once endpoint wiring exists; until then local disk only for short lab |
 
 ---
 

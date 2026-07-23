@@ -23,6 +23,7 @@ DASHBOARD_HOST="${DASHBOARD_HOST:-lahis.ohtk.org}"
 API_HOST="${API_HOST:-api.lahis.ohtk.org}"
 DEMO_TENANT_HOST="${DEMO_TENANT_HOST:-demo.api.lahis.ohtk.org}"
 MINIO_PUBLIC_HOST="${MINIO_PUBLIC_HOST:-minio.lahis.ohtk.org}"
+MINIO_BUCKET="${MINIO_BUCKET:-${AWS_STORAGE_BUCKET_NAME:-lahis-media}}"
 SKIP_PUBLIC="${SKIP_PUBLIC:-0}"
 SMOKE_STRICT="${SMOKE_STRICT:-0}"
 
@@ -120,6 +121,19 @@ public_check "api /health" "https://${API_HOST}/health" "ok"
 public_check "api /api/servers/" "https://${API_HOST}/api/servers/"
 public_check "dashboard" "https://${DASHBOARD_HOST}/"
 public_check "minio host reachable" "https://${MINIO_PUBLIC_HOST}/minio/health/live"
+
+if [[ "${USE_S3:-False}" == "True" && -n "${AWS_S3_CUSTOM_DOMAIN:-}" ]]; then
+  expected_media_domain="${MINIO_PUBLIC_HOST}/${MINIO_BUCKET}"
+  if [[ "${AWS_S3_CUSTOM_DOMAIN}" == "${expected_media_domain}" ]]; then
+    ok "public media URL configuration"
+  else
+    bad "public media URL configuration (expected ${expected_media_domain})"
+  fi
+  public_check \
+    "public media sentinel" \
+    "https://${AWS_S3_CUSTOM_DOMAIN}/media/.lahis-public-read-check" \
+    "lahis public media access check"
+fi
 
 # GraphQL typename on demo tenant (POST)
 if [[ "${SKIP_PUBLIC}" == "1" ]]; then

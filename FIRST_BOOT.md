@@ -83,8 +83,6 @@ docker compose exec -T minio curl -sf http://127.0.0.1:9000/minio/health/live
 
 ```bash
 ./scripts/bootstrap-minio.sh
-# Optional demo public-read (only if you understand exposure):
-# PUBLIC_READ=1 ./scripts/bootstrap-minio.sh
 ```
 
 Confirm `.env` has:
@@ -97,11 +95,15 @@ AWS_S3_USE_SSL=False
 AWS_STORAGE_BUCKET_NAME=lahis-media   # or your MINIO_BUCKET
 AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...
-AWS_S3_CUSTOM_DOMAIN=minio.lahis.ohtk.org
+AWS_S3_CUSTOM_DOMAIN=minio.lahis.ohtk.org/lahis-media
+AWS_QUERYSTRING_AUTH=False
+MINIO_PUBLIC_READ=1
 RUN_MIGRATIONS=0
 ```
 
-**Gate 2:** bucket exists; app credentials work (script output).
+**Gate 2:** bucket exists, app credentials work, and the public-media sentinel
+is created. After TLS/proxy setup, `./scripts/smoke.sh` must report
+`PASS public media sentinel`.
 
 ---
 
