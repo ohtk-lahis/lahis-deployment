@@ -17,6 +17,9 @@ It does **not** replace app repos (`ohtk-api`, `lahis-ms` / upstream `ohtk-ms`).
 
 **First time on a host:** follow [FIRST_BOOT.md](./FIRST_BOOT.md).
 
+**External integrations:** use [INTEGRATION_GUIDELINE.md](./INTEGRATION_GUIDELINE.md)
+for tenant-scoped OAuth, webhooks, idempotency, and the staging smoke gate.
+
 ### Progress
 
 | Step | Status | Artifact |

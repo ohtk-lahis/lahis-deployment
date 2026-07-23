@@ -1,0 +1,57 @@
+# Opt-in integration smoke services. Start only through
+# scripts/run-integration-smoke.sh; do not include this override in normal deploys.
+services:
+  # The API and Celery need the temporary staging-only signing secret while a
+  # smoke delivery is in flight. The runner removes this file and recreates
+  # these services without this override when it finishes.
+  api:
+    env_file:
+      - .env
+      - .integration-smoke.runtime.env
+
+  celery:
+    env_file:
+      - .env
+      - .integration-smoke.runtime.env
+
+  integration-stub:
+    image: ${IMAGE_API:?source RELEASE before running the integration smoke}
+    restart: "no"
+    entrypoint: ["python", "/smoke/receiver.py"]
+    env_file:
+      - .integration-smoke.runtime.env
+    environment:
+      SMOKE_RECEIVER_PORT: "8080"
+    volumes:
+      - ./integration-smoke:/smoke:ro
+    expose:
+      - "8080"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "from urllib.request import urlopen; assert urlopen('http://127.0.0.1:8080/health', timeout=2).status == 200",
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+    networks:
+      lahis:
+        aliases:
+          - integration-stub.local
+
+  integration-smoke:
+    image: ${IMAGE_API:?source RELEASE before running the integration smoke}
+    profiles: ["integration-smoke"]
+    restart: "no"
+    entrypoint: ["python", "/smoke/runner.py"]
+    env_file:
+      - .integration-smoke.runtime.env
+    volumes:
+      - ./integration-smoke:/smoke:ro
+    depends_on:
+      integration-stub:
+        condition: service_healthy
+    networks: [lahis]
