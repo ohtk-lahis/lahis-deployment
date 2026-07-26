@@ -133,6 +133,7 @@ with tenant_context(tenant):
         oauth_application=application,
         scope_codes=[
             IntegrationScope.AI_READ_REPORT,
+            IntegrationScope.AI_READ_IMAGES,
             IntegrationScope.INCIDENT_READ,
             IntegrationScope.CENSUS_READ,
             IntegrationScope.AI_CREATE_COMMENT,
@@ -169,12 +170,27 @@ with tenant_context(tenant):
         test_flag=True,
     )
     report.relevant_authorities.add(reporter.authority)
+    from django.core.files.uploadedfile import SimpleUploadedFile
+    from reports.models import Image
+
+    smoke_gif = (
+        b"\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x00\x00\x00\x21\xf9\x04"
+        b"\x01\x0a\x00\x01\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02"
+        b"\x02\x4c\x01\x00\x3b"
+    )
+    image = Image.objects.create(
+        file=SimpleUploadedFile("smoke.gif", smoke_gif, content_type="image/gif"),
+        report=report,
+    )
+    report.cover_image = image
+    report.save(update_fields=("cover_image",))
     incident_report_submitted.send(sender=IncidentReport, report=report)
 
     with open(runtime_env, "a", encoding="utf-8") as output:
         output.write("SMOKE_CLIENT_ID=" + application.client_id + "\n")
         output.write("SMOKE_CLIENT_SECRET=" + client_secret + "\n")
         output.write("SMOKE_REPORT_ID=" + str(report.id) + "\n")
+        output.write("SMOKE_IMAGE_ID=" + str(image.id) + "\n")
         output.write("SMOKE_VILLAGE_ID=" + str(village.id) + "\n")
 
 print("fixture created", run_id)

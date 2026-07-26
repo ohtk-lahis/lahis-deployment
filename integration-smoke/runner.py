@@ -23,6 +23,7 @@ RECEIVER_URL = required("SMOKE_RECEIVER_URL").rstrip("/")
 CLIENT_ID = required("SMOKE_CLIENT_ID")
 CLIENT_SECRET = required("SMOKE_CLIENT_SECRET")
 REPORT_ID = required("SMOKE_REPORT_ID")
+IMAGE_ID = required("SMOKE_IMAGE_ID")
 VILLAGE_ID = required("SMOKE_VILLAGE_ID")
 RUN_ID = required("SMOKE_RUN_ID")
 
@@ -50,6 +51,23 @@ def request_json(path, *, method="GET", payload=None, token=None, headers=None, 
         except json.JSONDecodeError:
             payload = {"raw": raw}
         return exc.code, payload
+    except URLError as exc:
+        raise RuntimeError(f"request to {path} failed: {exc.reason}") from exc
+
+
+def request_bytes(path, *, token=None, timeout=15):
+    final_headers = {"Host": TENANT_HOST, "Accept": "*/*"}
+    if token:
+        final_headers["Authorization"] = f"Bearer {token}"
+    request = Request(
+        f"{API_BASE_URL}{path}", headers=final_headers, method="GET"
+    )
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            return response.status, response.read(), response.headers
+    except HTTPError as exc:
+        raw = exc.read()
+        return exc.code, raw, exc.headers
     except URLError as exc:
         raise RuntimeError(f"request to {path} failed: {exc.reason}") from exc
 
@@ -111,6 +129,38 @@ def main():
         f"/api/integrations/v1/incidents/{REPORT_ID}", token=token
     )
     expect(status, incident, 200, "incident read")
+    if "images" in incident.get("incident", {}):
+        raise RuntimeError("incident payload must stay thin (no images array)")
+    if (
+        incident.get("links", {}).get("images")
+        != f"/api/integrations/v1/reports/{REPORT_ID}/images"
+    ):
+        raise RuntimeError(
+            f"incident links.images missing or wrong: {incident.get('links')}"
+        )
+    print("PASS incident remains thin with links.images")
+
+    status, listing = request_json(
+        f"/api/integrations/v1/reports/{REPORT_ID}/images", token=token
+    )
+    expect(status, listing, 200, "image list")
+    images = listing.get("images") or []
+    if not images or images[0].get("id") != IMAGE_ID:
+        raise RuntimeError(f"image list did not include smoke image: {listing}")
+    if "url" in images[0] or "imageUrl" in images[0]:
+        raise RuntimeError(f"image list must not return permanent media URLs: {images[0]}")
+    status, content, headers = request_bytes(
+        f"/api/integrations/v1/reports/{REPORT_ID}/images/{IMAGE_ID}/content",
+        token=token,
+    )
+    if status != 200 or not content:
+        raise RuntimeError(
+            f"image content: expected HTTP 200 with bytes, got {status} len={len(content)}"
+        )
+    cache_control = headers.get("Cache-Control", "")
+    if "private" not in cache_control or "no-store" not in cache_control:
+        raise RuntimeError(f"image content Cache-Control not private/no-store: {cache_control}")
+    print("PASS image content download")
 
     status, _ = request_json(
         "/api/integrations/v1/census/snapshots?"

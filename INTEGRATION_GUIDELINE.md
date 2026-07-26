@@ -104,6 +104,8 @@ All paths below are relative to `${TENANT_API_URL}` and are versioned under
 | Read one incident | `incident:read` | `GET /incidents/{reportId}` |
 | Read census snapshots | `census:read` | `GET /census/snapshots` |
 | Read latest census | `census:read` | `GET /census/latest` |
+| List report images | `ai:read_images` | `GET /reports/{reportId}/images` |
+| Download report image bytes | `ai:read_images` | `GET /reports/{reportId}/images/{imageId}/content` |
 | Create integration comment | `ai:create_comment` | `POST /reports/{reportId}/comments` |
 | Create/update risk assessment | `risk:update` | `POST /reports/{reportId}/risk-assessments` |
 | Create/read cluster result | `cluster:write_result` | `POST /clusters`, `GET /clusters/{clusterId}` |
@@ -111,7 +113,8 @@ All paths below are relative to `${TENANT_API_URL}` and are versioned under
 Additional configured scopes are `cluster:read_inputs`, `ai:read_report`, and
 `case:promote`; agree their use with the LAHIS technical owner before relying
 on them. `report.submitted` webhook delivery requires `ai:read_report` on the
-client in addition to an active endpoint.
+client in addition to an active endpoint. Image list/download requires
+`ai:read_images` and is granted only to approved AI clients.
 
 Respect the documented filters and pagination in responses. Incident and
 census response bodies carry `schemaVersion`; treat an unknown major contract
@@ -143,13 +146,17 @@ full sensitive payloads.
 
 An AI feedback client needs `ai:read_report` to receive `report.submitted`
 events and `ai:create_comment` to write staff feedback. Add `incident:read`
-only when the AI service must re-read the incident summary through REST.
+only when the AI service must re-read the incident summary through REST. Add
+`ai:read_images` only when the service is approved to pull report photos for
+vision analysis.
 
 The event and incident-read API are intentionally thin. They expose report and
 tenant identifiers, timestamps, report type/category, authority IDs, case ID,
 optional location, current risk projection, and integration links. They do
-**not** expose raw form data, reporter identity, images, uploaded files, or
-other original report content through this integration contract.
+**not** expose raw form data, reporter identity, uploaded non-image files, or
+permanent public media URLs through this integration contract. Image **bytes**
+are available only through the dedicated image endpoints below when the client
+holds `ai:read_images`.
 
 Example `report.submitted` webhook body (illustrative IDs only):
 
@@ -171,10 +178,44 @@ Example `report.submitted` webhook body (illustrative IDs only):
   "links": {
     "incident": "/api/integrations/v1/incidents/22222222-2222-2222-2222-222222222222",
     "comments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/comments",
-    "riskAssessments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/risk-assessments"
+    "riskAssessments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/risk-assessments",
+    "images": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/images"
   }
 }
 ```
+
+### Pull report images (optional vision path)
+
+Use the report ID from the event. Do **not** scrape dashboard media hosts or
+guess public object URLs; the sanctioned path is the integration API with a
+service token.
+
+```text
+GET ${TENANT_API_URL}/api/integrations/v1/reports/{reportId}/images
+Authorization: Bearer <access-token>
+```
+
+A report with no photos returns `200` and `"images": []`. Soft-deleted images
+are omitted. Cover image (if set) is listed first. Metadata includes `id`,
+`isCover`, `contentType`, `byteSize`, `createdAt`, and a relative `links.content`
+path. Permanent public media URLs are not returned.
+
+```text
+GET ${TENANT_API_URL}/api/integrations/v1/reports/{reportId}/images/{imageId}/content
+Authorization: Bearer <access-token>
+```
+
+Successful content responses stream the stored file bytes with
+`Cache-Control: private, no-store`. Image content may retain embedded EXIF
+(including GPS) and may depict people or surroundings; partners must treat
+photos as sensitive, minimize retention, and must not use them for model
+training unless the LAHIS technical owner and partner agreement explicitly
+allow it. Missing report → `404 incident_not_found`. Image not on that report,
+soft-deleted, or missing file → `404 image_not_found`. Missing scope →
+`403 scope_denied`.
+
+Enablement gate: grant `ai:read_images` only after product/security approval for
+that partner and tenant. Disable or revoke the client to cut off access.
 
 ### Submit AI feedback
 
