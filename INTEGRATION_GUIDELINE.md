@@ -186,36 +186,90 @@ Example `report.submitted` webhook body (illustrative IDs only):
 
 ### Pull report images (optional vision path)
 
+Recommended partner flow when vision is approved:
+
+1. Receive `report.submitted` (thin body; use `links.images` or the report ID).
+2. `GET .../reports/{reportId}/images` for metadata.
+3. For each needed image, `GET .../images/{imageId}/content` with the same
+   bearer token.
+4. Run analysis on the partner side.
+5. `POST .../reports/{reportId}/comments` with decision-support text only.
+
 Use the report ID from the event. Do **not** scrape dashboard media hosts or
 guess public object URLs; the sanctioned path is the integration API with a
-service token.
+service token. Dashboard/MinIO public media URLs (when present in an
+environment) are **not** part of the integration contract.
 
 ```text
 GET ${TENANT_API_URL}/api/integrations/v1/reports/{reportId}/images
 Authorization: Bearer <access-token>
 ```
 
+Example list response (illustrative):
+
+```json
+{
+  "schemaVersion": "2026-06-02",
+  "reportId": "22222222-2222-2222-2222-222222222222",
+  "images": [
+    {
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "isCover": true,
+      "contentType": "image/jpeg",
+      "byteSize": 245678,
+      "createdAt": "2026-07-21T10:29:59+00:00",
+      "links": {
+        "content": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/images/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/content"
+      }
+    }
+  ],
+  "links": {
+    "incident": "/api/integrations/v1/incidents/22222222-2222-2222-2222-222222222222",
+    "comments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/comments"
+  }
+}
+```
+
 A report with no photos returns `200` and `"images": []`. Soft-deleted images
-are omitted. Cover image (if set) is listed first. Metadata includes `id`,
-`isCover`, `contentType`, `byteSize`, `createdAt`, and a relative `links.content`
-path. Permanent public media URLs are not returned.
+are omitted. Cover image (if set) is listed first, then remaining images by
+creation time. Metadata includes `id`, `isCover`, `contentType`, `byteSize`,
+`createdAt`, and a relative `links.content` path. Permanent public media URLs
+are not returned. List and content access are audited under action types
+`ai.read_images` and `ai.read_image_content`.
 
 ```text
 GET ${TENANT_API_URL}/api/integrations/v1/reports/{reportId}/images/{imageId}/content
 Authorization: Bearer <access-token>
 ```
 
-Successful content responses stream the stored file bytes with
-`Cache-Control: private, no-store`. Image content may retain embedded EXIF
-(including GPS) and may depict people or surroundings; partners must treat
-photos as sensitive, minimize retention, and must not use them for model
-training unless the LAHIS technical owner and partner agreement explicitly
-allow it. Missing report → `404 incident_not_found`. Image not on that report,
-soft-deleted, or missing file → `404 image_not_found`. Missing scope →
-`403 scope_denied`.
+Successful content responses stream the **stored file bytes as-is** with
+`Cache-Control: private, no-store`. Content-Type is taken from the uploaded
+file or guessed from the filename (fallback `application/octet-stream`). The
+image must belong to the given report; cross-report IDs return
+`404 image_not_found`.
+
+**Privacy.** Image content may retain embedded EXIF (including GPS) and may
+depict people or surroundings. Partners must treat photos as sensitive,
+minimize retention, delete local copies when analysis is finished, and must
+not use them for model training unless the LAHIS technical owner and partner
+agreement explicitly allow it. Soft-delete or missing storage files stop
+listing and download; partners must not cache content indefinitely as a
+substitute for LAHIS retention control.
+
+| Status | Code | When |
+| --- | --- | --- |
+| 200 | — | List metadata or content bytes OK |
+| 401 | `oauth_required` | Missing/invalid bearer token |
+| 403 | `scope_denied` | Client lacks `ai:read_images` |
+| 403 | `service_identity_denied` | Human-bound OAuth token |
+| 403 | feature / tenant codes | Integrations or AI feature disabled; wrong schema |
+| 404 | `incident_not_found` | Report not in this tenant |
+| 404 | `image_not_found` | Image missing, soft-deleted, wrong report, or file gone |
 
 Enablement gate: grant `ai:read_images` only after product/security approval for
 that partner and tenant. Disable or revoke the client to cut off access.
+`ai:read_images` is independent of `incident:read`; vision clients still need
+`ai:read_report` for webhooks and `ai:create_comment` to write feedback.
 
 ### Submit AI feedback
 
@@ -274,9 +328,17 @@ Example incident summary returned by `GET /api/integrations/v1/incidents/{id}`:
     "caseId": null,
     "location": {"lon": 101.003, "lat": 13.233},
     "currentRiskAssessment": null
+  },
+  "links": {
+    "comments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/comments",
+    "riskAssessments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/risk-assessments",
+    "images": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/images"
   }
 }
 ```
+
+The incident body stays thin: no image array, form data, or media URLs. The
+`links.images` path still requires `ai:read_images` to call.
 
 ### Submit a cluster result
 
@@ -400,18 +462,21 @@ SMOKE_TENANT_HOST="${TENANT_HOST}" \
 
 With current staging parameters, `SMOKE_TENANT_SCHEMA=demo` and
 `SMOKE_TENANT_HOST=demo.api.lahis.ohtk.org`. The smoke creates a temporary
-client, endpoint, signing secret, and `test_flag=true` report; then verifies:
+client (including `ai:read_images`), endpoint, signing secret, and
+`test_flag=true` report with a synthetic image; then verifies:
 
 - one signed `report.submitted` delivery through Celery;
 - OAuth client-credentials authentication and tenant routing;
-- incident and census reads;
+- incident and census reads (incident stays thin; `links.images` present);
+- report image list and authenticated image content download;
 - comment, risk-assessment, and cluster writes;
 - idempotency replay for comment and cluster writes; and
 - cleanup by disabling the temporary endpoint/client and removing its runtime
   secret.
 
 It proves the first delivery attempt, not scheduled retry behaviour, stale
-`DELIVERING` recovery, or a production secret-manager implementation. The
+`DELIVERING` recovery, or a production secret-manager implementation. Image
+steps require an API image that includes the `ai:read_images` endpoints. The
 generated records remain labelled `integration-smoke-...` as staging evidence.
 
 Use `SMOKE_KEEP_ENDPOINT=1` only for an approved debugging session and disable
@@ -420,12 +485,17 @@ that retained client/endpoint when finished.
 ## Go-live checklist
 
 - [ ] Parameters, tenant, partner owner, and support contact approved.
-- [ ] Minimum scopes and event types approved.
+- [ ] Minimum scopes and event types approved (include `ai:read_images` only
+      when vision is approved for that partner/tenant).
+- [ ] If images are in scope: partner retention, no-training (unless agreed),
+      and EXIF/sensitive-photo handling are documented in the partner agreement.
 - [ ] Client secret and webhook signing secret transferred/stored securely.
 - [ ] Callback URL is HTTPS and receiver verifies signature, timestamp, tenant,
       integration code, and event-ID deduplication.
 - [ ] Partner write paths send an idempotency key and handle `202` replay and
       conflict responses safely.
+- [ ] Partner does not scrape public media hosts; image access uses integration
+      REST only when scoped.
 - [ ] Synthetic staging smoke passes with no retained temporary credentials.
 - [ ] Permanent endpoint/client have an owner, rotation date, timeout, and
       disable/incident procedure.
