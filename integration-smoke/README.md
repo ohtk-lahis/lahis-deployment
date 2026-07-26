@@ -12,7 +12,8 @@ standard library:
 - `integration-stub` receives `report.submitted`, verifies the HMAC signature,
   deduplicates event IDs, and exposes a bounded receipt wait endpoint.
 - `integration-smoke` obtains an OAuth client-credentials token and checks
-  incident/census reads plus comment/risk/cluster writes and idempotency replay.
+  incident/census reads, AI report image list/content, plus comment/risk/cluster
+  writes and idempotency replay.
 
 ## Run on staging
 
