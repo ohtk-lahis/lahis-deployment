@@ -1,16 +1,16 @@
 # Image pins
 
-**Registry checked (UTC):** 2026-07-21
+**Registry checked (UTC):** 2026-07-29
 
 ## ohtk-api
 
 ```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:32baab7cfb0654651631ba03c765b17c2094f8f579b9d1869e91b574a5c9ee22
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:25b902abe582c3176a93c31a62333ac3bea05cfd94e4af00c7ea41b70f100c6d
 ```
 
-Git: `6741c04` — PR #92 add `openpyxl` for Excel export endpoints
+Git: `d4dea06` — AI comment → thread bridge + MIME sniff for extensionless images
 
-Tags: `lahis-6741c04`, `sha-6741c04228abdd0693eed9edf622bffd9734fb90`, `latest`
+Tags: `lahis-wip-d4dea06-aibridge`, `sha-d4dea0649720815421cef3fe379727c4686db8aa-aibridge`
 
 ## lahis-ms (dashboard)
 
