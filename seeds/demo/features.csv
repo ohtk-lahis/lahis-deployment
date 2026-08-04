@@ -1,3 +1,4 @@
 ﻿key,value,notes
 features.village_enabled,enable,required for villages menu and village invitations
 features.animal_census_enabled,enable,requires village enabled; animal census + census definitions UI
+features.report_use_village_location_fallback,enable,when client GPS absent on submit use reporter village location

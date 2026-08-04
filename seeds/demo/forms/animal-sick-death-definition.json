@@ -681,19 +681,6 @@
               "separatedFields": false
             }
           ]
-        },
-        {
-          "label": "Location",
-          "description": "",
-          "fields": [
-            {
-              "id": "incident_location",
-              "label": "",
-              "name": "incident_location",
-              "type": "location",
-              "required": false
-            }
-          ]
         }
       ]
     },
