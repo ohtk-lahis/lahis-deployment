@@ -57,35 +57,50 @@
           ]
         },
         {
-          "label": "Age",
-          "description": "",
+          "label": "Age group",
+          "description": "Select all age groups present in this report",
           "fields": [
             {
-              "id": "animal_age",
+              "id": "animal_age_groups",
               "label": "",
-              "name": "animal_age",
-              "type": "integer",
-              "required": true,
-              "min": 0
-            },
-            {
-              "id": "age_unit",
-              "label": "",
-              "name": "age_unit",
-              "type": "singlechoices",
+              "name": "animal_age_groups",
+              "type": "multiplechoices",
               "required": true,
               "options": [
                 {
-                  "label": "Year",
-                  "value": "Year"
+                  "label": "Neonate / newborn",
+                  "value": "neonate"
                 },
                 {
-                  "label": "Month",
-                  "value": "Month"
+                  "label": "Grower / juvenile",
+                  "value": "grower"
                 },
                 {
-                  "label": "Day",
-                  "value": "Day"
+                  "label": "Breeding adult",
+                  "value": "breeding"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Sex",
+          "description": "Select all that apply. Selecting both Male and Female means mixed-sex animals.",
+          "fields": [
+            {
+              "id": "animal_sex",
+              "label": "",
+              "name": "animal_sex",
+              "type": "multiplechoices",
+              "required": true,
+              "options": [
+                {
+                  "label": "Male",
+                  "value": "Male"
+                },
+                {
+                  "label": "Female",
+                  "value": "Female"
                 }
               ]
             }
