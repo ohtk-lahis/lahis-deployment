@@ -285,6 +285,10 @@
                 {
                   "label": "Rabies",
                   "value": "Rabies"
+                },
+                {
+                  "label": "Unknown Disease",
+                  "value": "Unknown Disease"
                 }
               ]
             }
