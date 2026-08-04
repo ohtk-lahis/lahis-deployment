@@ -36,6 +36,14 @@
                   "value": "Goat"
                 },
                 {
+                  "label": "Dog",
+                  "value": "Dog"
+                },
+                {
+                  "label": "Cat",
+                  "value": "Cat"
+                },
+                {
                   "label": "Chicken",
                   "value": "Chicken"
                 },
@@ -113,7 +121,7 @@
       "questions": [
         {
           "label": "Disease",
-          "description": "Cattle | Buffalo | Sheep | Goat",
+          "description": "Cattle | Buffalo",
           "fields": [
             {
               "id": "suspected_disease",
@@ -159,7 +167,63 @@
           ],
           "condition": {
             "name": "animal_species",
-            "value": "Cattle, Buffalo, Sheep, Goat",
+            "value": "Cattle, Buffalo",
+            "operator": "in"
+          }
+        },
+        {
+          "label": "Disease",
+          "description": "Sheep | Goat",
+          "fields": [
+            {
+              "id": "suspected_disease",
+              "label": "",
+              "name": "suspected_disease",
+              "type": "singlechoices",
+              "required": true,
+              "options": [
+                {
+                  "label": "Hemorrhagic Septicemia / Anthrax",
+                  "value": "Hemorrhagic Septicemia / Anthrax"
+                },
+                {
+                  "label": "Foot-and-Mouth Disease",
+                  "value": "Foot-and-Mouth Disease"
+                },
+                {
+                  "label": "Peste des Petits Ruminants (PPR)",
+                  "value": "Peste des Petits Ruminants (PPR)"
+                },
+                {
+                  "label": "Influenza",
+                  "value": "Influenza"
+                },
+                {
+                  "label": "Cholera",
+                  "value": "Cholera"
+                },
+                {
+                  "label": "Swollen Neck",
+                  "value": "Swollen Neck"
+                },
+                {
+                  "label": "Rabies",
+                  "value": "Rabies"
+                },
+                {
+                  "label": "Leptospirosis",
+                  "value": "Leptospirosis"
+                },
+                {
+                  "label": "Unknown Disease",
+                  "value": "Unknown Disease"
+                }
+              ]
+            }
+          ],
+          "condition": {
+            "name": "animal_species",
+            "value": "Sheep, Goat",
             "operator": "in"
           }
         },
@@ -209,6 +273,30 @@
         },
         {
           "label": "Disease",
+          "description": "Dog | Cat",
+          "fields": [
+            {
+              "id": "suspected_disease",
+              "label": "",
+              "name": "suspected_disease",
+              "type": "singlechoices",
+              "required": true,
+              "options": [
+                {
+                  "label": "Rabies",
+                  "value": "Rabies"
+                }
+              ]
+            }
+          ],
+          "condition": {
+            "name": "animal_species",
+            "value": "Dog, Cat",
+            "operator": "in"
+          }
+        },
+        {
+          "label": "Disease",
           "description": "Chicken | Duck | Goose",
           "fields": [
             {
@@ -229,10 +317,6 @@
                 {
                   "label": "Influenza",
                   "value": "Influenza"
-                },
-                {
-                  "label": "Rabies",
-                  "value": "Rabies"
                 },
                 {
                   "label": "Leptospirosis",
