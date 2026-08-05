@@ -15,7 +15,7 @@ Open any file in Excel / LibreOffice / Google Sheets. Files use **UTF-8 with BOM
 | [superusers.csv](./superusers.csv) | Tenant bootstrap superuser(s) (plain `User`, no authority) |
 | [report_categories.csv](./report_categories.csv) | Report type groups (e.g. **Animal**) |
 | [report_types.csv](./report_types.csv) | Report types, form JSON paths, and report/follow-up summary templates |
-| [forms/](./forms/) | Form definition JSON files referenced by `report_types.csv` |
+| [forms/](./forms/) | Form definition JSON files referenced by `report_types.csv` (includes `animal-close-definition.json` for CO2 Layer2 close schema) |
 | [features.csv](./features.csv) | Feature flags in `Configuration` |
 | [configurations.csv](./configurations.csv) | Tenant `Configuration` rows (consent HTML, accept text, gender/age required flags) |
 | [forms/consent-message.html](./forms/consent-message.html) | HTML body for `mobile.consent.msg` |

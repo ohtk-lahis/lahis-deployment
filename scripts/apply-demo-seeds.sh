@@ -309,6 +309,7 @@ with tenant_context(client):
         def_rel = (row.get("definition_file") or "").strip()
         followup_rel = (row.get("followup_definition_file") or "").strip()
         metric_rel = (row.get("metric_accumulation_file") or "").strip()
+        close_def_rel = (row.get("close_definition_file") or "").strip()
         if not name or not cat_name:
             continue
         cat = Category.objects.filter(name=cat_name).first()
@@ -336,6 +337,13 @@ with tenant_context(client):
                 raise SystemExit(f"metric accumulation not found: {m_path}")
             with m_path.open(encoding="utf-8") as f:
                 metric_accumulation = json.load(f)
+        close_definition = None
+        if close_def_rel:
+            cd_path = seeds / close_def_rel
+            if not cd_path.exists():
+                raise SystemExit(f"close definition not found: {cd_path}")
+            with cd_path.open(encoding="utf-8") as f:
+                close_definition = json.load(f)
         published = truthy(row.get("published"), True)
         ordering = int((row.get("ordering") or "0").strip() or "0")
         is_followable = truthy(row.get("is_followable"), False)
@@ -358,6 +366,8 @@ with tenant_context(client):
             rt.followup_definition = followup_definition
         if metric_accumulation is not None:
             rt.metric_accumulation = metric_accumulation
+        if close_definition is not None:
+            rt.close_definition = close_definition
         if renderer is not None:
             rt.renderer_data_template = renderer
         if followup_renderer is not None:

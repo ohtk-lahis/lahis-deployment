@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "fields": [
+    {
+      "id": "test_result",
+      "type": "text",
+      "label": "Test result",
+      "requiredOn": ["officer"]
+    },
+    {
+      "id": "stamp_out",
+      "type": "integer",
+      "label": "Stamped out",
+      "requiredOn": ["officer"]
+    }
+  ]
+}
