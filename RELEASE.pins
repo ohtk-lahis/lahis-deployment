@@ -1,8 +1,8 @@
 # Copy to /opt/lahis/RELEASE on the host.
 # Provenance: IMAGE_PINS.md
 #
-# API: d4dea06 — AI comment thread bridge + MIME sniff for extensionless images
-# MS:  lahis-ms 25cefee (LAHIS PR #1 census rounds admin and coverage export)
+# API: a4935f3 (PR #94 layered close + RF4 + AI suspected)
+# MS:  11984bd (case close + disease result from upstream ohtk-ms)
 
-IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:25b902abe582c3176a93c31a62333ac3bea05cfd94e4af00c7ea41b70f100c6d
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:ef1a40b865874906940b1c6a8f68e2e9942325eb617a6f66581c5a1127326fc6
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:c1e832c811280cd7276fc9a3c03dc993c7928cdfbeb9846a28ef2b87f91808d6
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:384db9ed30b4b9315b84c4989d3dd9c8806b259c098cd990854574a0a72aadbc
