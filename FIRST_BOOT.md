@@ -129,7 +129,7 @@ If this is a **shared** DB with real data, stop and get approval before apply â€
 ## Phase 4 â€” Application processes
 
 ```bash
-docker compose up -d api celery ms
+docker compose up -d api celery celery-beat ms
 docker compose ps
 docker compose logs -f api --tail=100
 # Ctrl-C when you see daphne listening (do not leave -f forever in runbooks)
@@ -151,7 +151,10 @@ Expect: `ok` from `/health`.
 Expect logs: ASGI/daphne, **not** long-term reliance on `runserver`.  
 Expect logs: **Skipping migrations** (unless you intentionally set `RUN_MIGRATIONS=1`).
 
-**Gate 4:** api healthy; celery running (`docker compose logs celery --tail=50`).
+**Gate 4:** api healthy; celery worker + beat running  
+(`docker compose logs celery --tail=50`; `docker compose logs celery-beat --tail=50`).  
+Beat schedules CO3 `cases.tasks.auto_close_stale_cases_all_tenants` (daily).  
+Tenant days: Configuration key `cases.auto_close_days` (seed default 21).
 
 ---
 

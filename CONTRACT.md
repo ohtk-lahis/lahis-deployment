@@ -60,6 +60,7 @@ Cutover = DNS + `.env` + tenant domain rows. **No** topology change.
 | `ms` | `lahis-ms` dashboard (branded) | internal 3000 |
 | `api` | `ohtk-api` ASGI web | internal 8000 |
 | `celery` | `ohtk-api` worker | none |
+| `celery-beat` | `ohtk-api` beat scheduler (singleton) | none |
 | `db` | PostGIS | internal 5432 only |
 | `redis` | Redis | internal 6379 only |
 | `minio` | MinIO S3 API | internal 9000 (9001 console = local only) |

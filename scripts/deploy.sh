@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LAHIS app deploy (step 7) — api + celery + ms only
+# LAHIS app deploy (step 7) — api + celery + celery-beat + ms
 # Does NOT migrate, touch db/redis/minio volumes, or restart proxy by default.
 #
 # Usage (from /opt/lahis):
@@ -11,7 +11,7 @@
 #       Allow :latest tags (lab only)
 #   NO_ROLLBACK=1 ./scripts/deploy.sh
 #       Do not auto-restore RELEASE.prev on health failure
-#   SERVICES="api celery ms" HEALTH_TIMEOUT=180 ./scripts/deploy.sh
+#   SERVICES="api celery celery-beat ms" HEALTH_TIMEOUT=180 ./scripts/deploy.sh
 #
 # Safety:
 #   - flock .deploy.lock
@@ -28,7 +28,7 @@ source "${ROOT}/scripts/lib/common.sh"
 
 NEW_API=""
 NEW_MS=""
-SERVICES="${SERVICES:-api celery ms}"
+SERVICES="${SERVICES:-api celery celery-beat ms}"
 # shellcheck disable=SC2206
 SERVICE_ARR=(${SERVICES})
 
@@ -143,4 +143,4 @@ if wait_for_app_health; then
   exit 1
 fi
 
-die "rollback also failed health checks — inspect: docker compose ps && docker compose logs api ms celery"
+die "rollback also failed health checks — inspect: docker compose ps && docker compose logs api ms celery celery-beat"

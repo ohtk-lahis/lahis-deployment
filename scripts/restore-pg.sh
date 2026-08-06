@@ -5,7 +5,8 @@
 #   ./scripts/restore-pg.sh /data/backups/pg-YYYYMMDDTHHMMSSZ.sql.gz
 #   CONFIRM=RESTORE ./scripts/restore-pg.sh /data/backups/pg-....sql.gz
 #
-# Stops api + celery (writers), restores dump into DB, starts api + celery again.
+# Stops api + celery + celery-beat (writers/schedulers), restores dump into DB,
+# starts api + celery + celery-beat again.
 # Does NOT restore MinIO objects (restore those separately if needed).
 # Does NOT run migrations (restored dump should already match app schema intent).
 
@@ -47,8 +48,8 @@ if [[ "${CONFIRM}" != "RESTORE" ]]; then
   exit 2
 fi
 
-log "stopping api and celery (leave db/redis/minio/proxy up)"
-compose stop api celery || true
+log "stopping api, celery, and celery-beat (leave db/redis/minio/proxy up)"
+compose stop api celery celery-beat || true
 
 if ! compose exec -T db pg_isready -U "${PG_USER}" -d postgres >/dev/null 2>&1; then
   die "postgres not ready"
@@ -75,7 +76,7 @@ compose exec -T db psql -U "${PG_USER}" -d "${PG_DB}" -v ON_ERROR_STOP=1 \
 log "restoring dump (this may take a while)"
 gunzip -c "${DUMP}" | compose exec -T db psql -U "${PG_USER}" -d "${PG_DB}" -v ON_ERROR_STOP=1
 
-log "starting api and celery"
+log "starting api, celery, and celery-beat"
 # shellcheck disable=SC1091
 if [[ -f RELEASE ]]; then
   set -a
@@ -84,7 +85,7 @@ if [[ -f RELEASE ]]; then
   set +a
   export IMAGE_API IMAGE_MS
 fi
-compose up -d --no-deps api celery
+compose up -d --no-deps api celery celery-beat
 
 if wait_for_app_health; then
   log "restore complete; app health ok"

@@ -101,6 +101,7 @@ Everything that production will need runs on a single host:
                     │    ms          (lahis-ms)                   │
                     │    api         (ASGI: daphne/uvicorn)       │
                     │    celery      (same image, worker cmd)     │
+                    │    celery-beat (same image, beat schedule)  │
                     │    redis                                    │
                     │    db          (postgis)                    │
                     │    minio                                    │
@@ -115,7 +116,8 @@ Everything that production will need runs on a single host:
 | `proxy` | TLS, Host routing, WebSocket upgrade |
 | `ms` | Next.js dashboard (`lahis-ms`) |
 | `api` | Django GraphQL + Channels (ASGI) |
-| `celery` | Background tasks |
+| `celery` | Background tasks (worker) |
+| `celery-beat` | Periodic schedule (CO3 auto-close; **one** replica only) |
 | `db` | PostgreSQL + PostGIS |
 | `redis` | Cache / broker / channels |
 | `minio` | Object storage for media |
@@ -322,7 +324,7 @@ Optional later: a small Ansible role that only does the above, with inventory ho
 1. `docker compose pull` (pinned digests).
 2. `up -d db redis minio`; wait healthy.
 3. Bootstrap MinIO bucket + keys.
-4. `up -d api celery ms proxy`.
+4. `up -d api celery celery-beat ms proxy`.
 5. One-time: run `migrate.sh` (explicit).
 6. Create tenant + domain rows.
 7. Run smoke tests.
@@ -331,7 +333,7 @@ Optional later: a small Ansible role that only does the above, with inventory ho
 
 1. CI builds images → tags `sha-…` / digests.
 2. Host updates `RELEASE` with digests.
-3. `deploy.sh`: pull → `compose up -d api celery ms` → health checks.
+3. `deploy.sh`: pull → `compose up -d api celery celery-beat ms` → health checks.
 4. On failure: restore previous `RELEASE` digests and bring services back up.
 
 Migrations are **not** in this path unless a separate approved job runs `migrate.sh`.

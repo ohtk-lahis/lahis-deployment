@@ -47,7 +47,7 @@ echo "=== LAHIS smoke (${ROOT}) ==="
 need_compose || true
 
 # --- compose process presence ---
-for svc in db redis minio api celery ms proxy; do
+for svc in db redis minio api celery celery-beat ms proxy; do
   if docker compose ps --status running --services 2>/dev/null | grep -qx "${svc}"; then
     ok "service running: ${svc}"
   else

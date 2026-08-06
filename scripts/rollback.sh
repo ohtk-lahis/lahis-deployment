@@ -15,7 +15,7 @@ cd "${ROOT}"
 source "${ROOT}/scripts/lib/common.sh"
 
 PREV_FILE="${1:-RELEASE.prev}"
-SERVICES="${SERVICES:-api celery ms}"
+SERVICES="${SERVICES:-api celery celery-beat ms}"
 # shellcheck disable=SC2206
 SERVICE_ARR=(${SERVICES})
 

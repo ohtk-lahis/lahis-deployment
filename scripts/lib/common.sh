@@ -105,7 +105,13 @@ ms_health_ok() {
 
 celery_running_ok() {
   compose ps --status running --services 2>/dev/null | grep -qx celery \
-    || compose ps 2>/dev/null | grep -E 'celery' | grep -qiE 'up|running'
+    || compose ps 2>/dev/null | grep -E '[[:space:]]celery[[:space:]]|^celery' | grep -qiE 'up|running'
+}
+
+# CO3 scheduler (singleton). Required for auto-close; deploy recreates it with api image.
+celery_beat_running_ok() {
+  compose ps --status running --services 2>/dev/null | grep -qx celery-beat \
+    || compose ps 2>/dev/null | grep -E 'celery-beat' | grep -qiE 'up|running'
 }
 
 wait_for_app_health() {
@@ -114,17 +120,18 @@ wait_for_app_health() {
   local elapsed=0
   log "waiting for app health (timeout=${timeout}s)"
   while [[ "${elapsed}" -lt "${timeout}" ]]; do
-    local api_ok=0 ms_ok=0 celery_ok=0
+    local api_ok=0 ms_ok=0 celery_ok=0 beat_ok=0
     api_health_ok && api_ok=1
     ms_health_ok && ms_ok=1
     celery_running_ok && celery_ok=1
-    if [[ "${api_ok}" -eq 1 && "${ms_ok}" -eq 1 && "${celery_ok}" -eq 1 ]]; then
-      log "health ok (api + ms + celery)"
+    celery_beat_running_ok && beat_ok=1
+    if [[ "${api_ok}" -eq 1 && "${ms_ok}" -eq 1 && "${celery_ok}" -eq 1 && "${beat_ok}" -eq 1 ]]; then
+      log "health ok (api + ms + celery + celery-beat)"
       return 0
     fi
     sleep "${interval}"
     elapsed=$((elapsed + interval))
-    log "still waiting... ${elapsed}s (api=${api_ok} ms=${ms_ok} celery=${celery_ok})"
+    log "still waiting... ${elapsed}s (api=${api_ok} ms=${ms_ok} celery=${celery_ok} beat=${beat_ok})"
   done
   return 1
 }

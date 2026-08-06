@@ -129,6 +129,32 @@ services:
     entrypoint: ["/usr/src/app/celery-entrypoint.sh"]
     networks: [lahis]
 
+  # CO3: singleton beat schedule (auto_close_stale_cases_all_tenants daily).
+  # Run exactly one replica — do not scale this service.
+  celery-beat:
+    image: ${IMAGE_API:-ghcr.io/onehealthtoolkit/ohtk-api:latest}
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      CELERY_BROKER_URL: ${CELERY_BROKER_URL:-redis://redis:6379/0}
+      USE_INMEMORY_CHANNEL_LAYER: ${USE_INMEMORY_CHANNEL_LAYER:-False}
+      CELERY_TASK_ALWAYS_EAGER: ${CELERY_TASK_ALWAYS_EAGER:-False}
+      AWS_S3_ENDPOINT_URL: ${AWS_S3_ENDPOINT_URL:-http://minio:9000}
+      RUN_MIGRATIONS: "0"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    entrypoint: ["/usr/src/app/celery-beat-entrypoint.sh"]
+    networks: [lahis]
+
   ms:
     image: ${IMAGE_MS:-public.ecr.aws/g0x0v6d0/lahis-ms:latest}
     restart: unless-stopped
