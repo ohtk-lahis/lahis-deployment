@@ -5,19 +5,19 @@
 ## ohtk-api
 
 ```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:465201b89ad45a4a0f0c1f6aac095a34f8318d3978117c5812b7145f161de301
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8ee745f2581d505681939afe3e8728d956faec2c1b78ec41db526922ba11e600
 ```
 
-Git: `96d0df7` — CO3 auto-close + EX1 LAHIS summarized table export
+Git: `48bfed1` — CO3, EX1 summarized table, OP1 villageId on submit
 
-PR: https://github.com/onehealthtoolkit/ohtk-api/pull/98
+PR: https://github.com/onehealthtoolkit/ohtk-api/pull/99
 
 ## lahis-ms (dashboard)
 
-**Git:** `45254b9` — Excel summarized table page
+**Git:** `3befa1c` — OP1 officer form runtime create + EX1 summarized table
 
 ```text
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:902f10d647cf2594cb332ffaa1f37f6572ae58cb08c51e66b77f9fa034623c6e
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:269a112db0dcdd9d91f3fcba88e1ced0b41ecaa504a8a0bea23bcdbe10ffce84
 ```
 
 **Do not** deploy `ohtk-ms` for LAHIS brand staging.

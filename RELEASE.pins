@@ -1,8 +1,8 @@
 # Copy to /opt/lahis/RELEASE on the host.
 # Provenance: IMAGE_PINS.md
 #
-# API: 96d0df7 (CO3 + EX1 LAHIS summarized table)
-# MS:  45254b9 (summarized table Excel page)
+# API: 48bfed1 (CO3 + EX1 + OP1 villageId)
+# MS:  3befa1c (OP1 New report form runtime)
 
-IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:465201b89ad45a4a0f0c1f6aac095a34f8318d3978117c5812b7145f161de301
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:902f10d647cf2594cb332ffaa1f37f6572ae58cb08c51e66b77f9fa034623c6e
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8ee745f2581d505681939afe3e8728d956faec2c1b78ec41db526922ba11e600
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:269a112db0dcdd9d91f3fcba88e1ced0b41ecaa504a8a0bea23bcdbe10ffce84
