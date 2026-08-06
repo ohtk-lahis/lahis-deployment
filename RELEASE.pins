@@ -1,5 +1,5 @@
 # API: caa9e9d late close data + superuser edit + comment audit
-# MS:  a813c4a automatic close data entry + superuser edit modal
+# MS:  9b954ed Laos i18n for report/case screens
 
 IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:c0d79a4d60b59ced3fc4bcd0e915d3cdf316d289b09aefd867619d374252b283
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:48d78c72a4d7341803fd0fd1f31eecc3785331edeabd710ff35e6a06821d959e
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:3cf57e6dc04f784390bc500ddbef02750ae67f4e4e6147e4338fd61030230a7a

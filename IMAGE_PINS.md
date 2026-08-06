@@ -10,8 +10,8 @@ Git: `caa9e9d` — late close data after auto-close, superuser edit, comment aud
 
 ## lahis-ms
 ```
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:48d78c72a4d7341803fd0fd1f31eecc3785331edeabd710ff35e6a06821d959e
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:3cf57e6dc04f784390bc500ddbef02750ae67f4e4e6147e4338fd61030230a7a
 ```
-Git: `a813c4a` — automatic close data entry + superuser edit modal
+Git: `9b954ed` — Laos i18n for report and case screens
 
 See RELEASE.pins
