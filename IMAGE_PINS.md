@@ -5,26 +5,20 @@
 ## ohtk-api
 
 ```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:9392f81417896cfe6ad66dfe612e403ba404d4125fceb0f2c8e433a1f8981065
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:465201b89ad45a4a0f0c1f6aac095a34f8318d3978117c5812b7145f161de301
 ```
 
-Git: `75d41e0` — CO3 system timeout (tenant `cases.auto_close_days`, beat schedule, status_label)
+Git: `96d0df7` — CO3 auto-close + EX1 LAHIS summarized table export
 
-Tags: `lahis-75d41e0`, `sha-75d41e087d5e3d6ae37b106c24b6a7178a7de0ed`
-
-PR: https://github.com/onehealthtoolkit/ohtk-api/pull/97
+PR: https://github.com/onehealthtoolkit/ohtk-api/pull/98
 
 ## lahis-ms (dashboard)
 
-**Repo:** `git@github.com:ohtk-lahis/lahis-ms.git`  
-**Upstream:** `onehealthtoolkit/ohtk-ms`  
-**Git:** `4b178e8` — design handoff case screen UI slices
+**Git:** `45254b9` — Excel summarized table page
 
 ```text
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:66087e881ea97418d441aea961c5dc35aa5204975a35ad4d7dbd640c9c4b4999
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:902f10d647cf2594cb332ffaa1f37f6572ae58cb08c51e66b77f9fa034623c6e
 ```
-
-Tags: `lahis-4b178e8`, `sha-4b178e8741000691ee43ce4fe699774ab5892754`, `latest`
 
 **Do not** deploy `ohtk-ms` for LAHIS brand staging.
 

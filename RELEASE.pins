@@ -1,8 +1,8 @@
 # Copy to /opt/lahis/RELEASE on the host.
 # Provenance: IMAGE_PINS.md
 #
-# API: 75d41e0 (CO3 system timeout + beat)
-# MS:  4b178e8 (case screen design handoff)
+# API: 96d0df7 (CO3 + EX1 LAHIS summarized table)
+# MS:  45254b9 (summarized table Excel page)
 
-IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:9392f81417896cfe6ad66dfe612e403ba404d4125fceb0f2c8e433a1f8981065
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:66087e881ea97418d441aea961c5dc35aa5204975a35ad4d7dbd640c9c4b4999
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:465201b89ad45a4a0f0c1f6aac095a34f8318d3978117c5812b7145f161de301
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:902f10d647cf2594cb332ffaa1f37f6572ae58cb08c51e66b77f9fa034623c6e
