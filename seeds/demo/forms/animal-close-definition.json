@@ -1,17 +1,42 @@
 {
+  "id": "animal-sick-death-close",
   "version": 1,
-  "fields": [
+  "subforms": [],
+  "sections": [
     {
-      "id": "test_result",
-      "type": "text",
-      "label": "Test result",
-      "requiredOn": ["officer"]
-    },
-    {
-      "id": "stamp_out",
-      "type": "integer",
-      "label": "Stamped out",
-      "requiredOn": ["officer"]
+      "label": "Close case",
+      "description": "Complete these fields when finishing the case. Closing saves them and sets the stopped date.",
+      "questions": [
+        {
+          "label": "Test result",
+          "description": "Include lab notes or reference IDs if needed. Attach lab files via Comments.",
+          "fields": [
+            {
+              "id": "test_result",
+              "name": "test_result",
+              "type": "textarea",
+              "required": true,
+              "requiredMessage": "Test result is required to close this case",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "label": "Stamped out",
+          "description": "Number of animals terminated for this report species (integer ≥ 0).",
+          "fields": [
+            {
+              "id": "stamp_out",
+              "name": "stamp_out",
+              "type": "integer",
+              "required": true,
+              "requiredMessage": "Stamped out count is required to close this case",
+              "min": 0,
+              "minMessage": "Must be 0 or greater"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
