@@ -1,8 +1,8 @@
 # Copy to /opt/lahis/RELEASE on the host.
 # Provenance: IMAGE_PINS.md
 #
-# API: a4935f3 (PR #94 layered close + RF4 + AI suspected)
-# MS:  11984bd (case close + disease result from upstream ohtk-ms)
+# API: a8e398d (Finish + auth fix)
+# MS:  4b178e8 (case screen design handoff)
 
-IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:c1e832c811280cd7276fc9a3c03dc993c7928cdfbeb9846a28ef2b87f91808d6
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:384db9ed30b4b9315b84c4989d3dd9c8806b259c098cd990854574a0a72aadbc
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:a757ab9ac31a70dd4d3a3b2613ed78ad9cdb09828b068f1e16a9d7121e1979bc
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:66087e881ea97418d441aea961c5dc35aa5204975a35ad4d7dbd640c9c4b4999
