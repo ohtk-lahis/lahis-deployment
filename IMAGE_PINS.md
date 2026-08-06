@@ -3,25 +3,15 @@
 **Registry checked (UTC):** 2026-08-06
 
 ## ohtk-api
-
-```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8ee745f2581d505681939afe3e8728d956faec2c1b78ec41db526922ba11e600
 ```
-
-Git: `48bfed1` — CO3, EX1 summarized table, OP1 villageId on submit
-
-PR: https://github.com/onehealthtoolkit/ohtk-api/pull/99
-
-## lahis-ms (dashboard)
-
-**Git:** `3befa1c` — OP1 officer form runtime create + EX1 summarized table
-
-```text
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:269a112db0dcdd9d91f3fcba88e1ced0b41ecaa504a8a0bea23bcdbe10ffce84
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8d59c12412330da7d9b733a0e236e65806442c37f0d81ea3023401d8657ddde7
 ```
+Git: `7c7a7b7` — IncidentReport.village + backfill_report_villages
 
-**Do not** deploy `ohtk-ms` for LAHIS brand staging.
+## lahis-ms
+```
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:2939eb734d953d93a87c477e6d06ccecd68cdf0e686d1431eefc94ca9ccdeedb
+```
+Git: `cb9eb0a` — village on report/case UI (feature flag)
 
-## Host RELEASE
-
-See [RELEASE.pins](./RELEASE.pins).
+See RELEASE.pins
