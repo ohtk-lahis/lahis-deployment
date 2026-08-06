@@ -1,5 +1,5 @@
-# API: 7c7a7b7 village FK + backfill
-# MS:  cb9eb0a village display on report/case
+# API: caa9e9d late close data + superuser edit + comment audit
+# MS:  a813c4a automatic close data entry + superuser edit modal
 
-IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8d59c12412330da7d9b733a0e236e65806442c37f0d81ea3023401d8657ddde7
-IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:2939eb734d953d93a87c477e6d06ccecd68cdf0e686d1431eefc94ca9ccdeedb
+IMAGE_API=public.ecr.aws/g0x0v6d0/ohtk-api@sha256:c0d79a4d60b59ced3fc4bcd0e915d3cdf316d289b09aefd867619d374252b283
+IMAGE_MS=public.ecr.aws/g0x0v6d0/lahis-ms@sha256:48d78c72a4d7341803fd0fd1f31eecc3785331edeabd710ff35e6a06821d959e

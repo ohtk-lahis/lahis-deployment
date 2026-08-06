@@ -4,14 +4,14 @@
 
 ## ohtk-api
 ```
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:8d59c12412330da7d9b733a0e236e65806442c37f0d81ea3023401d8657ddde7
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:c0d79a4d60b59ced3fc4bcd0e915d3cdf316d289b09aefd867619d374252b283
 ```
-Git: `7c7a7b7` — IncidentReport.village + backfill_report_villages
+Git: `caa9e9d` — late close data after auto-close, superuser edit, comment audit
 
 ## lahis-ms
 ```
-public.ecr.aws/g0x0v6d0/lahis-ms@sha256:2939eb734d953d93a87c477e6d06ccecd68cdf0e686d1431eefc94ca9ccdeedb
+public.ecr.aws/g0x0v6d0/lahis-ms@sha256:48d78c72a4d7341803fd0fd1f31eecc3785331edeabd710ff35e6a06821d959e
 ```
-Git: `cb9eb0a` — village on report/case UI (feature flag)
+Git: `a813c4a` — automatic close data entry + superuser edit modal
 
 See RELEASE.pins
