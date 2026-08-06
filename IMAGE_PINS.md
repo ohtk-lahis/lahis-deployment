@@ -5,12 +5,14 @@
 ## ohtk-api
 
 ```text
-public.ecr.aws/g0x0v6d0/ohtk-api@sha256:a757ab9ac31a70dd4d3a3b2613ed78ad9cdb09828b068f1e16a9d7121e1979bc
+public.ecr.aws/g0x0v6d0/ohtk-api@sha256:9392f81417896cfe6ad66dfe612e403ba404d4125fceb0f2c8e433a1f8981065
 ```
 
-Git: `a8e398d` — Finish train + authority RawQuerySet auth fix (PR #96)
+Git: `75d41e0` — CO3 system timeout (tenant `cases.auto_close_days`, beat schedule, status_label)
 
-Tags: `lahis-a8e398d`, `sha-a8e398d50734c782869ae12c6e8f7dc065a62e70`
+Tags: `lahis-75d41e0`, `sha-75d41e087d5e3d6ae37b106c24b6a7178a7de0ed`
+
+PR: https://github.com/onehealthtoolkit/ohtk-api/pull/97
 
 ## lahis-ms (dashboard)
 
