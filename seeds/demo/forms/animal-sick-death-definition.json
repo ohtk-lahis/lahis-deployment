@@ -76,16 +76,20 @@
               "required": true,
               "options": [
                 {
-                  "label": "Neonate / newborn",
-                  "value": "neonate"
+                  "label": "Newborn",
+                  "value": "newborn"
                 },
                 {
-                  "label": "Grower / juvenile",
-                  "value": "grower"
+                  "label": "Young",
+                  "value": "young"
                 },
                 {
-                  "label": "Breeding adult",
-                  "value": "breeding"
+                  "label": "Adult",
+                  "value": "adult"
+                },
+                {
+                  "label": "Old",
+                  "value": "old"
                 }
               ]
             }
