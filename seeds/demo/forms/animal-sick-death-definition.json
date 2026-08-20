@@ -135,8 +135,12 @@
               "required": true,
               "options": [
                 {
-                  "label": "Hemorrhagic Septicemia / Anthrax",
-                  "value": "Hemorrhagic Septicemia / Anthrax"
+                  "label": "Hemorrhagic Septicemia",
+                  "value": "Hemorrhagic Septicemia"
+                },
+                {
+                  "label": "Anthrax",
+                  "value": "Anthrax"
                 },
                 {
                   "label": "Foot-and-Mouth Disease",
@@ -155,6 +159,14 @@
                   "value": "Swollen Neck"
                 },
                 {
+                  "label": "Black Leg",
+                  "value": "Black Leg"
+                },
+                {
+                  "label": "Lumpy Skin Disease (LSD)",
+                  "value": "Lumpy Skin Disease (LSD)"
+                },
+                {
                   "label": "Rabies",
                   "value": "Rabies"
                 },
@@ -163,8 +175,8 @@
                   "value": "Leptospirosis"
                 },
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
@@ -187,8 +199,12 @@
               "required": true,
               "options": [
                 {
-                  "label": "Hemorrhagic Septicemia / Anthrax",
-                  "value": "Hemorrhagic Septicemia / Anthrax"
+                  "label": "Hemorrhagic Septicemia",
+                  "value": "Hemorrhagic Septicemia"
+                },
+                {
+                  "label": "Anthrax",
+                  "value": "Anthrax"
                 },
                 {
                   "label": "Foot-and-Mouth Disease",
@@ -219,8 +235,8 @@
                   "value": "Leptospirosis"
                 },
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
@@ -263,8 +279,24 @@
                   "value": "Leptospirosis"
                 },
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "Classical Swine Fever (CSF)",
+                  "value": "Classical Swine Fever (CSF)"
+                },
+                {
+                  "label": "African Swine Fever (ASF)",
+                  "value": "African Swine Fever (ASF)"
+                },
+                {
+                  "label": "PRRS",
+                  "value": "PRRS"
+                },
+                {
+                  "label": "Trichinellosis",
+                  "value": "Trichinellosis"
+                },
+                {
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
@@ -291,8 +323,8 @@
                   "value": "Rabies"
                 },
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
@@ -331,8 +363,12 @@
                   "value": "Leptospirosis"
                 },
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "Duck Plague",
+                  "value": "Duck Plague"
+                },
+                {
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
@@ -355,8 +391,8 @@
               "required": true,
               "options": [
                 {
-                  "label": "Unknown Disease",
-                  "value": "Unknown Disease"
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
                 }
               ]
             }
