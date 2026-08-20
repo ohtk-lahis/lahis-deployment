@@ -402,6 +402,10 @@
                 {
                   "label": "White stool",
                   "value": "White stool"
+                },
+                {
+                  "label": "Drooling (excessive salivation)",
+                  "value": "Drooling (excessive salivation)"
                 }
               ]
             }
@@ -445,6 +449,14 @@
                 {
                   "label": "Bleeding under skin",
                   "value": "Bleeding under skin"
+                },
+                {
+                  "label": "Skin nodule",
+                  "value": "Skin nodule"
+                },
+                {
+                  "label": "Skin discoloration (redness/cyanosis)",
+                  "value": "Skin discoloration (redness/cyanosis)"
                 }
               ]
             }
@@ -537,6 +549,10 @@
                   "value": "Walking unsteadily"
                 },
                 {
+                  "label": "Lameness",
+                  "value": "Lameness"
+                },
+                {
                   "label": "Limb rigidity",
                   "value": "Limb rigidity"
                 },
@@ -589,8 +605,16 @@
                   "value": "Cannot stand up"
                 },
                 {
-                  "label": "Fever/Sad/Not eating",
-                  "value": "Fever/Sad/Not eating"
+                  "label": "Fever",
+                  "value": "Fever"
+                },
+                {
+                  "label": "Not eating",
+                  "value": "Not eating"
+                },
+                {
+                  "label": "Sad",
+                  "value": "Sad"
                 },
                 {
                   "label": "Very skinny",
