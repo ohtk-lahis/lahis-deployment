@@ -722,7 +722,8 @@
               "label": "",
               "name": "animal_photos",
               "type": "images",
-              "required": false
+              "required": false,
+              "max": 10
             }
           ]
         }
