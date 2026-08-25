@@ -5,12 +5,12 @@
       "label": "Number of Animals",
       "questions": [
         {
-          "label": "Number of households",
+          "label": "Number of affected households",
           "description": "",
           "fields": [
             {
               "id": "num_household",
-              "label": "Number of Household",
+              "label": "Number of affected households",
               "name": "num_household",
               "type": "integer",
               "required": false,

@@ -3,7 +3,7 @@
   "metrics": [
     {
       "id": "num_household",
-      "label": "Households",
+      "label": "Number of affected households",
       "reportField": "num_household",
       "followupField": "num_household",
       "op": "sum",
