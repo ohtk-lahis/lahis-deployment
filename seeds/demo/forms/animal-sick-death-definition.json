@@ -741,6 +741,7 @@
               "label": "",
               "name": "incident_date",
               "type": "date",
+              "tags": "incident_date",
               "required": false,
               "withTime": false,
               "separatedFields": false
