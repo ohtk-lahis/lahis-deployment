@@ -309,7 +309,8 @@ Section นี้สรุปภาพรวมและความรับผ
         ▼
 [LAHIS API + Tenant บน Staging]
         │
-        │  1) เมื่อมีรายงานใหม่ (เช่น report.submitted)
+        │  1) เมื่อมีรายงานใหม่ (report.submitted)
+        │     หรือเจ้าหน้าที่กด Ask AI to summarize (ai.evaluation_requested)
         │     LAHIS แจ้งออกไปทาง Webhook
         ▼
 [ระบบฝั่ง PODD]
@@ -344,7 +345,7 @@ Section นี้สรุปภาพรวมและความรับผ
 
 | งานฝั่ง PODD | โดยทั่วไปต้องทำบน Integration | ผลที่ควรเห็นใน LAHIS |
 |--------------|--------------------------------|------------------------|
-| **AI feedback** | รับ event รายงานใหม่ → (ถ้าต้องการ) อ่านสรุปรายงาน → เขียน comment กลับ | เจ้าหน้าที่เห็น feedback/คำแนะนำบนรายงาน |
+| **AI feedback** | รับ `report.submitted` และ/หรือ `ai.evaluation_requested` → อ่านสรุปรายงาน/รูป/comment ตาม scope → เขียน comment กลับ (`metadata.kind=summary` สำหรับสรุปจากปุ่ม Ask AI) | เจ้าหน้าที่เห็น feedback หรือสรุปใน Comments |
 | **Risk Suggestion** | อ่านข้อมูลรายงานที่เกี่ยวข้อง → เขียน risk assessment กลับ | รายงานมีระดับ/ผลการประเมินความเสี่ยง |
 | **Cluster Engine** | อ่านรายงาน / สำมะโนตามที่อนุญาต → เขียนผล cluster กลับ | มีผลกลุ่มเหตุการณ์ให้ดู/ใช้ต่อในระบบ |
 
@@ -367,10 +368,12 @@ Section นี้สรุปภาพรวมและความรับผ
 |----------------|------------------|-----------|
 | **Integration Client** | บัญชีระบบสำหรับ engine ภายนอก | ขอ token เพื่อเรียก API อ่าน/เขียนผลกลับ |
 | **สิทธิ์ (scope)** | ขอบเขตที่ client ทำได้ | เช่น อ่านรายงาน, เขียน comment, เขียน risk, เขียน cluster |
-| **Webhook Endpoint** | จุดรับ event จาก LAHIS | LAHIS แจ้งเมื่อมีรายงานใหม่ (เช่น `report.submitted`) |
+| **Webhook Endpoint** | จุดรับ event จาก LAHIS | LAHIS แจ้งเมื่อมีรายงานใหม่ (`report.submitted`) และเมื่อเจ้าหน้าที่ขอสรุป AI (`ai.evaluation_requested`) — ต้องเลือก event บน endpoint |
 | **Callback URL** | ที่อยู่ HTTPS ของระบบฝั่ง PODD | ปลายทางที่ webhook ส่งไป |
 | **Signing secret (อ้างอิง secret)** | กุญแจตรวจว่า webhook มาจาก LAHIS จริง | ฝั่งรับใช้ตรวจลายเซ็น |
 | **สถานะเปิดใช้งาน** | client / endpoint ต้อง active | ปิดอยู่จะเรียกหรือรับ event ไม่ได้ |
+| **Enable AI** (`integrations.ai_enabled`) | เปิดปุ่ม Ask AI บน dashboard | ค่าต้องเป็น `enable` เจ้าหน้าที่ถึงเห็นปุ่ม |
+| **AI Comment Owner** | ผู้ใช้ Admin ที่เป็นเจ้าของ comment จาก AI | ถ้าไม่ตั้ง เจ้าหน้าที่จะไม่เห็นข้อความใน Comments |
 
 **ลำดับแนวทาง**
 
