@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAHIS — Partner handoff: Officer Ask AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #13396b;
+      --navy-2: #1b4a8a;
+      --ink: #1d1e1e;
+      --muted: #5b6570;
+      --line: #d7dee8;
+      --paper: #f6f8fb;
+      --card: #ffffff;
+      --accent: #c3d3ea;
+      --ok: #1f7a4d;
+      --warn: #8a5a00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Kanit, system-ui, sans-serif;
+      line-height: 1.45;
+    }
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 28px 20px 24px;
+    }
+    header .kicker {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--accent);
+      margin: 0 0 8px;
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; font-weight: 600; }
+    header p { margin: 0; max-width: 720px; color: #e8eef6; }
+    main { max-width: 980px; margin: 0 auto; padding: 24px 16px 64px; }
+    h2 { font-size: 18px; margin: 28px 0 12px; color: var(--navy); }
+    .diff {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 15px; }
+    .old h3 { color: var(--muted); }
+    .new h3 { color: var(--ok); }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 4px 0; }
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .num {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .rail {
+      width: 32px;
+      display: flex;
+      justify-content: center;
+    }
+    .rail span {
+      width: 2px;
+      background: var(--accent);
+      min-height: 16px;
+    }
+    .who { font-size: 12px; color: var(--muted); font-weight: 500; }
+    pre {
+      background: #0f1c33;
+      color: #e8eef6;
+      border-radius: 8px;
+      padding: 12px 14px;
+      overflow: auto;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.92em; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--navy); font-weight: 600; }
+    .check { list-style: none; padding: 0; }
+    .check li { padding: 6px 0 6px 28px; position: relative; }
+    .check li::before {
+      content: "";
+      position: absolute; left: 0; top: 10px;
+      width: 14px; height: 14px;
+      border: 2px solid var(--navy);
+      border-radius: 3px;
+    }
+    .note { font-size: 13px; color: var(--muted); }
+    footer { margin-top: 28px; font-size: 13px; color: var(--muted); }
+    @media (max-width: 720px) {
+      .diff, .grid2 { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">LAHIS integration · partner handoff</p>
+    <h1>Officer Ask AI</h1>
+    <p>LAHIS does not call your model. An officer clicks Ask AI. You receive a signed webhook, pull report data, then write a staff comment.</p>
+  </header>
+  <main>
+    <h2>What changed</h2>
+    <div class="diff">
+      <article class="card old">
+        <h3>Already live — report.submitted</h3>
+        <ul>
+          <li>Fires when a report is stored</li>
+          <li>One event per report</li>
+          <li>Thin IDs and links only</li>
+        </ul>
+      </article>
+      <article class="card new">
+        <h3>New — ai.evaluation_requested</h3>
+        <ul>
+          <li>Fires when an officer clicks <strong>Ask AI</strong></li>
+          <li>Optional <code>userPrompt</code></li>
+          <li>Many requests per report (60s wait)</li>
+          <li>Pull rendered text, comments, images</li>
+          <li>Write comment with <code>metadata.kind=summary</code></li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>Runtime flow</h2>
+    <div class="card flow">
+      <div class="step"><div class="num">1</div><div><div class="who">Officer · dashboard</div>Clicks Ask AI. Optional extra instruction. Mutation returns at once.</div></div>
+      <div class="rail"><span></span></div>
+      <div class="step"><div class="num">2</div><div><div class="who">LAHIS</div>HMAC POST <code>ai.evaluation_requested</code> to your webhook. Thin body + pull links.</div></div>
+      <div class="rail"><span></span></div>
+      <div class="step"><div class="num">3</div><div><div class="who">Your receiver</div>Verify signature. Return 2xx. Queue the model job. Do not wait on the webhook.</div></div>
+      <div class="rail"><span></span></div>
+      <div class="step"><div class="num">4</div><div><div class="who">Your service</div>OAuth token. GET incident (renderer text), GET comments, GET images if approved.</div></div>
+      <div class="rail"><span></span></div>
+      <div class="step"><div class="num">5</div><div><div class="who">Your service</div>POST comment <code>metadata.kind=summary</code>, key <code>ai-summary:{eventId}</code>.</div></div>
+      <div class="rail"><span></span></div>
+      <div class="step"><div class="num">6</div><div><div class="who">Officer</div>Summary appears in Comments. Excel suspected-disease is not overwritten.</div></div>
+    </div>
+
+    <h2>Subscribe this event</h2>
+    <div class="card">
+      <p>An endpoint that only lists <code>report.submitted</code> will not receive officer clicks.</p>
+      <table>
+        <tr><th>Scope</th><th>Why</th></tr>
+        <tr><td><code>ai:read_report</code></td><td>Webhook delivery + GET comments + extra incident text</td></tr>
+        <tr><td><code>incident:read</code></td><td>GET incident detail</td></tr>
+        <tr><td><code>ai:read_images</code></td><td>Photos, only if vision is approved</td></tr>
+        <tr><td><code>ai:create_comment</code></td><td>Write the summary</td></tr>
+      </table>
+      <p class="note">HMAC is the same as <code>report.submitted</code>: <code>POST + "\\n" + path + "\\n" + timestamp + "\\n" + raw body</code>.</p>
+    </div>
+
+    <h2>Webhook body</h2>
+    <p class="note"><code>userPrompt</code> is omitted when the officer leaves Extra instruction empty. Do not treat <code>""</code> as a prompt.</p>
+<pre>{
+  "schemaVersion": "2026-08-31",
+  "eventType": "ai.evaluation_requested",
+  "eventId": "44444444-4444-4444-4444-444444444444",
+  "purpose": "summary",
+  "userPrompt": "Focus on clinical signs and deaths.",
+  "requestedBy": { "id": "10", "username": "L01", "role": "ADM" },
+  "report": { "id": "22222222-2222-2222-2222-222222222222" },
+  "links": {
+    "incident": "/api/integrations/v1/incidents/{id}",
+    "comments": "/api/integrations/v1/reports/{id}/comments",
+    "images": "/api/integrations/v1/reports/{id}/images"
+  }
+}</pre>
+
+    <h2>Pull, then write</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>GET incident (needs both read scopes)</h3>
+        <p class="note">List stays thin. Detail adds these fields only with <code>ai:read_report</code>.</p>
+<pre>{
+  "village": { "id": 10, "code": "V-1", "name": "Sangthong" },
+  "rendererData": "staff-visible report text",
+  "followUps": [{ "id": "…", "rendererData": "…" }]
+}</pre>
+        <p class="note">Also GET comments and images. Comment GET returns thread text, not file bytes.</p>
+      </div>
+      <div class="card">
+        <h3>POST comment</h3>
+        <p class="note">Idempotency-Key: <code>ai-summary:{eventId}</code></p>
+<pre>{
+  "externalActionId": "ai-summary-{eventId}",
+  "body": "AI summary:\\n…",
+  "visibility": "staff",
+  "metadata": {
+    "kind": "summary",
+    "requestedEventId": "{eventId}"
+  }
+}</pre>
+        <p class="note"><code>kind=summary</code> keeps Excel <code>ai_suspected</code> unchanged. Missing kind copies the body into suspected disease.</p>
+      </div>
+    </div>
+
+    <h2>Partner checklist</h2>
+    <ul class="check">
+      <li>Webhook event types include <code>ai.evaluation_requested</code></li>
+      <li>Verify HMAC, tenant, event ID, then 2xx quickly</li>
+      <li>If <code>userPrompt</code> is present, add it on top of the default summarize task</li>
+      <li>Pull renderer text, comments, and approved images</li>
+      <li>Write staff comment with <code>metadata.kind=summary</code></li>
+      <li>Do not call GraphQL or scrape dashboard media URLs</li>
+    </ul>
+
+    <footer>
+      Full contract: <code>lahis-deployment/INTEGRATION_GUIDELINE.md</code>.
+      Staging tenant host: <code>https://demo.api.lahis.ohtk.org</code>.
+    </footer>
+  </main>
+</body>
+</html>

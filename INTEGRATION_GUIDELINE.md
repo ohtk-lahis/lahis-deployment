@@ -49,6 +49,8 @@ payloads in a ticket, source repository, chat, or dashboard custom header.
    **Admin → Integrations → Webhook endpoints**. It must have an HTTPS callback
    URL, approved event types, a secret *reference* (not the secret itself), a
    timeout, and a bounded retry policy. Custom headers must be non-secret.
+   Subscribe only to the events the partner will handle. `report.submitted` and
+   `ai.evaluation_requested` are separate subscriptions.
 4. The partner completes the OAuth, REST, and webhook checks below against the
    target tenant. Use synthetic or `test_flag=true` data for staging.
 5. The release operator runs the automated staging smoke. Enable the permanent
@@ -102,19 +104,28 @@ All paths below are relative to `${TENANT_API_URL}` and are versioned under
 | --- | --- | --- |
 | List/filter incidents | `incident:read` | `GET /incidents` |
 | Read one incident | `incident:read` | `GET /incidents/{reportId}` |
+| Extra incident text for AI summary | `incident:read` and `ai:read_report` | `GET /incidents/{reportId}` (detail only) |
 | Read census snapshots | `census:read` | `GET /census/snapshots` |
 | Read latest census | `census:read` | `GET /census/latest` |
 | List report images | `ai:read_images` | `GET /reports/{reportId}/images` |
 | Download report image bytes | `ai:read_images` | `GET /reports/{reportId}/images/{imageId}/content` |
+| Read report thread comments | `ai:read_report` | `GET /reports/{reportId}/comments` |
 | Create integration comment | `ai:create_comment` | `POST /reports/{reportId}/comments` |
 | Create/update risk assessment | `risk:update` | `POST /reports/{reportId}/risk-assessments` |
 | Create/read cluster result | `cluster:write_result` | `POST /clusters`, `GET /clusters/{clusterId}` |
 
 Additional configured scopes are `cluster:read_inputs`, `ai:read_report`, and
 `case:promote`; agree their use with the LAHIS technical owner before relying
-on them. `report.submitted` webhook delivery requires `ai:read_report` on the
-client in addition to an active endpoint. Image list/download requires
-`ai:read_images` and is granted only to approved AI clients.
+on them. `report.submitted` and `ai.evaluation_requested` webhook delivery
+require `ai:read_report` on the client in addition to an active endpoint
+subscribed to that event type. Image list/download requires `ai:read_images`
+and is granted only to approved AI clients.
+
+Incident **list** stays thin for every client. Incident **detail** stays thin
+when the client has only `incident:read`. When the same client also has
+`ai:read_report`, detail adds `village`, `rendererData`, and `followUps`
+(staff-visible rendered text). It still does not expose raw form JSON,
+reporter identity, or image bytes.
 
 Respect the documented filters and pagination in responses. Incident and
 census response bodies carry `schemaVersion`; treat an unknown major contract
@@ -144,19 +155,32 @@ full sensitive payloads.
 
 ### Permission and information available
 
-An AI feedback client needs `ai:read_report` to receive `report.submitted`
-events and `ai:create_comment` to write staff feedback. Add `incident:read`
-only when the AI service must re-read the incident summary through REST. Add
-`ai:read_images` only when the service is approved to pull report photos for
-vision analysis.
+An AI feedback client needs `ai:read_report` to receive outbound AI webhooks
+and `ai:create_comment` to write staff feedback. Add `incident:read` when the
+AI service must re-read the incident through REST. Add `ai:read_images` only
+when the service is approved to pull report photos for vision analysis.
 
-The event and incident-read API are intentionally thin. They expose report and
-tenant identifiers, timestamps, report type/category, authority IDs, case ID,
-optional location, current risk projection, and integration links. They do
-**not** expose raw form data, reporter identity, uploaded non-image files, or
-permanent public media URLs through this integration contract. Image **bytes**
-are available only through the dedicated image endpoints below when the client
-holds `ai:read_images`.
+Two outbound events exist. Subscribe the webhook endpoint to each event the
+partner will handle:
+
+| Event | When LAHIS sends it |
+| --- | --- |
+| `report.submitted` | A report is stored. Automatic. One active event per report. |
+| `ai.evaluation_requested` | An officer clicks **Ask AI to summarize** on report or case detail. Optional `userPrompt`. Many requests per report are allowed, with a 60-second debounce. |
+
+The dashboard button is shown only when tenant configuration
+`integrations.ai_enabled` is `enable`. Reporters never see the button.
+Missing that key hides the button.
+
+The `report.submitted` event and the default incident-read body are
+intentionally thin. They expose report and tenant identifiers, timestamps,
+report type/category, authority IDs, case ID, optional location, current risk
+projection, and integration links. They do **not** expose raw form data,
+reporter identity, uploaded non-image files, or permanent public media URLs
+through this integration contract. Image **bytes** are available only through
+the dedicated image endpoints below when the client holds `ai:read_images`.
+Officer-requested summaries also pull rendered report text, follow-ups, and
+thread comments as described below.
 
 Example `report.submitted` webhook body (illustrative IDs only):
 
@@ -184,11 +208,131 @@ Example `report.submitted` webhook body (illustrative IDs only):
 }
 ```
 
+### Officer-requested summary (`ai.evaluation_requested`)
+
+An officer on the dashboard can request a summary of one report. LAHIS does
+not call the partner model. The dashboard queues this event. The partner pulls
+inputs, then writes a staff comment.
+
+Required client scopes for this path:
+
+- `ai:read_report` (webhook delivery and GET comments)
+- `incident:read` (incident detail)
+- `ai:read_images` (photos, when vision is approved)
+- `ai:create_comment` (write the summary)
+
+The webhook endpoint must include `ai.evaluation_requested` in its event
+types. An endpoint that only lists `report.submitted` will not receive officer
+clicks.
+
+Example webhook body (illustrative IDs only). `userPrompt` is omitted when the
+officer left the extra-instruction box empty. Do not treat an empty string as
+a prompt.
+
+```json
+{
+  "schemaVersion": "2026-08-31",
+  "eventType": "ai.evaluation_requested",
+  "eventId": "44444444-4444-4444-4444-444444444444",
+  "producedAt": "2026-08-31T10:30:00+00:00",
+  "purpose": "summary",
+  "userPrompt": "Focus on clinical signs and deaths in the last 7 days.",
+  "tenant": {"schema": "demo", "code": "demo", "name": "LAHIS Demo"},
+  "requestedBy": {"id": "10", "username": "L01", "role": "ADM"},
+  "report": {
+    "id": "22222222-2222-2222-2222-222222222222",
+    "createdAt": "2026-08-31T10:29:58+00:00",
+    "incidentDate": "2026-08-31",
+    "reportType": {"id": "33333333-3333-3333-3333-333333333333", "name": "Animal Sick/Death", "category": "Animal"},
+    "relevantAuthorityIds": [12],
+    "caseId": null
+  },
+  "links": {
+    "incident": "/api/integrations/v1/incidents/22222222-2222-2222-2222-222222222222",
+    "comments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/comments",
+    "riskAssessments": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/risk-assessments",
+    "images": "/api/integrations/v1/reports/22222222-2222-2222-2222-222222222222/images"
+  }
+}
+```
+
+`purpose` is `summary` for this dashboard action. `requestedBy` is the officer
+who clicked. The webhook body still does not include form answers, renderer
+text, images, or comment text. Those are pulled through REST.
+
+Recommended partner flow:
+
+1. Verify HMAC as for `report.submitted`.
+2. Accept `eventType=ai.evaluation_requested` and `purpose=summary`.
+3. If `userPrompt` is present, use it as extra officer instruction on top of
+   the default summarize task. If it is absent, run the default summarize
+   task.
+4. `GET .../incidents/{reportId}` with `incident:read` and `ai:read_report` to
+   receive `rendererData`, `followUps`, and `village`.
+5. `GET .../reports/{reportId}/images` and image content when vision is
+   approved.
+6. `GET .../reports/{reportId}/comments` for the staff thread.
+7. `POST .../reports/{reportId}/comments` with `metadata.kind` = `summary` and
+   idempotency key `ai-summary:{eventId}`.
+8. Return HTTP 2xx on the webhook quickly; run the model after ack.
+
+Incident detail extra fields when the client has `ai:read_report` (in addition
+to the thin incident summary):
+
+```json
+{
+  "village": {"id": 10, "code": "V-1", "name": "Sangthong", "authorityId": 12},
+  "rendererData": "staff-visible rendered report text",
+  "followUps": [
+    {
+      "id": "55555555-5555-5555-5555-555555555555",
+      "createdAt": "2026-08-31T11:00:00+00:00",
+      "rendererData": "rendered follow-up text"
+    }
+  ]
+}
+```
+
+List incidents never includes those extra fields.
+
+### Read thread comments
+
+```text
+GET ${TENANT_API_URL}/api/integrations/v1/reports/{reportId}/comments
+Authorization: Bearer <access-token>
+```
+
+No idempotency key is required. Oldest comments first. An empty thread returns
+`"comments": []`. Example:
+
+```json
+{
+  "schemaVersion": "2026-08-31",
+  "reportId": "22222222-2222-2222-2222-222222222222",
+  "comments": [
+    {
+      "id": "1",
+      "body": "Officer note.",
+      "createdAt": "2026-08-31T10:40:00+00:00",
+      "authorUsername": "V01",
+      "isAiOwner": false,
+      "attachments": [
+        {"id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb", "fileName": "lab.pdf", "kind": "document"}
+      ]
+    }
+  ]
+}
+```
+
+`isAiOwner` is true when the comment author is the tenant **AI Comment Owner**.
+Attachment **bytes** are not returned on this path. A missing report returns
+`404 incident_not_found`.
+
 ### Pull report images (optional vision path)
 
 Recommended partner flow when vision is approved:
 
-1. Receive `report.submitted` (thin body; use `links.images` or the report ID).
+1. Receive `report.submitted` or `ai.evaluation_requested` (thin body; use `links.images` or the report ID).
 2. `GET .../reports/{reportId}/images` for metadata.
 3. For each needed image, `GET .../images/{imageId}/content` with the same
    bearer token.
@@ -294,10 +438,41 @@ Content-Type: application/json
 }
 ```
 
+Officer-requested **summary** (from `ai.evaluation_requested`) must set
+`metadata.kind` to `summary` so LAHIS does not copy the body onto Excel
+`ai_suspected`:
+
+```json
+{
+  "externalActionId": "ai-summary-44444444-4444-4444-4444-444444444444",
+  "body": "AI summary:\nTwo pigs died. Clinical signs match the officer prompt.",
+  "visibility": "staff",
+  "metadata": {
+    "kind": "summary",
+    "requestedEventId": "44444444-4444-4444-4444-444444444444",
+    "model": "partner-model-v1"
+  }
+}
+```
+
+Use idempotency key `ai-summary:{eventId}` so webhook retries do not create a
+second thread comment.
+
 `body` (or the equivalent `comment`) is required and `visibility` currently
 supports only `staff`. The response is `202` with an integration-owned comment
 ID, report ID, external action ID, creation time, and whether a recommendation
 was stored. A repeated identical action returns `202` with `status: replayed`.
+
+`metadata.kind` controls Excel suspected-disease:
+
+| `metadata.kind` | Effect on `IncidentReport.ai_suspected` |
+| --- | --- |
+| missing, `suspected`, or `assessment` | Copy comment body (existing AI feedback). |
+| `summary` | Do not copy. Thread comment is still created when AI Comment Owner is set. |
+
+If the tenant **AI Comment Owner** is empty, the integration comment is stored
+but the dashboard Comments widget stays empty. Set that owner in
+**Admin → Integrations → Settings** before go-live.
 
 ## Cluster integration
 
@@ -337,8 +512,11 @@ Example incident summary returned by `GET /api/integrations/v1/incidents/{id}`:
 }
 ```
 
-The incident body stays thin: no image array, form data, or media URLs. The
-`links.images` path still requires `ai:read_images` to call.
+The incident **list** body stays thin: no image array, form data, or media
+URLs. The `links.images` path still requires `ai:read_images` to call. An AI
+client that also has `ai:read_report` receives extra summary fields on
+**detail only** (`village`, `rendererData`, `followUps`); cluster clients
+that hold only `incident:read` do not.
 
 ### Submit a cluster result
 
@@ -415,10 +593,17 @@ the same assessment with `status: replayed`.
 
 ## Webhook receiver contract
 
-The initial event is `report.submitted`. Its JSON includes `schemaVersion`,
-`eventType`, `eventId`, `producedAt`, tenant metadata, a report summary, and
-relative links to authorized integration resources. Fetch fuller data only with
-the OAuth scope that was approved.
+Current outbound events are `report.submitted` (new report stored) and
+`ai.evaluation_requested` (officer asked for an AI summary). Each JSON body
+includes `schemaVersion`, `eventType`, `eventId`, `producedAt`, tenant
+metadata, a report summary, and relative links to authorized integration
+resources. `ai.evaluation_requested` also includes `purpose` (`summary`),
+`requestedBy`, and optional `userPrompt`. Fetch fuller data only with the
+OAuth scope that was approved.
+
+HMAC verification is the same for both events. Deduplicate by
+`X-OHTK-Event-ID`. Officer summary requests are **not** unique per report;
+each click has a new `eventId`.
 
 LAHIS sends these headers:
 
@@ -478,6 +663,10 @@ It proves the first delivery attempt, not scheduled retry behaviour, stale
 `DELIVERING` recovery, or a production secret-manager implementation. Image
 steps require an API image that includes the `ai:read_images` endpoints. The
 generated records remain labelled `integration-smoke-...` as staging evidence.
+The current smoke still covers `report.submitted` only; officer
+`ai.evaluation_requested` is verified with a subscribed endpoint and a
+dashboard click (or an equivalent staff mutation) on a `test_flag=true`
+report.
 
 Use `SMOKE_KEEP_ENDPOINT=1` only for an approved debugging session and disable
 that retained client/endpoint when finished.
@@ -486,7 +675,11 @@ that retained client/endpoint when finished.
 
 - [ ] Parameters, tenant, partner owner, and support contact approved.
 - [ ] Minimum scopes and event types approved (include `ai:read_images` only
-      when vision is approved for that partner/tenant).
+      when vision is approved for that partner/tenant; include
+      `ai.evaluation_requested` only when officer Ask-AI is in scope).
+- [ ] If officer Ask-AI is in scope: tenant `integrations.ai_enabled` is
+      `enable`, webhook subscribed to `ai.evaluation_requested`, AI Comment
+      Owner set, and partner writes `metadata.kind=summary`.
 - [ ] If images are in scope: partner retention, no-training (unless agreed),
       and EXIF/sensitive-photo handling are documented in the partner agreement.
 - [ ] Client secret and webhook signing secret transferred/stored securely.
