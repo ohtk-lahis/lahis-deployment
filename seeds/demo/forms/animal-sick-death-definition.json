@@ -135,44 +135,32 @@
               "required": true,
               "options": [
                 {
-                  "label": "Hemorrhagic Septicemia",
-                  "value": "Hemorrhagic Septicemia"
+                  "label": "Foot and Mouth Disease",
+                  "value": "Foot and Mouth Disease"
+                },
+                {
+                  "label": "Haemorrhagic Septicemia",
+                  "value": "Haemorrhagic Septicemia"
                 },
                 {
                   "label": "Anthrax",
                   "value": "Anthrax"
                 },
                 {
-                  "label": "Foot-and-Mouth Disease",
-                  "value": "Foot-and-Mouth Disease"
-                },
-                {
-                  "label": "Influenza",
-                  "value": "Influenza"
-                },
-                {
-                  "label": "Cholera",
-                  "value": "Cholera"
-                },
-                {
-                  "label": "Swollen Neck",
-                  "value": "Swollen Neck"
-                },
-                {
                   "label": "Black Leg",
                   "value": "Black Leg"
                 },
                 {
-                  "label": "Lumpy Skin Disease (LSD)",
-                  "value": "Lumpy Skin Disease (LSD)"
-                },
-                {
-                  "label": "Rabies",
-                  "value": "Rabies"
+                  "label": "Lumpy Skin Disease",
+                  "value": "Lumpy Skin Disease"
                 },
                 {
                   "label": "Leptospirosis",
                   "value": "Leptospirosis"
+                },
+                {
+                  "label": "Rabies",
+                  "value": "Rabies"
                 },
                 {
                   "label": "I cannot determine the disease",
@@ -199,40 +187,20 @@
               "required": true,
               "options": [
                 {
-                  "label": "Hemorrhagic Septicemia",
-                  "value": "Hemorrhagic Septicemia"
-                },
-                {
-                  "label": "Anthrax",
-                  "value": "Anthrax"
-                },
-                {
-                  "label": "Foot-and-Mouth Disease",
-                  "value": "Foot-and-Mouth Disease"
-                },
-                {
-                  "label": "Peste des Petits Ruminants (PPR)",
-                  "value": "Peste des Petits Ruminants (PPR)"
-                },
-                {
-                  "label": "Influenza",
-                  "value": "Influenza"
-                },
-                {
-                  "label": "Cholera",
-                  "value": "Cholera"
-                },
-                {
-                  "label": "Swollen Neck",
-                  "value": "Swollen Neck"
-                },
-                {
                   "label": "Rabies",
                   "value": "Rabies"
                 },
                 {
                   "label": "Leptospirosis",
                   "value": "Leptospirosis"
+                },
+                {
+                  "label": "Peste des petits ruminants (PPR)",
+                  "value": "Peste des petits ruminants (PPR)"
+                },
+                {
+                  "label": "Foot and Mouth Disease",
+                  "value": "Foot and Mouth Disease"
                 },
                 {
                   "label": "I cannot determine the disease",
@@ -259,40 +227,32 @@
               "required": true,
               "options": [
                 {
-                  "label": "Foot-and-Mouth Disease",
-                  "value": "Foot-and-Mouth Disease"
+                  "label": "Classical Swine Fever",
+                  "value": "Classical Swine Fever"
                 },
                 {
-                  "label": "Influenza",
-                  "value": "Influenza"
+                  "label": "African Swine Fever",
+                  "value": "African Swine Fever"
                 },
                 {
-                  "label": "Cholera",
-                  "value": "Cholera"
-                },
-                {
-                  "label": "Rabies",
-                  "value": "Rabies"
+                  "label": "Porcine Reproductive and Respiratory Syndrome-PRRS",
+                  "value": "Porcine Reproductive and Respiratory Syndrome-PRRS"
                 },
                 {
                   "label": "Leptospirosis",
                   "value": "Leptospirosis"
                 },
                 {
-                  "label": "Classical Swine Fever (CSF)",
-                  "value": "Classical Swine Fever (CSF)"
-                },
-                {
-                  "label": "African Swine Fever (ASF)",
-                  "value": "African Swine Fever (ASF)"
-                },
-                {
-                  "label": "PRRS",
-                  "value": "PRRS"
+                  "label": "Rabies",
+                  "value": "Rabies"
                 },
                 {
                   "label": "Trichinellosis",
                   "value": "Trichinellosis"
+                },
+                {
+                  "label": "Foot and Mouth Disease",
+                  "value": "Foot and Mouth Disease"
                 },
                 {
                   "label": "I cannot determine the disease",
@@ -337,7 +297,7 @@
         },
         {
           "label": "Disease",
-          "description": "Chicken | Duck | Goose",
+          "description": "Chicken",
           "fields": [
             {
               "id": "suspected_disease",
@@ -347,20 +307,52 @@
               "required": true,
               "options": [
                 {
-                  "label": "Newcastle Disease",
-                  "value": "Newcastle Disease"
+                  "label": "Avian influenza",
+                  "value": "Avian influenza"
                 },
                 {
-                  "label": "Skin Disease",
-                  "value": "Skin Disease"
+                  "label": "Newcastle disease",
+                  "value": "Newcastle disease"
                 },
                 {
-                  "label": "Influenza",
-                  "value": "Influenza"
+                  "label": "Fowl Cholera",
+                  "value": "Fowl Cholera"
                 },
                 {
-                  "label": "Leptospirosis",
-                  "value": "Leptospirosis"
+                  "label": "I cannot determine the disease",
+                  "value": "I cannot determine the disease"
+                }
+              ]
+            }
+          ],
+          "condition": {
+            "name": "animal_species",
+            "value": "Chicken",
+            "operator": "="
+          }
+        },
+        {
+          "label": "Disease",
+          "description": "Goose | Duck",
+          "fields": [
+            {
+              "id": "suspected_disease",
+              "label": "",
+              "name": "suspected_disease",
+              "type": "singlechoices",
+              "required": true,
+              "options": [
+                {
+                  "label": "Avian influenza",
+                  "value": "Avian influenza"
+                },
+                {
+                  "label": "Newcastle disease",
+                  "value": "Newcastle disease"
+                },
+                {
+                  "label": "Fowl Cholera",
+                  "value": "Fowl Cholera"
                 },
                 {
                   "label": "Duck Plague",
@@ -375,7 +367,7 @@
           ],
           "condition": {
             "name": "animal_species",
-            "value": "Chicken, Duck, Goose",
+            "value": "Goose, Duck",
             "operator": "in"
           }
         },
@@ -649,8 +641,8 @@
                   "value": "Not eating"
                 },
                 {
-                  "label": "Sad",
-                  "value": "Sad"
+                  "label": "Depress",
+                  "value": "Depress"
                 },
                 {
                   "label": "Very skinny",
@@ -659,11 +651,6 @@
                 {
                   "label": "Giving birth problems",
                   "value": "Giving birth problems"
-                },
-                {
-                  "label": "Unknown symptom",
-                  "value": "Unknown symptom",
-                  "textInput": true
                 }
               ]
             }
@@ -705,6 +692,20 @@
                   "value": "Carcass pallor/jaundice"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "label": "Unknown symptoms",
+          "description": "",
+          "fields": [
+            {
+              "id": "unknown_symptoms",
+              "label": "",
+              "name": "unknown_symptoms",
+              "type": "textarea",
+              "required": false,
+              "rows": 3
             }
           ]
         }
