@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650" role="img" aria-labelledby="title desc">
+  <title id="title">Mobile และ Dashboard ทำงานร่วมกัน</title>
+  <desc id="desc">ผู้รายงานจากหมู่บ้านใช้ Mobile ส่งรายงานไปยัง Dashboard และเห็นการตอบกลับผ่าน Notification ความคิดเห็นเจ้าหน้าที่ และความคิดเห็น AI ใน Mobile</desc>
+  <style>
+    .bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#9cbab4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.send{fill:none;stroke:#16826c;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.back{fill:none;stroke:#3975c6;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}
+  </style>
+  <defs><marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16826c"/></marker><marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#3975c6"/></marker></defs>
+  <rect class="bg" width="1280" height="650" rx="28"/>
+  <text class="h" x="64" y="58">Mobile และ Dashboard ทำงานร่วมกัน</text>
+  <text class="b" x="64" y="88">ข้อมูลรายงานเดินทางไปยัง Dashboard และการตอบกลับจะกลับไปอยู่กับรายงานเดิมใน Mobile</text>
+
+  <rect x="64" y="242" width="230" height="126" rx="20" fill="#e6f5f1" stroke="#a7d9cd" stroke-width="1.5"/>
+  <circle cx="106" cy="305" r="22" fill="#16826c"/>
+  <path d="M96 311v-11l10-7 10 7v11M101 311v-7h10v7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+  <text class="t" x="144" y="297">ผู้รายงาน</text><text class="b" x="144" y="324">หมู่บ้านที่ตนสังกัด</text>
+
+  <rect x="378" y="186" width="250" height="222" rx="22" fill="#eaf7f3" stroke="#81c7b6" stroke-width="1.5"/>
+  <rect x="400" y="208" width="48" height="48" rx="14" fill="#16826c"/>
+  <path d="M414 218h20v29h-20zM419 223h10M419 229h10M419 235h10" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="t" x="466" y="239">Mobile</text>
+  <text class="b" x="400" y="288">• ลงทะเบียน</text><text class="b" x="400" y="318">• ส่งรายงาน</text><text class="b" x="400" y="348">• ให้ข้อมูลติดตามผล</text>
+
+  <rect x="774" y="186" width="430" height="222" rx="22" fill="#edf3ff" stroke="#9cbee9" stroke-width="1.5"/>
+  <rect x="796" y="208" width="48" height="48" rx="14" fill="#3975c6"/>
+  <path d="M808 221h25v20h-25zM812 245h17M816 226h9M816 232h9" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="t" x="862" y="239">Dashboard</text>
+  <path class="line" d="M989 274v98"/>
+  <text class="b" x="818" y="292">ผู้ดูแลระบบ</text><text class="s" x="818" y="320">ตั้งค่าระบบและสนับสนุน</text>
+  <text class="b" x="1022" y="292">เจ้าหน้าที่</text><text class="s" x="1022" y="320">ตรวจรายงานและติดตามงาน</text>
+
+  <path class="send" d="M294 305H378" marker-end="url(#arrowGreen)"/>
+  <text class="s" x="299" y="282">บันทึกข้อมูล</text>
+  <path class="send" d="M628 296H774" marker-end="url(#arrowGreen)"/>
+  <text class="s" x="650" y="273">ข้อมูลรายงาน</text>
+
+  <path class="back" d="M989 408V474H503V408" marker-end="url(#arrowBlue)"/>
+  <text class="s" x="692" y="456">การตอบกลับผูกกับรายงานเดิม</text>
+  <path class="line" d="M746 474v28"/>
+  <rect class="card" x="430" y="502" width="632" height="100" rx="18"/>
+  <text class="t" x="458" y="537">ผู้รายงานเห็นการตอบกลับใน Mobile</text>
+  <text class="s" x="458" y="572">• Notification อัตโนมัติ</text>
+  <text class="s" x="690" y="572">• ความคิดเห็นเจ้าหน้าที่</text>
+  <text class="s" x="928" y="572">• ความคิดเห็น AI</text>
+</svg>

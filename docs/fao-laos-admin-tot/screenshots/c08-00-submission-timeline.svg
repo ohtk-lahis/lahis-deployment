@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Timeline การรับส่งสำมะโน</title>
+  <desc id="desc">เส้นเวลาแนวตั้งแสดงสถานะ SCHEDULED OPEN LATE WINDOW และ CLOSED ตามวันเริ่มรับ วันครบกำหนด และวันตัดรับ</desc>
+  <style>
+    .bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#b7cbc7;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}
+  </style>
+  <rect class="bg" width="960" height="720" rx="28"/>
+  <text class="h" x="64" y="58">Timeline การเปิดรับ ส่งล่าช้า และปิดรับ</text>
+  <text class="b" x="64" y="88">อ่านจากบนลงล่างตามช่วงเวลาของรอบสำมะโน</text>
+
+  <path class="line" d="M184 174V604"/>
+  <circle cx="184" cy="174" r="10" fill="#9bb5b0"/>
+  <circle cx="184" cy="318" r="10" fill="#16826c"/>
+  <circle cx="184" cy="462" r="10" fill="#c47b08"/>
+  <circle cx="184" cy="604" r="10" fill="#71827f"/>
+
+  <text class="s" x="64" y="166">ก่อนวันเริ่มรับ</text>
+  <rect class="card" x="242" y="126" width="638" height="96" rx="18"/>
+  <rect x="266" y="149" width="126" height="32" rx="16" fill="#edf1f0"/><text class="s" x="289" y="171">SCHEDULED</text>
+  <text class="t" x="418" y="171">ยังไม่เปิดรับข้อมูล</text><text class="b" x="418" y="198">ผู้รายงานยังส่งข้อมูลของรอบนี้ไม่ได้</text>
+
+  <text class="s" x="64" y="310">วันเริ่มรับ → วันครบกำหนด</text>
+  <rect x="242" y="270" width="638" height="96" rx="18" fill="#eaf7f3" stroke="#81c7b6" stroke-width="1.5"/>
+  <rect x="266" y="293" width="76" height="32" rx="16" fill="#d7f0e9"/><text class="s" x="288" y="315">OPEN</text>
+  <text class="t" x="370" y="315">ส่งได้ตามปกติ</text><text class="b" x="370" y="342">ผู้ดูแลเห็นสถานะ `Submitted`</text>
+
+  <text class="s" x="64" y="454">วันครบกำหนด → วันตัดรับ</text>
+  <rect x="242" y="414" width="638" height="96" rx="18" fill="#fff8e8" stroke="#ead092" stroke-width="1.5"/>
+  <rect x="266" y="437" width="140" height="32" rx="16" fill="#fff0ce"/><text class="s" x="286" y="459">LATE WINDOW</text>
+  <text class="t" x="432" y="459">ยังส่งได้ แต่เป็นส่งล่าช้า</text><text class="b" x="432" y="486">ผู้ดูแลเห็น `Late` หรือ `Submitted late`</text>
+
+  <text class="s" x="64" y="596">หลังวันตัดรับ</text>
+  <rect class="card" x="242" y="556" width="638" height="96" rx="18"/>
+  <rect x="266" y="579" width="96" height="32" rx="16" fill="#edf1f0"/><text class="s" x="288" y="601">CLOSED</text>
+  <text class="t" x="388" y="601">ปิดรับข้อมูล</text><text class="b" x="388" y="628">ผู้รายงานส่งข้อมูลของรอบนี้ไม่ได้</text>
+</svg>

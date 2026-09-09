@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="700" viewBox="0 0 1360 700" role="img" aria-labelledby="title desc">
+  <title id="title">ภาพการทำงานของ LAHIS</title>
+  <desc id="desc">หมู่บ้านและผู้รายงานเชื่อมไปยัง Zero Reports สำมะโนสัตว์ รายงานสัตว์ป่วยหรือตาย และแผนที่และรายงาน โดยรายงานมีการติดตามผล ความเสี่ยงและ AI Case และ Hotspots</desc>
+  <style>
+    .bg { fill: #fbfcfc; }
+    .heading { font: 700 28px 'Noto Sans Thai', 'Th Sarabun New', Arial, sans-serif; fill: #173f3a; }
+    .label { font: 700 20px 'Noto Sans Thai', 'Th Sarabun New', Arial, sans-serif; fill: #173f3a; }
+    .body { font: 400 16px 'Noto Sans Thai', 'Th Sarabun New', Arial, sans-serif; fill: #47615d; }
+    .tiny { font: 600 14px 'Noto Sans Thai', 'Th Sarabun New', Arial, sans-serif; fill: #47615d; }
+    .line { fill: none; stroke: #b7cbc7; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .accent-line { fill: none; stroke: #16826c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .card { fill: #ffffff; stroke: #d7e4e1; stroke-width: 1.5; }
+    .subcard { fill: #f3f8f7; stroke: #d7e4e1; stroke-width: 1; }
+  </style>
+
+  <rect class="bg" width="1360" height="700" rx="28"/>
+  <text class="heading" x="64" y="58">ภาพการทำงานของ LAHIS</text>
+  <text class="body" x="64" y="88">ข้อมูลจากหมู่บ้านช่วยให้ติดตามสถานการณ์และจัดทำรายงานได้หลายทาง</text>
+
+  <!-- Village and reporter -->
+  <rect x="64" y="300" width="250" height="126" rx="20" fill="#e6f5f1" stroke="#a7d9cd" stroke-width="1.5"/>
+  <circle cx="106" cy="363" r="22" fill="#16826c"/>
+  <path d="M96 369v-11l10-7 10 7v11M101 369v-7h10v7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+  <text class="label" x="144" y="355">หมู่บ้านและผู้รายงาน</text>
+  <text class="body" x="144" y="382">จุดเริ่มต้นของข้อมูล</text>
+  <text class="body" x="144" y="407">และงานภาคสนาม</text>
+
+  <!-- root branching -->
+  <path class="accent-line" d="M314 363H365M365 168V580M365 168H418M365 296H418M365 424H418M365 580H418"/>
+  <circle cx="365" cy="363" r="6" fill="#16826c"/>
+
+  <!-- Zero reports -->
+  <rect class="card" x="418" y="112" width="292" height="112" rx="18"/>
+  <rect x="438" y="134" width="44" height="44" rx="13" fill="#fff2d8"/>
+  <path d="M451 167c6-11 17-12 20-4 4-6 13-3 13 4 0 8-8 12-17 17-9-5-18-9-16-17z" fill="#c47b08"/>
+  <text class="label" x="500" y="156">Zero Reports</text>
+  <text class="body" x="500" y="183">ติดตามการมีส่วนร่วมและ</text>
+  <text class="body" x="500" y="206">ผลการรายงานของอาสา</text>
+
+  <!-- Census -->
+  <rect class="card" x="418" y="240" width="292" height="112" rx="18"/>
+  <rect x="438" y="262" width="44" height="44" rx="13" fill="#e6f0ff"/>
+  <path d="M451 273h18v22h-18zM455 278h10M455 283h10M455 288h7" fill="none" stroke="#3975c6" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="label" x="500" y="284">สำมะโนสัตว์</text>
+  <text class="body" x="500" y="311">นับครัวเรือนและสัตว์</text>
+  <text class="body" x="500" y="334">เป็นรอบ</text>
+
+  <!-- Report -->
+  <rect x="418" y="368" width="292" height="112" rx="18" fill="#eaf7f3" stroke="#81c7b6" stroke-width="1.5"/>
+  <rect x="438" y="390" width="44" height="44" rx="13" fill="#16826c"/>
+  <path d="M451 401h18v23h-18zM455 406h10M455 411h10M455 416h7" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="label" x="500" y="411">รายงานสัตว์ป่วย/ตาย</text>
+  <text class="body" x="500" y="438">หนึ่งเหตุการณ์ที่พบในพื้นที่</text>
+
+  <!-- Report outcomes -->
+  <path class="line" d="M710 424H750M750 360V488M750 360H786M750 403H786M750 446H786M750 488H786"/>
+  <rect class="subcard" x="786" y="335" width="182" height="50" rx="14"/>
+  <text class="tiny" x="810" y="366">ติดตามผล</text>
+  <rect class="subcard" x="786" y="393" width="182" height="50" rx="14"/>
+  <text class="tiny" x="810" y="424">ระดับความเสี่ยงและ AI</text>
+  <rect class="subcard" x="786" y="451" width="182" height="50" rx="14"/>
+  <text class="tiny" x="810" y="482">Case · งานของเจ้าหน้าที่</text>
+  <rect class="subcard" x="786" y="509" width="182" height="50" rx="14"/>
+  <text class="tiny" x="810" y="540">Hotspots · กลุ่มเหตุการณ์</text>
+
+  <!-- Map and reports: an independent peer branch -->
+  <rect x="418" y="524" width="292" height="112" rx="18" fill="#edf3ff" stroke="#9cbee9" stroke-width="1.5"/>
+  <rect x="438" y="546" width="44" height="44" rx="13" fill="#3975c6"/>
+  <path d="M449 581l7-25 8 7 8-7 3 25zM456 556l1 25M464 563l-2 18" fill="none" stroke="#fff" stroke-width="2.1" stroke-linejoin="round"/>
+  <text class="label" x="500" y="567">แผนที่และรายงาน</text>
+  <text class="body" x="500" y="594">ดูข้อมูลทั้งระบบ สรุปผล และ</text>
+  <text class="body" x="500" y="617">จัดทำรายงานส่งต่อ</text>
+</svg>

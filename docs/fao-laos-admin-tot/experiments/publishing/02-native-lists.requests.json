@@ -1,0 +1,205 @@
+{
+  "document_id": "1h7duNVXbEPiqemubE4kxNtQMg0zz8g6gAL_B8Zf6qg8",
+  "precondition": "Empty document only. Read before replay; these requests insert content.",
+  "requests": [
+    {
+      "insertText": {
+        "location": {
+          "index": 1
+        },
+        "text": "ทดลองการจัดรูปแบบ LAHIS\nภาษาไทยและระยะห่าง\nผู้รายงานบันทึกข้อมูลหมู่บ้าน แล้วเจ้าหน้าที่ตรวจสอบรายงานบน Dashboard\nน้ำ ผู้ฝึกสอน เจ้าหน้าที่ พื้นที่ ข้อมูล ป่วย ถัดไป ย้อนกลับ\nขั้นตอนชุดที่หนึ่ง\nเปิดรายการรายงาน\nตรวจชื่อหมู่บ้านและข้อมูลเหตุการณ์\nขั้นตอนชุดที่สอง\nเปิดรายการผู้ใช้\nตรวจบทบาทและขอบเขตพื้นที่ของเจ้าหน้าที่ก่อนเริ่มปฏิบัติงาน เพื่อให้แน่ใจว่ามองเห็นหมู่บ้านที่ตนเองรับผิดชอบและสามารถติดตามรายงานได้อย่างถูกต้อง\nข้อควรตรวจ\nผู้รายงานเห็นความคิดเห็นที่ส่งกลับมาจากเจ้าหน้าที่\nข้อความรายการนี้ตั้งใจให้ยาวมากกว่าหนึ่งบรรทัด เพื่อทดสอบว่าบรรทัดที่สองเยื้องตรงกับข้อความของบรรทัดแรก และไม่ย้อนกลับไปอยู่ใต้เครื่องหมายหัวข้อ\n"
+      }
+    },
+    {
+      "updateDocumentStyle": {
+        "documentStyle": {
+          "documentFormat": {
+            "documentMode": "PAGES"
+          },
+          "background": {
+            "color": {
+              "color": {
+                "rgbColor": {
+                  "red": 1,
+                  "green": 1,
+                  "blue": 1
+                }
+              }
+            }
+          }
+        },
+        "fields": "documentFormat"
+      }
+    },
+    {
+      "updateTextStyle": {
+        "range": {
+          "startIndex": 1,
+          "endIndex": 632
+        },
+        "textStyle": {
+          "weightedFontFamily": {
+            "fontFamily": "Arial"
+          },
+          "fontSize": {
+            "magnitude": 12,
+            "unit": "PT"
+          }
+        },
+        "fields": "weightedFontFamily,fontSize"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 1,
+          "endIndex": 632
+        },
+        "paragraphStyle": {
+          "spaceAbove": {
+            "magnitude": 0,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          },
+          "lineSpacing": 120
+        },
+        "fields": "spaceAbove,spaceBelow,lineSpacing"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 1,
+          "endIndex": 25
+        },
+        "paragraphStyle": {
+          "namedStyleType": "TITLE",
+          "keepWithNext": true,
+          "spaceAbove": {
+            "magnitude": 12,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          }
+        },
+        "fields": "namedStyleType,keepWithNext,spaceAbove,spaceBelow"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 25,
+          "endIndex": 44
+        },
+        "paragraphStyle": {
+          "namedStyleType": "HEADING_1",
+          "keepWithNext": true,
+          "spaceAbove": {
+            "magnitude": 12,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          }
+        },
+        "fields": "namedStyleType,keepWithNext,spaceAbove,spaceBelow"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 176,
+          "endIndex": 195
+        },
+        "paragraphStyle": {
+          "namedStyleType": "HEADING_1",
+          "keepWithNext": true,
+          "spaceAbove": {
+            "magnitude": 12,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          }
+        },
+        "fields": "namedStyleType,keepWithNext,spaceAbove,spaceBelow"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 247,
+          "endIndex": 264
+        },
+        "paragraphStyle": {
+          "namedStyleType": "HEADING_1",
+          "keepWithNext": true,
+          "spaceAbove": {
+            "magnitude": 12,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          }
+        },
+        "fields": "namedStyleType,keepWithNext,spaceAbove,spaceBelow"
+      }
+    },
+    {
+      "updateParagraphStyle": {
+        "range": {
+          "startIndex": 425,
+          "endIndex": 436
+        },
+        "paragraphStyle": {
+          "namedStyleType": "HEADING_1",
+          "keepWithNext": true,
+          "spaceAbove": {
+            "magnitude": 12,
+            "unit": "PT"
+          },
+          "spaceBelow": {
+            "magnitude": 6,
+            "unit": "PT"
+          }
+        },
+        "fields": "namedStyleType,keepWithNext,spaceAbove,spaceBelow"
+      }
+    },
+    {
+      "createParagraphBullets": {
+        "range": {
+          "startIndex": 195,
+          "endIndex": 247
+        },
+        "bulletPreset": "NUMBERED_DECIMAL_ALPHA_ROMAN"
+      }
+    },
+    {
+      "createParagraphBullets": {
+        "range": {
+          "startIndex": 264,
+          "endIndex": 425
+        },
+        "bulletPreset": "NUMBERED_DECIMAL_ALPHA_ROMAN"
+      }
+    },
+    {
+      "createParagraphBullets": {
+        "range": {
+          "startIndex": 436,
+          "endIndex": 632
+        },
+        "bulletPreset": "BULLET_DISC_CIRCLE_SQUARE"
+      }
+    }
+  ]
+}

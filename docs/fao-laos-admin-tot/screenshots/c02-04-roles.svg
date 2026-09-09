@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="510" viewBox="0 0 1280 510" role="img" aria-labelledby="title desc">
+  <title id="title">บทบาทผู้ใช้ใน LAHIS</title>
+  <desc id="desc">ผู้ดูแลระบบใช้ Dashboard ระดับประเทศ เจ้าหน้าที่ใช้ Dashboard ตาม Authority และผู้รายงานใช้ Mobile ตามหมู่บ้าน</desc>
+  <style>.bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#b7cbc7;stroke-width:3;stroke-linecap:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}</style>
+  <rect class="bg" width="1280" height="510" rx="28"/>
+  <text class="h" x="64" y="58">บทบาทผู้ใช้และขอบเขตงาน</text>
+  <text class="b" x="64" y="88">บทบาทบอกหน้าที่ ส่วน Authority และหมู่บ้านบอกขอบเขตข้อมูลที่แต่ละคนใช้</text>
+  <path class="line" d="M392 275h80M808 275h80"/>
+  <rect class="card" x="64" y="152" width="328" height="246" rx="22"/>
+  <rect x="90" y="178" width="70" height="32" rx="16" fill="#e6f5f1"/><text class="s" x="110" y="200">ADM</text>
+  <text class="t" x="90" y="250">ผู้ดูแลระบบ</text><text class="b" x="90" y="282">Dashboard</text><text class="b" x="90" y="314">ดูแลการตั้งค่า ผู้ใช้ พื้นที่</text><text class="b" x="90" y="340">และแบบฟอร์ม</text><text class="s" x="90" y="374">ขอบเขต: ระดับประเทศ</text>
+  <rect class="card" x="472" y="152" width="336" height="246" rx="22"/>
+  <rect x="498" y="178" width="70" height="32" rx="16" fill="#edf3ff"/><text class="s" x="518" y="200">OFC</text>
+  <text class="t" x="498" y="250">เจ้าหน้าที่</text><text class="b" x="498" y="282">Dashboard</text><text class="b" x="498" y="314">ตรวจรายงาน ติดตามงาน</text><text class="b" x="498" y="340">และทำงานใน Case</text><text class="s" x="498" y="374">ขอบเขต: Authority ที่ได้รับมอบหมาย</text>
+  <rect class="card" x="888" y="152" width="328" height="246" rx="22"/>
+  <rect x="914" y="178" width="70" height="32" rx="16" fill="#fff2d8"/><text class="s" x="934" y="200">REP</text>
+  <text class="t" x="914" y="250">ผู้รายงาน</text><text class="b" x="914" y="282">Mobile</text><text class="b" x="914" y="314">ส่งข้อมูลจากหมู่บ้าน</text><text class="b" x="914" y="340">และให้ข้อมูลติดตามผล</text><text class="s" x="914" y="374">ขอบเขต: หมู่บ้านที่ลงทะเบียน</text>
+</svg>
