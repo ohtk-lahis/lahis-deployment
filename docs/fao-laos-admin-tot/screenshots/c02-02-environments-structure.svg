@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="610" viewBox="0 0 1280 610" role="img" aria-labelledby="title desc">
+  <title id="title">Staging Production และโครงสร้างพื้นที่</title>
+  <desc id="desc">Staging สำหรับการฝึกและ Production สำหรับงานจริง โดยทั้งสองระบบมี Authority หมู่บ้าน และผู้ใช้หรือผู้รายงาน</desc>
+  <style>.bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#b7cbc7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}</style>
+  <rect class="bg" width="1280" height="610" rx="28"/>
+  <text class="h" x="64" y="58">ระบบที่ใช้และโครงสร้างพื้นที่</text>
+  <text class="b" x="64" y="88">ใช้ Staging เพื่อฝึก และใช้ Production เมื่อทำงานกับข้อมูลจริง</text>
+  <rect x="64" y="132" width="520" height="132" rx="22" fill="#eaf7f3" stroke="#81c7b6" stroke-width="1.5"/>
+  <text class="t" x="98" y="184">Staging</text><text class="b" x="98" y="216">พื้นที่สำหรับฝึก ทดลอง และบันทึกภาพประกอบ</text><text class="s" x="98" y="242">ควรตรวจบัญชีและพื้นที่ก่อนเริ่มทุกครั้ง</text>
+  <rect x="696" y="132" width="520" height="132" rx="22" fill="#edf3ff" stroke="#9cbee9" stroke-width="1.5"/>
+  <text class="t" x="730" y="184">Production</text><text class="b" x="730" y="216">พื้นที่ใช้งานจริงและข้อมูลปฏิบัติงานจริง</text><text class="s" x="730" y="242">ไม่ใช้สำหรับการฝึกหรือการทดลอง</text>
+  <text class="t" x="64" y="326">ภายในแต่ละระบบ</text>
+  <path class="line" d="M315 409H420M680 409H785"/>
+  <rect class="card" x="64" y="358" width="251" height="102" rx="18"/>
+  <text class="t" x="92" y="398">Authority</text><text class="b" x="92" y="428">ประเทศ → แขวง/นครหลวง → เมือง</text>
+  <rect class="card" x="420" y="358" width="260" height="102" rx="18"/>
+  <text class="t" x="448" y="398">Village</text><text class="b" x="448" y="428">จุดปฏิบัติงานภาคสนาม</text>
+  <rect class="card" x="785" y="358" width="431" height="102" rx="18"/>
+  <text class="t" x="813" y="398">ผู้ใช้และผู้รายงาน</text><text class="b" x="813" y="428">ทำงานและเห็นข้อมูลตามบทบาทและพื้นที่</text>
+  <text class="s" x="64" y="524">Authority กำหนดขอบเขตการดูแล ส่วน Village เป็นจุดที่ผู้รายงาน สำมะโน และรายงานผูกอยู่</text>
+</svg>

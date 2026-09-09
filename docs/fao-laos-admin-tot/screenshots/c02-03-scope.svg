@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650" role="img" aria-labelledby="title desc">
+  <title id="title">Authority หมู่บ้าน และขอบเขตการเห็นข้อมูล</title>
+  <desc id="desc">ตัวอย่างโครงสร้าง Laos Vientiane Capital Sangthong และหมู่บ้าน พร้อมขอบเขตข้อมูลสำหรับระดับนครหลวง ระดับเมือง และผู้รายงาน</desc>
+  <style>.bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#b7cbc7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}</style>
+  <rect class="bg" width="1280" height="650" rx="28"/>
+  <text class="h" x="64" y="58">Authority หมู่บ้าน และขอบเขตการเห็นข้อมูล</text>
+  <text class="b" x="64" y="88">Authority เป็นลำดับพื้นที่ ส่วนหมู่บ้านเป็นจุดปฏิบัติงานที่ข้อมูลภาคสนามผูกอยู่</text>
+  <rect x="64" y="132" width="570" height="434" rx="24" fill="#f3f8f7" stroke="#d7e4e1" stroke-width="1.5"/>
+  <text class="t" x="96" y="174">ตัวอย่างโครงสร้างพื้นที่ที่ใช้สอน</text>
+  <rect x="96" y="204" width="210" height="58" rx="16" fill="#e6f5f1" stroke="#a7d9cd" stroke-width="1.5"/><text class="t" x="122" y="240">สปป.ลาว</text>
+  <path class="line" d="M201 262v30"/>
+  <rect x="126" y="292" width="255" height="58" rx="16" fill="#fff" stroke="#d7e4e1" stroke-width="1.5"/><text class="t" x="152" y="328">นครหลวงเวียงจันทน์</text>
+  <path class="line" d="M253 350v30"/>
+  <rect x="156" y="380" width="194" height="58" rx="16" fill="#fff" stroke="#d7e4e1" stroke-width="1.5"/><text class="t" x="182" y="416">เมือง Sangthong</text>
+  <path class="line" d="M253 438v26"/>
+  <rect x="186" y="464" width="134" height="58" rx="16" fill="#edf3ff" stroke="#9cbee9" stroke-width="1.5"/><text class="t" x="209" y="500">หมู่บ้าน</text>
+  <text class="s" x="380" y="494">จุดปฏิบัติงาน</text><text class="s" x="380" y="518">และจุดพิกัดเหตุการณ์</text>
+  <path class="line" d="M320 493h42"/>
+
+  <text class="t" x="714" y="154">ใครเห็นข้อมูลใด</text>
+  <rect class="card" x="714" y="184" width="478" height="100" rx="18"/>
+  <rect x="738" y="205" width="48" height="48" rx="14" fill="#3975c6"/><text x="751" y="238" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">1</text>
+  <text class="t" x="812" y="222">ผู้ใช้ระดับนครหลวง</text><text class="b" x="812" y="251">เห็นทุกเมืองและทุกหมู่บ้านใต้สังกัด</text>
+  <rect class="card" x="714" y="310" width="478" height="100" rx="18"/>
+  <rect x="738" y="331" width="48" height="48" rx="14" fill="#16826c"/><text x="751" y="364" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">2</text>
+  <text class="t" x="812" y="348">ผู้ใช้ระดับเมือง</text><text class="b" x="812" y="377">เห็นหมู่บ้านทั้งหมดภายใต้เมืองของตน</text>
+  <rect class="card" x="714" y="436" width="478" height="100" rx="18"/>
+  <rect x="738" y="457" width="48" height="48" rx="14" fill="#c47b08"/><text x="751" y="490" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">3</text>
+  <text class="t" x="812" y="474">ผู้รายงานระดับหมู่บ้าน</text><text class="b" x="812" y="503">ส่งข้อมูลของหมู่บ้านที่ตนลงทะเบียนไว้</text>
+</svg>

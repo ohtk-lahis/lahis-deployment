@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="660" viewBox="0 0 1280 660" role="img" aria-labelledby="title desc">
+  <title id="title">เส้นทางเตรียมผู้ใช้ด้วย Invitation Code</title>
+  <desc id="desc">ผู้ดูแลระบบกำหนด Invitation Code ให้มี Authority Role และช่วงวันใช้งาน ผู้รับลงทะเบียนผ่าน Mobile จากนั้นผู้รายงานใช้งาน Mobile ส่วน Officer ต้องตั้งรหัสผ่านใน Profile ก่อนเข้าสู่ Dashboard</desc>
+  <style>
+    .bg{fill:#fbfcfc}.h{font:700 28px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.t{font:700 20px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#173f3a}.b{font:400 16px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.s{font:600 14px 'Noto Sans Thai','Th Sarabun New',Arial,sans-serif;fill:#47615d}.line{fill:none;stroke:#b7cbc7;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.send{fill:none;stroke:#16826c;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.branch{fill:none;stroke:#3975c6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.card{fill:#fff;stroke:#d7e4e1;stroke-width:1.5}
+  </style>
+  <defs><marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16826c"/></marker><marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#3975c6"/></marker></defs>
+  <rect class="bg" width="1280" height="660" rx="28"/>
+  <text class="h" x="60" y="58">เตรียมผู้ใช้ใหม่ด้วย Invitation Code</text>
+  <text class="b" x="60" y="88">Authority และ Role ถูกกำหนดก่อนผู้ใช้ลงทะเบียนผ่าน Mobile</text>
+
+  <rect x="60" y="238" width="220" height="134" rx="20" fill="#eaf7f3" stroke="#81c7b6" stroke-width="1.5"/>
+  <rect x="84" y="261" width="48" height="48" rx="14" fill="#16826c"/>
+  <path d="M97 273h22v24H97zM102 278h12M102 284h12M102 290h8" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="t" x="84" y="335">ผู้ดูแลระบบ</text><text class="b" x="84" y="360">สร้างและส่งโค้ด</text>
+
+  <rect x="356" y="142" width="266" height="326" rx="22" fill="#fff8e8" stroke="#ead092" stroke-width="1.5"/>
+  <text class="t" x="386" y="187">Invitation Code</text>
+  <path class="line" d="M386 207h206"/>
+  <text class="b" x="386" y="244">• Authority</text><text class="s" x="410" y="268">พื้นที่ที่ผู้ใช้สังกัด</text>
+  <text class="b" x="386" y="307">• Role</text><text class="s" x="410" y="331">Reporter หรือ Officer</text>
+  <text class="b" x="386" y="370">• From / Through Date</text><text class="s" x="410" y="394">ช่วงวันที่ใช้โค้ดได้</text>
+  <text class="b" x="386" y="433">• Villages</text><text class="s" x="410" y="457">เลือกได้หลังเลือก Authority</text>
+
+  <rect x="704" y="238" width="232" height="134" rx="20" fill="#edf3ff" stroke="#9cbee9" stroke-width="1.5"/>
+  <rect x="728" y="261" width="48" height="48" rx="14" fill="#3975c6"/>
+  <path d="M742 271h20v29h-20zM747 276h10M747 282h10M747 288h10" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round"/>
+  <text class="t" x="728" y="335">ลงทะเบียนใน Mobile</text><text class="b" x="728" y="360">กรอกโค้ดก่อนสร้างบัญชี</text>
+
+  <path class="send" d="M280 305H356" marker-end="url(#arrowGreen)"/>
+  <path class="send" d="M622 305H704" marker-end="url(#arrowGreen)"/>
+  <text class="s" x="288" y="283">กำหนดโค้ด</text><text class="s" x="632" y="283">รับโค้ด</text>
+
+  <path class="branch" d="M936 305H966M966 190V474M966 190H992M966 474H992" marker-end="url(#arrowBlue)"/>
+  <rect class="card" x="992" y="112" width="228" height="156" rx="20"/>
+  <rect x="1016" y="136" width="74" height="30" rx="15" fill="#fff2d8"/><text class="s" x="1036" y="157">Reporter</text>
+  <text class="t" x="1016" y="198">ผู้รายงาน</text><text class="b" x="1016" y="226">ได้รับพื้นที่และหมู่บ้าน</text><text class="b" x="1016" y="250">แล้วใช้ Mobile รายงานข้อมูล</text>
+  <rect class="card" x="992" y="392" width="228" height="180" rx="20"/>
+  <rect x="1016" y="416" width="66" height="30" rx="15" fill="#e6f0ff"/><text class="s" x="1036" y="437">Officer</text>
+  <text class="t" x="1016" y="478">เจ้าหน้าที่</text><text class="b" x="1016" y="506">เปิด Profile ใน Mobile</text><text class="b" x="1016" y="530">ตั้งรหัสผ่านของตนเอง</text><text class="s" x="1016" y="556">แล้วจึงล็อกอิน Dashboard</text>
+</svg>
