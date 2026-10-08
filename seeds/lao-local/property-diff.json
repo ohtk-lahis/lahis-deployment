@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/reports/0/name",
+    "before": "Animal Sick/Death",
+    "after": "ສັດປ່ວຍ/ຕາຍ",
+    "expectation": "M01 / D02"
+  },
+  {
+    "path": "/reports/0/metric_accumulation/metrics/0/label",
+    "before": "Number of affected households",
+    "after": "ຄອບຄົວທີ່ມີຜົນກະທົບ",
+    "expectation": "M06 / D01 (proposed shared metric labels)"
+  },
+  {
+    "path": "/reports/0/metric_accumulation/metrics/1/label",
+    "before": "Total animals",
+    "after": "ຈຳນວນສັດທັງໝົດ",
+    "expectation": "M06 / D01 (proposed shared metric labels)"
+  },
+  {
+    "path": "/reports/0/metric_accumulation/metrics/2/label",
+    "before": "Sick",
+    "after": "ຈຳນວນສັດປ່ວຍ",
+    "expectation": "M06 / D01 (proposed shared metric labels)"
+  },
+  {
+    "path": "/reports/0/metric_accumulation/metrics/3/label",
+    "before": "Dead",
+    "after": "ຈຳນວນສັດຕາຍ",
+    "expectation": "M06 / D01 (proposed shared metric labels)"
+  },
+  {
+    "path": "/reports/0/metric_accumulation/metrics/4/label",
+    "before": "Recovered",
+    "after": "ຈຳນວນສັດຫາຍປ່ວຍ",
+    "expectation": "M06 / D01 (proposed shared metric labels)"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/0/label",
+    "before": "Test result",
+    "after": "ຜົນການວິໄຈ",
+    "expectation": "D04 / D05 (PPT labels)"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/0/description",
+    "before": "Include lab notes or reference IDs if needed. Attach lab files via Comments.",
+    "after": "ລະບຸບັນທຶກຈາກຫ້ອງວິໄຈ ຫຼື ເລກອ້າງອີງ ຖ້າຈຳເປັນ. ແນບໄຟລ໌ຈາກຫ້ອງວິໄຈຜ່ານສ່ວນຄຳຄິດເຫັນ (Comments).",
+    "expectation": "D04 / Q03 helper (user delegated translation correction; independent review pending)"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/1/label",
+    "before": "Stamped out",
+    "after": "ການຂ້າທໍາລາຍ",
+    "expectation": "D04 / D05 (PPT labels)"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/1/description",
+    "before": "Number of animals terminated for this report species (integer ≥ 0).",
+    "after": "ໃສ່ຈຳນວນສັດຊະນິດນີ້ທີ່ຖືກຂ້າທຳລາຍ. ຖ້າບໍ່ມີ ໃຫ້ໃສ່ 0.",
+    "expectation": "D05 / Q02 helper (user delegated translation correction; independent review pending)"
+  },
+  {
+    "path": "/reports/0/renderer_data_template",
+    "before": "{% with s=data.animal_species|default:\"Animal\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 total=data.num_total_animal|default:0 disease=data.suspected_disease|default:\"\" age_groups=data.animal_age_groups.value sex=data.animal_sex.value hh=data.num_household %}{{ s }}: {{ sick }} sick, {{ dead }} dead (of {{ total }}){% if disease %} · {{ disease }}{% endif %}{% if age_groups %} · age groups {{ age_groups }}{% endif %}{% if sex %} · sex {{ sex }}{% endif %}{% if hh %} · {{ hh }} HH{% endif %}{% if data.digestive_symptoms.value %} · {{ data.digestive_symptoms.value }}{% endif %}{% if data.respiratory_symptoms.value %} · {{ data.respiratory_symptoms.value }}{% endif %}{% if data.skin_external_symptoms.value %} · {{ data.skin_external_symptoms.value }}{% endif %}{% if data.general_symptoms.value %} · {{ data.general_symptoms.value }}{% endif %}{% if data.nervous_symptoms.value %} · {{ data.nervous_symptoms.value }}{% endif %}{% if data.reproductive_symptoms.value %} · {{ data.reproductive_symptoms.value }}{% endif %}{% if data.abnormalities_carcass.value %} · {{ data.abnormalities_carcass.value }}{% endif %}{% if data.unknown_symptoms %} · {{ data.unknown_symptoms }}{% endif %} · {{ incident_date }}{% endwith %}",
+    "after": "{% with s=data.animal_species|default:\"ສັດ\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 recovered=data.num_recover|default:0 total=data.num_total_animal|default:0 disease=data.suspected_disease|default:\"\" age_groups=data.animal_age_groups.value sex=data.animal_sex.value hh=data.num_household|default:0 %}{{ s }}{% if data.animal_species_text %} - {{ data.animal_species_text }}{% endif %}: ປ່ວຍ {{ sick }} ໂຕ · ຕາຍ {{ dead }} ໂຕ · ຫາຍປ່ວຍ {{ recovered }} ໂຕ · ທັງໝົດ {{ total }} ໂຕ{% if disease %} · {{ disease }}{% endif %}{% if age_groups %} · ກຸ່ມອາຍຸ {{ age_groups }}{% endif %}{% if sex %} · ເພດ {{ sex }}{% endif %} · ຄອບຄົວທີ່ມີຜົນກະທົບ {{ hh }}{% if data.digestive_symptoms.value %} · {{ data.digestive_symptoms.value }}{% endif %}{% if data.respiratory_symptoms.value %} · {{ data.respiratory_symptoms.value }}{% endif %}{% if data.skin_external_symptoms.value %} · {{ data.skin_external_symptoms.value }}{% endif %}{% if data.general_symptoms.value %} · {{ data.general_symptoms.value }}{% endif %}{% if data.nervous_symptoms.value %} · {{ data.nervous_symptoms.value }}{% endif %}{% if data.reproductive_symptoms.value %} · {{ data.reproductive_symptoms.value }}{% endif %}{% if data.abnormalities_carcass.value %} · {{ data.abnormalities_carcass.value }}{% endif %}{% if data.unknown_symptoms %} · {{ data.unknown_symptoms }}{% endif %} · ວັນທີເກີດເຫດ {{ incident_date|date:\"d/m/Y\" }}{% endwith %}",
+    "expectation": "M04 / M06 (proposed whole-summary wording)"
+  },
+  {
+    "path": "/reports/0/renderer_followup_data_template",
+    "before": "{% with s=incident_data.animal_species|default:\"Animal\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 recovered=data.num_recover|default:0 total=data.num_total_animal|default:0 hh=data.num_household|default:0 %}{{ s }} follow-up: {{ sick }} sick · {{ dead }} dead · {{ recovered }} recovered{% if total %} · {{ total }} animals{% endif %}{% if hh %} · {{ hh }} HH{% endif %}{% endwith %}",
+    "after": "{% with s=incident_data.animal_species|default:\"ສັດ\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 recovered=data.num_recover|default:0 total=data.num_total_animal|default:0 hh=data.num_household|default:0 %}{{ s }}{% if incident_data.animal_species_text %} - {{ incident_data.animal_species_text }}{% endif %} ຕິດຕາມ: ປ່ວຍ {{ sick }} ໂຕ · ຕາຍ {{ dead }} ໂຕ · ຫາຍປ່ວຍ {{ recovered }} ໂຕ · ທັງໝົດ {{ total }} ໂຕ · ຄອບຄົວທີ່ມີຜົນກະທົບ {{ hh }}{% endwith %}",
+    "expectation": "M04 / M06 (proposed whole-summary wording)"
+  },
+  {
+    "path": "/configurations/14",
+    "before": null,
+    "after": {
+      "key": "cases.lahis_summarized_report_type_name",
+      "value": "ສັດປ່ວຍ/ຕາຍ"
+    },
+    "expectation": "CFG-01 export selector dependency"
+  },
+  {
+    "path": "/configurations/15",
+    "before": null,
+    "after": {
+      "key": "cases.close_audit_messages",
+      "value": "{\"close_case\": \"[ປິດເຄສ] ປິດເຄສ\", \"false_positive\": \"[ປິດເຄສ] ບໍ່ແມ່ນກໍລະນີຈິງ\", \"automatic_close\": \"[ປິດອັດຕະໂນມັດ] ລະບົບປິດເຄສເນື່ອງຈາກບໍ່ມີການເຄື່ອນໄຫວ\", \"complete_after_auto_close\": \"[ຂໍ້ມູນປິດເຄສ] ເພີ່ມຂໍ້ມູນຫຼັງຈາກລະບົບປິດອັດຕະໂນມັດ\", \"superuser_edit\": \"[ຂໍ້ມູນປິດເຄສ] ແກ້ໄຂໂດຍຜູ້ດູແລລະບົບສູງສຸດ\", \"no_close_data\": \"ຍັງບໍ່ມີການບັນທຶກຂໍ້ມູນປິດເຄສ.\", \"reason\": \"ເຫດຜົນ\"}"
+    },
+    "reason": "Approved tenant close-audit message bundle; new comments only."
+  }
+]

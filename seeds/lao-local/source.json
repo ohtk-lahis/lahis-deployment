@@ -1,0 +1,9 @@
+{
+  "revision": "34726938eb1ad88f2a3a2e5a40c0a88f93cd4cce",
+  "path": "seeds/tot/report-setup.json",
+  "sha256": "0dfcefc9f784ce81beea52ec76ced1d2ad294e286350e88fce0ebbe35b93cf61",
+  "source_repository": "/Users/pphetra/projects/opensurveillance/lahis-deployment",
+  "definition_delta": 0,
+  "followup_definition_delta": 0,
+  "configuration_delta_count": 14
+}

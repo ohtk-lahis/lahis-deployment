@@ -1,0 +1,1084 @@
+[
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/0",
+    "source_label": "ງົວ",
+    "source_value": "ງົວ",
+    "candidate_label": "ງົວ",
+    "candidate_value": "ງົວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/1",
+    "source_label": "ຄວາຍ",
+    "source_value": "ຄວາຍ",
+    "candidate_label": "ຄວາຍ",
+    "candidate_value": "ຄວາຍ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/2",
+    "source_label": "ໝູ",
+    "source_value": "ໝູ",
+    "candidate_label": "ໝູ",
+    "candidate_value": "ໝູ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/3",
+    "source_label": "ແກະ",
+    "source_value": "ແກະ",
+    "candidate_label": "ແກະ",
+    "candidate_value": "ແກະ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/4",
+    "source_label": "ແບ້",
+    "source_value": "ແບ້",
+    "candidate_label": "ແບ້",
+    "candidate_value": "ແບ້",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/5",
+    "source_label": "ໝາ",
+    "source_value": "ໝາ",
+    "candidate_label": "ໝາ",
+    "candidate_value": "ໝາ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/6",
+    "source_label": "ແມວ",
+    "source_value": "ແມວ",
+    "candidate_label": "ແມວ",
+    "candidate_value": "ແມວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/7",
+    "source_label": "ໄກ່",
+    "source_value": "ໄກ່",
+    "candidate_label": "ໄກ່",
+    "candidate_value": "ໄກ່",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/8",
+    "source_label": "ເປັດ",
+    "source_value": "ເປັດ",
+    "candidate_label": "ເປັດ",
+    "candidate_value": "ເປັດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/9",
+    "source_label": "ຫ່ານ",
+    "source_value": "ຫ່ານ",
+    "candidate_label": "ຫ່ານ",
+    "candidate_value": "ຫ່ານ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_species",
+    "path": "/reports/0/definition/sections/0/questions/0/fields/0/options/10",
+    "source_label": "ອື່ນໆ",
+    "source_value": "ອື່ນໆ",
+    "candidate_label": "ອື່ນໆ",
+    "candidate_value": "ອື່ນໆ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_age_groups",
+    "path": "/reports/0/definition/sections/0/questions/1/fields/0/options/0",
+    "source_label": "ສັດແຮກເກີດ",
+    "source_value": "ສັດແຮກເກີດ",
+    "candidate_label": "ສັດແຮກເກີດ",
+    "candidate_value": "ສັດແຮກເກີດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_age_groups",
+    "path": "/reports/0/definition/sections/0/questions/1/fields/0/options/1",
+    "source_label": "ສັດອາຍຸນ້ອຍ",
+    "source_value": "ສັດອາຍຸນ້ອຍ",
+    "candidate_label": "ສັດອາຍຸນ້ອຍ",
+    "candidate_value": "ສັດອາຍຸນ້ອຍ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_age_groups",
+    "path": "/reports/0/definition/sections/0/questions/1/fields/0/options/2",
+    "source_label": "ສັດໂຕເຕັມໄວ",
+    "source_value": "ສັດໂຕເຕັມໄວ",
+    "candidate_label": "ສັດໂຕເຕັມໄວ",
+    "candidate_value": "ສັດໂຕເຕັມໄວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_age_groups",
+    "path": "/reports/0/definition/sections/0/questions/1/fields/0/options/3",
+    "source_label": "ສັດສູງອາຍຸ",
+    "source_value": "ສັດສູງອາຍຸ",
+    "candidate_label": "ສັດສູງອາຍຸ",
+    "candidate_value": "ສັດສູງອາຍຸ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_sex",
+    "path": "/reports/0/definition/sections/0/questions/2/fields/0/options/0",
+    "source_label": "ເພດຜູ້",
+    "source_value": "ເພດຜູ້",
+    "candidate_label": "ເພດຜູ້",
+    "candidate_value": "ເພດຜູ້",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "animal_sex",
+    "path": "/reports/0/definition/sections/0/questions/2/fields/0/options/1",
+    "source_label": "ເພດແມ່",
+    "source_value": "ເພດແມ່",
+    "candidate_label": "ເພດແມ່",
+    "candidate_value": "ເພດແມ່",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/0",
+    "source_label": "ພະຍາດປາກເປືອຍລົງເລັບ",
+    "source_value": "ພະຍາດປາກເປືອຍລົງເລັບ",
+    "candidate_label": "ພະຍາດປາກເປືອຍລົງເລັບ",
+    "candidate_value": "ພະຍາດປາກເປືອຍລົງເລັບ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/1",
+    "source_label": "ພະຍາດເຕົ້າໂຮມເລຶອດ",
+    "source_value": "ພະຍາດເຕົ້າໂຮມເລຶອດ",
+    "candidate_label": "ພະຍາດເຕົ້າໂຮມເລຶອດ",
+    "candidate_value": "ພະຍາດເຕົ້າໂຮມເລຶອດ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/2",
+    "source_label": "ພະຍາດໄຂ້ເລຶອດດໍາ",
+    "source_value": "ພະຍາດໄຂ້ເລຶອດດໍາ",
+    "candidate_label": "ພະຍາດໄຂ້ເລຶອດດໍາ",
+    "candidate_value": "ພະຍາດໄຂ້ເລຶອດດໍາ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/3",
+    "source_label": "ພະຍາດໄຂ້ບວມ",
+    "source_value": "ພະຍາດໄຂ້ບວມ",
+    "candidate_label": "ພະຍາດໄຂ້ບວມ",
+    "candidate_value": "ພະຍາດໄຂ້ບວມ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/4",
+    "source_label": "ພະຍາດຜິວໜັງອັກເສບ",
+    "source_value": "ພະຍາດຜິວໜັງອັກເສບ",
+    "candidate_label": "ພະຍາດຜິວໜັງອັກເສບ",
+    "candidate_value": "ພະຍາດຜິວໜັງອັກເສບ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/5",
+    "source_label": "ພະຍາດຍ່ຽວໜູ",
+    "source_value": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_label": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_value": "ພະຍາດຍ່ຽວໜູ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/6",
+    "source_label": "ພະຍາດວໍ້",
+    "source_value": "ພະຍາດວໍ້",
+    "candidate_label": "ພະຍາດວໍ້",
+    "candidate_value": "ພະຍາດວໍ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/0/fields/0/options/7",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ງົວ, ຄວາຍ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/1/fields/0/options/0",
+    "source_label": "ພະຍາດວໍ້",
+    "source_value": "ພະຍາດວໍ້",
+    "candidate_label": "ພະຍາດວໍ້",
+    "candidate_value": "ພະຍາດວໍ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ແກະ, ແບ້",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/1/fields/0/options/1",
+    "source_label": "ພະຍາດຍ່ຽວໜູ",
+    "source_value": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_label": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_value": "ພະຍາດຍ່ຽວໜູ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ແກະ, ແບ້",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/1/fields/0/options/2",
+    "source_label": "ພະຍາດອະຫິວາ",
+    "source_value": "ພະຍາດອະຫິວາ",
+    "candidate_label": "ພະຍາດອະຫິວາ",
+    "candidate_value": "ພະຍາດອະຫິວາ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ແກະ, ແບ້",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/1/fields/0/options/3",
+    "source_label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "source_value": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "candidate_label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "candidate_value": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ແກະ, ແບ້",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/1/fields/0/options/4",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ແກະ, ແບ້",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/0",
+    "source_label": "ພະຍາດອະຫິວາໝູ",
+    "source_value": "ພະຍາດອະຫິວາໝູ",
+    "candidate_label": "ພະຍາດອະຫິວາໝູ",
+    "candidate_value": "ພະຍາດອະຫິວາໝູ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/1",
+    "source_label": "ພະຍາດອະຫິວາໝູອາຟີກາ",
+    "source_value": "ພະຍາດອະຫິວາໝູອາຟີກາ",
+    "candidate_label": "ພະຍາດອະຫິວາໝູອາຟີກາ",
+    "candidate_value": "ພະຍາດອະຫິວາໝູອາຟີກາ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/2",
+    "source_label": "ພະຍາດຫູກໍ່າໝູ -PRRS",
+    "source_value": "ພະຍາດຫູກໍ່າໝູ -PRRS",
+    "candidate_label": "ພະຍາດຫູກໍ່າໝູ -PRRS",
+    "candidate_value": "ພະຍາດຫູກໍ່າໝູ -PRRS",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/3",
+    "source_label": "ພະຍາດຍ່ຽວໜູ",
+    "source_value": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_label": "ພະຍາດຍ່ຽວໜູ",
+    "candidate_value": "ພະຍາດຍ່ຽວໜູ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/4",
+    "source_label": "ພະຍາດວໍ້",
+    "source_value": "ພະຍາດວໍ້",
+    "candidate_label": "ພະຍາດວໍ້",
+    "candidate_value": "ພະຍາດວໍ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/5",
+    "source_label": "ພະຍາດລໍຊໍ",
+    "source_value": "ພະຍາດລໍຊໍ",
+    "candidate_label": "ພະຍາດລໍຊໍ",
+    "candidate_value": "ພະຍາດລໍຊໍ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/6",
+    "source_label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "source_value": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "candidate_label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "candidate_value": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/2/fields/0/options/7",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝູ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/3/fields/0/options/0",
+    "source_label": "ພະຍາດວໍ້",
+    "source_value": "ພະຍາດວໍ້",
+    "candidate_label": "ພະຍາດວໍ້",
+    "candidate_value": "ພະຍາດວໍ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝາ, ແມວ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/3/fields/0/options/1",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໝາ, ແມວ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/4/fields/0/options/0",
+    "source_label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "source_value": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "candidate_label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "candidate_value": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໄກ່",
+      "operator": "="
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/4/fields/0/options/1",
+    "source_label": "ພະຍາດນິວຄັດເຊີນ",
+    "source_value": "ພະຍາດນິວຄັດເຊີນ",
+    "candidate_label": "ພະຍາດນິວຄັດເຊີນ",
+    "candidate_value": "ພະຍາດນິວຄັດເຊີນ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໄກ່",
+      "operator": "="
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/4/fields/0/options/2",
+    "source_label": "ພະຍາດອະຫິວາສັດປີກ",
+    "source_value": "ພະຍາດອະຫິວາສັດປີກ",
+    "candidate_label": "ພະຍາດອະຫິວາສັດປີກ",
+    "candidate_value": "ພະຍາດອະຫິວາສັດປີກ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໄກ່",
+      "operator": "="
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/4/fields/0/options/3",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ໄກ່",
+      "operator": "="
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/5/fields/0/options/0",
+    "source_label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "source_value": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "candidate_label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "candidate_value": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ຫ່ານ, ເປັດ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/5/fields/0/options/1",
+    "source_label": "ພະຍາດນິວຄັດເຊີນ",
+    "source_value": "ພະຍາດນິວຄັດເຊີນ",
+    "candidate_label": "ພະຍາດນິວຄັດເຊີນ",
+    "candidate_value": "ພະຍາດນິວຄັດເຊີນ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ຫ່ານ, ເປັດ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/5/fields/0/options/2",
+    "source_label": "ພະຍາດອະຫິວາສັດປີກ",
+    "source_value": "ພະຍາດອະຫິວາສັດປີກ",
+    "candidate_label": "ພະຍາດອະຫິວາສັດປີກ",
+    "candidate_value": "ພະຍາດອະຫິວາສັດປີກ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ຫ່ານ, ເປັດ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/5/fields/0/options/3",
+    "source_label": "ພະຍາດອະຫິວາເປັດ",
+    "source_value": "ພະຍາດອະຫິວາເປັດ",
+    "candidate_label": "ພະຍາດອະຫິວາເປັດ",
+    "candidate_value": "ພະຍາດອະຫິວາເປັດ",
+    "condition": {
+      "name": "animal_species",
+      "value": "ຫ່ານ, ເປັດ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/5/fields/0/options/4",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ຫ່ານ, ເປັດ",
+      "operator": "in"
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "suspected_disease",
+    "path": "/reports/0/definition/sections/1/questions/6/fields/0/options/0",
+    "source_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "source_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "candidate_value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+    "condition": {
+      "name": "animal_species",
+      "value": "ອື່ນໆ",
+      "operator": "="
+    },
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/0",
+    "source_label": "ຖອກທ້ອງ",
+    "source_value": "ຖອກທ້ອງ",
+    "candidate_label": "ຖອກທ້ອງ",
+    "candidate_value": "ຖອກທ້ອງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/1",
+    "source_label": "ທ້ອງອືດ",
+    "source_value": "ທ້ອງອືດ",
+    "candidate_label": "ທ້ອງອືດ",
+    "candidate_value": "ທ້ອງອືດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/2",
+    "source_label": "ອາຈົມເປັນນ້ຳ",
+    "source_value": "ອາຈົມເປັນນ້ຳ",
+    "candidate_label": "ອາຈົມເປັນນ້ຳ",
+    "candidate_value": "ອາຈົມເປັນນ້ຳ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/3",
+    "source_label": "ອາຈົມປົນເລືອດ/ມູກ",
+    "source_value": "ອາຈົມປົນເລືອດ/ມູກ",
+    "candidate_label": "ອາຈົມປົນເລືອດ/ມູກ",
+    "candidate_value": "ອາຈົມປົນເລືອດ/ມູກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/4",
+    "source_label": "ອາຈົມສີຂາວ",
+    "source_value": "ອາຈົມສີຂາວ",
+    "candidate_label": "ອາຈົມສີຂາວ",
+    "candidate_value": "ອາຈົມສີຂາວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "digestive_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/0/fields/0/options/5",
+    "source_label": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ",
+    "source_value": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ",
+    "candidate_label": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ",
+    "candidate_value": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/0",
+    "source_label": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ",
+    "source_value": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ",
+    "candidate_label": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ",
+    "candidate_value": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/1",
+    "source_label": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ",
+    "source_value": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ",
+    "candidate_label": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ",
+    "candidate_value": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/2",
+    "source_label": "ຄໍ ຫຼື ໃບໜ້າບວມ",
+    "source_value": "ຄໍ ຫຼື ໃບໜ້າບວມ",
+    "candidate_label": "ຄໍ ຫຼື ໃບໜ້າບວມ",
+    "candidate_value": "ຄໍ ຫຼື ໃບໜ້າບວມ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/3",
+    "source_label": "ເຍື່ອເມືອກມີສີຊີດຈາງ",
+    "source_value": "ເຍື່ອເມືອກມີສີຊີດຈາງ",
+    "candidate_label": "ເຍື່ອເມືອກມີສີຊີດຈາງ",
+    "candidate_value": "ເຍື່ອເມືອກມີສີຊີດຈາງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/4",
+    "source_label": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ",
+    "source_value": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ",
+    "candidate_label": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ",
+    "candidate_value": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/5",
+    "source_label": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ",
+    "source_value": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ",
+    "candidate_label": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ",
+    "candidate_value": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/6",
+    "source_label": "ເລືອດອອກໃຕ້ຜິວໜັງ",
+    "source_value": "ເລືອດອອກໃຕ້ຜິວໜັງ",
+    "candidate_label": "ເລືອດອອກໃຕ້ຜິວໜັງ",
+    "candidate_value": "ເລືອດອອກໃຕ້ຜິວໜັງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/7",
+    "source_label": "ມີກ້ອນນູນຢູ່ຜິວໜັງ",
+    "source_value": "ມີກ້ອນນູນຢູ່ຜິວໜັງ",
+    "candidate_label": "ມີກ້ອນນູນຢູ່ຜິວໜັງ",
+    "candidate_value": "ມີກ້ອນນູນຢູ່ຜິວໜັງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "skin_external_symptoms",
+    "path": "/reports/0/definition/sections/2/questions/1/fields/0/options/8",
+    "source_label": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)",
+    "source_value": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)",
+    "candidate_label": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)",
+    "candidate_value": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "respiratory_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/0/fields/0/options/0",
+    "source_label": "ໄອ/ຈາມ",
+    "source_value": "ໄອ/ຈາມ",
+    "candidate_label": "ໄອ/ຈາມ",
+    "candidate_value": "ໄອ/ຈາມ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "respiratory_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/0/fields/0/options/1",
+    "source_label": "ມີນ້ຳມູກ",
+    "source_value": "ມີນ້ຳມູກ",
+    "candidate_label": "ມີນ້ຳມູກ",
+    "candidate_value": "ມີນ້ຳມູກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "respiratory_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/0/fields/0/options/2",
+    "source_label": "ຫາຍໃຈລຳບາກ",
+    "source_value": "ຫາຍໃຈລຳບາກ",
+    "candidate_label": "ຫາຍໃຈລຳບາກ",
+    "candidate_value": "ຫາຍໃຈລຳບາກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "respiratory_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/0/fields/0/options/3",
+    "source_label": "ຫາຍໃຈຕິດຂັດ",
+    "source_value": "ຫາຍໃຈຕິດຂັດ",
+    "candidate_label": "ຫາຍໃຈຕິດຂັດ",
+    "candidate_value": "ຫາຍໃຈຕິດຂັດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "respiratory_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/0/fields/0/options/4",
+    "source_label": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ",
+    "source_value": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ",
+    "candidate_label": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ",
+    "candidate_value": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "reproductive_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/1/fields/0/options/0",
+    "source_label": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ",
+    "source_value": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ",
+    "candidate_label": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ",
+    "candidate_value": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "reproductive_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/1/fields/0/options/1",
+    "source_label": "ມີລູກຍາກຍາກ",
+    "source_value": "ມີລູກຍາກຍາກ",
+    "candidate_label": "ມີລູກຍາກຍາກ",
+    "candidate_value": "ມີລູກຍາກຍາກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "reproductive_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/1/fields/0/options/2",
+    "source_label": "ໄຂ່ຫຳບວມ",
+    "source_value": "ໄຂ່ຫຳບວມ",
+    "candidate_label": "ໄຂ່ຫຳບວມ",
+    "candidate_value": "ໄຂ່ຫຳບວມ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "reproductive_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/1/fields/0/options/3",
+    "source_label": "ຍ່ຽວປົນເລືອດ",
+    "source_value": "ຍ່ຽວປົນເລືອດ",
+    "candidate_label": "ຍ່ຽວປົນເລືອດ",
+    "candidate_value": "ຍ່ຽວປົນເລືອດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/0",
+    "source_label": "ຍ່າງໂຊເຊ",
+    "source_value": "ຍ່າງໂຊເຊ",
+    "candidate_label": "ຍ່າງໂຊເຊ",
+    "candidate_value": "ຍ່າງໂຊເຊ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/1",
+    "source_label": "ຍ່າງຂາຫ້ານ",
+    "source_value": "ຍ່າງຂາຫ້ານ",
+    "candidate_label": "ຍ່າງຂາຫ້ານ",
+    "candidate_value": "ຍ່າງຂາຫ້ານ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/2",
+    "source_label": "ແຂນຂາແຂງ",
+    "source_value": "ແຂນຂາແຂງ",
+    "candidate_label": "ແຂນຂາແຂງ",
+    "candidate_value": "ແຂນຂາແຂງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/3",
+    "source_label": "ມີອາການຊັກ/ສັ່ນ",
+    "source_value": "ມີອາການຊັກ/ສັ່ນ",
+    "candidate_label": "ມີອາການຊັກ/ສັ່ນ",
+    "candidate_value": "ມີອາການຊັກ/ສັ່ນ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/4",
+    "source_label": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ",
+    "source_value": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ",
+    "candidate_label": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ",
+    "candidate_value": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/5",
+    "source_label": "ເສຍການຊົງຕົວ",
+    "source_value": "ເສຍການຊົງຕົວ",
+    "candidate_label": "ເສຍການຊົງຕົວ",
+    "candidate_value": "ເສຍການຊົງຕົວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/6",
+    "source_label": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້",
+    "source_value": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້",
+    "candidate_label": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້",
+    "candidate_value": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "nervous_symptoms",
+    "path": "/reports/0/definition/sections/3/questions/2/fields/0/options/7",
+    "source_label": "ຍ່າງໝູນໄປໝູນມາ",
+    "source_value": "ຍ່າງໝູນໄປໝູນມາ",
+    "candidate_label": "ຍ່າງໝູນໄປໝູນມາ",
+    "candidate_value": "ຍ່າງໝູນໄປໝູນມາ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/0",
+    "source_label": "ຕາຍກະທັນຫັນ",
+    "source_value": "ຕາຍກະທັນຫັນ",
+    "candidate_label": "ຕາຍກະທັນຫັນ",
+    "candidate_value": "ຕາຍກະທັນຫັນ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/1",
+    "source_label": "ລຸກຢືນບໍ່ໄດ້",
+    "source_value": "ລຸກຢືນບໍ່ໄດ້",
+    "candidate_label": "ລຸກຢືນບໍ່ໄດ້",
+    "candidate_value": "ລຸກຢືນບໍ່ໄດ້",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/2",
+    "source_label": "ມີໄຂ້",
+    "source_value": "ມີໄຂ້",
+    "candidate_label": "ມີໄຂ້",
+    "candidate_value": "ມີໄຂ້",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/3",
+    "source_label": "ບໍ່ກິນອາຫານ",
+    "source_value": "ບໍ່ກິນອາຫານ",
+    "candidate_label": "ບໍ່ກິນອາຫານ",
+    "candidate_value": "ບໍ່ກິນອາຫານ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/4",
+    "source_label": "ຊຶມ",
+    "source_value": "ຊຶມ",
+    "candidate_label": "ຊຶມ",
+    "candidate_value": "ຊຶມ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/5",
+    "source_label": "ຈ່ອຍຫຼາຍ",
+    "source_value": "ຈ່ອຍຫຼາຍ",
+    "candidate_label": "ຈ່ອຍຫຼາຍ",
+    "candidate_value": "ຈ່ອຍຫຼາຍ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "general_symptoms",
+    "path": "/reports/0/definition/sections/4/questions/0/fields/0/options/6",
+    "source_label": "ເກິດລູກຍາກ",
+    "source_value": "ເກິດລູກຍາກ",
+    "candidate_label": "ເກິດລູກຍາກ",
+    "candidate_value": "ເກິດລູກຍາກ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/0",
+    "source_label": "ເລືອດບໍ່ແຂງຕົວ",
+    "source_value": "ເລືອດບໍ່ແຂງຕົວ",
+    "candidate_label": "ເລືອດບໍ່ແຂງຕົວ",
+    "candidate_value": "ເລືອດບໍ່ແຂງຕົວ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/1",
+    "source_label": "ເລືອດອອກພາຍໃນ",
+    "source_value": "ເລືອດອອກພາຍໃນ",
+    "candidate_label": "ເລືອດອອກພາຍໃນ",
+    "candidate_value": "ເລືອດອອກພາຍໃນ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/2",
+    "source_label": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ",
+    "source_value": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ",
+    "candidate_label": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ",
+    "candidate_value": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/3",
+    "source_label": "ຕັບ/ມ້າມໃຫຍ່",
+    "source_value": "ຕັບ/ມ້າມໃຫຍ່",
+    "candidate_label": "ຕັບ/ມ້າມໃຫຍ່",
+    "candidate_value": "ຕັບ/ມ້າມໃຫຍ່",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/4",
+    "source_label": "ຍ່ຽວປົນເລືອດ",
+    "source_value": "ຍ່ຽວປົນເລືອດ",
+    "candidate_label": "ຍ່ຽວປົນເລືອດ",
+    "candidate_value": "ຍ່ຽວປົນເລືອດ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  },
+  {
+    "field": "abnormalities_carcass",
+    "path": "/reports/0/definition/sections/4/questions/1/fields/0/options/5",
+    "source_label": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ",
+    "source_value": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ",
+    "candidate_label": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ",
+    "candidate_value": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ",
+    "condition": null,
+    "status": "PRESERVED FROM LATEST SEED; linguistic acceptance not inferred"
+  }
+]
