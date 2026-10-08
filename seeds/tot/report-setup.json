@@ -1,0 +1,1119 @@
+{
+  "source": "staging/demo",
+  "captured_on": "2026-09-10",
+  "categories": [
+    {
+      "name": "Animal",
+      "ordering": 10,
+      "icon": ""
+    }
+  ],
+  "states": [
+    {
+      "name": "Default case workflow",
+      "is_default": true,
+      "steps": [
+        {
+          "name": "Open",
+          "is_start_state": true,
+          "is_stop_state": false
+        },
+        {
+          "name": "Closed",
+          "is_start_state": false,
+          "is_stop_state": true
+        }
+      ],
+      "transitions": [
+        {
+          "from": "Open",
+          "to": "Closed",
+          "form_definition": null
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "name": "ສັດປ່ວຍ/ຕາຍ",
+      "definition": {
+        "sections": [
+          {
+            "label": "ສັດ",
+            "questions": [
+              {
+                "label": "ຊະນິດສັດ",
+                "fields": [
+                  {
+                    "id": "animal_species",
+                    "name": "animal_species",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ງົວ",
+                        "value": "ງົວ"
+                      },
+                      {
+                        "label": "ຄວາຍ",
+                        "value": "ຄວາຍ"
+                      },
+                      {
+                        "label": "ໝູ",
+                        "value": "ໝູ"
+                      },
+                      {
+                        "label": "ແກະ",
+                        "value": "ແກະ"
+                      },
+                      {
+                        "label": "ແບ້",
+                        "value": "ແບ້"
+                      },
+                      {
+                        "label": "ໝາ",
+                        "value": "ໝາ"
+                      },
+                      {
+                        "label": "ແມວ",
+                        "value": "ແມວ"
+                      },
+                      {
+                        "label": "ໄກ່",
+                        "value": "ໄກ່"
+                      },
+                      {
+                        "label": "ເປັດ",
+                        "value": "ເປັດ"
+                      },
+                      {
+                        "label": "ຫ່ານ",
+                        "value": "ຫ່ານ"
+                      },
+                      {
+                        "label": "ອື່ນໆ",
+                        "value": "ອື່ນໆ",
+                        "textInput": true
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ກຸ່ມອາຍຸ",
+                "fields": [
+                  {
+                    "id": "animal_age_groups",
+                    "name": "animal_age_groups",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ສັດແຮກເກີດ",
+                        "value": "ສັດແຮກເກີດ"
+                      },
+                      {
+                        "label": "ສັດອາຍຸນ້ອຍ",
+                        "value": "ສັດອາຍຸນ້ອຍ"
+                      },
+                      {
+                        "label": "ສັດໂຕເຕັມໄວ",
+                        "value": "ສັດໂຕເຕັມໄວ"
+                      },
+                      {
+                        "label": "ສັດສູງອາຍຸ",
+                        "value": "ສັດສູງອາຍຸ"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "description": "ກະລຸນາເລືອກກຸ່ມອາຍຸ"
+              },
+              {
+                "label": "ເພດ",
+                "fields": [
+                  {
+                    "id": "animal_sex",
+                    "name": "animal_sex",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ເພດຜູ້",
+                        "value": "ເພດຜູ້"
+                      },
+                      {
+                        "label": "ເພດແມ່",
+                        "value": "ເພດແມ່"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "description": "ເລືອກເພດຂອງສັດ"
+              }
+            ]
+          },
+          {
+            "label": "ພະຍາດທີ່ສົງໄສ",
+            "questions": [
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດປາກເປືອຍລົງເລັບ",
+                        "value": "ພະຍາດປາກເປືອຍລົງເລັບ"
+                      },
+                      {
+                        "label": "ພະຍາດເຕົ້າໂຮມເລຶອດ",
+                        "value": "ພະຍາດເຕົ້າໂຮມເລຶອດ"
+                      },
+                      {
+                        "label": "ພະຍາດໄຂ້ເລຶອດດໍາ",
+                        "value": "ພະຍາດໄຂ້ເລຶອດດໍາ"
+                      },
+                      {
+                        "label": "ພະຍາດໄຂ້ບວມ",
+                        "value": "ພະຍາດໄຂ້ບວມ"
+                      },
+                      {
+                        "label": "ພະຍາດຜິວໜັງອັກເສບ",
+                        "value": "ພະຍາດຜິວໜັງອັກເສບ"
+                      },
+                      {
+                        "label": "ພະຍາດຍ່ຽວໜູ",
+                        "value": "ພະຍາດຍ່ຽວໜູ"
+                      },
+                      {
+                        "label": "ພະຍາດວໍ້",
+                        "value": "ພະຍາດວໍ້"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ງົວ, ຄວາຍ",
+                  "operator": "in"
+                },
+                "description": "ງົວ/ຄວາຍ"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດວໍ້",
+                        "value": "ພະຍາດວໍ້"
+                      },
+                      {
+                        "label": "ພະຍາດຍ່ຽວໜູ",
+                        "value": "ພະຍາດຍ່ຽວໜູ"
+                      },
+                      {
+                        "label": "ພະຍາດອະຫິວາ",
+                        "value": "ພະຍາດອະຫິວາ"
+                      },
+                      {
+                        "label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+                        "value": "ພະຍາດປາກເປື່ອຍລົງເລັບ"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ແກະ, ແບ້",
+                  "operator": "in"
+                },
+                "description": "ແກະ/ແບ້"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດອະຫິວາໝູ",
+                        "value": "ພະຍາດອະຫິວາໝູ"
+                      },
+                      {
+                        "label": "ພະຍາດອະຫິວາໝູອາຟີກາ",
+                        "value": "ພະຍາດອະຫິວາໝູອາຟີກາ"
+                      },
+                      {
+                        "label": "ພະຍາດຫູກໍ່າໝູ -PRRS",
+                        "value": "ພະຍາດຫູກໍ່າໝູ -PRRS"
+                      },
+                      {
+                        "label": "ພະຍາດຍ່ຽວໜູ",
+                        "value": "ພະຍາດຍ່ຽວໜູ"
+                      },
+                      {
+                        "label": "ພະຍາດວໍ້",
+                        "value": "ພະຍາດວໍ້"
+                      },
+                      {
+                        "label": "ພະຍາດລໍຊໍ",
+                        "value": "ພະຍາດລໍຊໍ"
+                      },
+                      {
+                        "label": "ພະຍາດປາກເປື່ອຍລົງເລັບ",
+                        "value": "ພະຍາດປາກເປື່ອຍລົງເລັບ"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ໝູ",
+                  "operator": "in"
+                },
+                "description": "ໝູ"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດວໍ້",
+                        "value": "ພະຍາດວໍ້"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ໝາ, ແມວ",
+                  "operator": "in"
+                },
+                "description": "ໝາ/ແມວ"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+                        "value": "ພະຍາດໄຂ້ຫວັດສັດປີກ"
+                      },
+                      {
+                        "label": "ພະຍາດນິວຄັດເຊີນ",
+                        "value": "ພະຍາດນິວຄັດເຊີນ"
+                      },
+                      {
+                        "label": "ພະຍາດອະຫິວາສັດປີກ",
+                        "value": "ພະຍາດອະຫິວາສັດປີກ"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ໄກ່",
+                  "operator": "="
+                },
+                "description": "ໄກ່"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ພະຍາດໄຂ້ຫວັດສັດປີກ",
+                        "value": "ພະຍາດໄຂ້ຫວັດສັດປີກ"
+                      },
+                      {
+                        "label": "ພະຍາດນິວຄັດເຊີນ",
+                        "value": "ພະຍາດນິວຄັດເຊີນ"
+                      },
+                      {
+                        "label": "ພະຍາດອະຫິວາສັດປີກ",
+                        "value": "ພະຍາດອະຫິວາສັດປີກ"
+                      },
+                      {
+                        "label": "ພະຍາດອະຫິວາເປັດ",
+                        "value": "ພະຍາດອະຫິວາເປັດ"
+                      },
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ຫ່ານ, ເປັດ",
+                  "operator": "in"
+                },
+                "description": "ຫ່ານ/ເປັດ"
+              },
+              {
+                "label": "ພະຍາດ",
+                "fields": [
+                  {
+                    "id": "suspected_disease",
+                    "name": "suspected_disease",
+                    "type": "singlechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້",
+                        "value": "ຂ້ອຍບໍ່ສາມາດລະບຸພະຍາດໄດ້"
+                      }
+                    ],
+                    "required": true
+                  }
+                ],
+                "condition": {
+                  "name": "animal_species",
+                  "value": "ອື່ນໆ",
+                  "operator": "="
+                },
+                "description": "ອື່ນໆ"
+              }
+            ]
+          },
+          {
+            "label": "ອາການ",
+            "questions": [
+              {
+                "label": "ລະບົບທາງເດີນອາຫານ",
+                "fields": [
+                  {
+                    "id": "digestive_symptoms",
+                    "name": "digestive_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ຖອກທ້ອງ",
+                        "value": "ຖອກທ້ອງ"
+                      },
+                      {
+                        "label": "ທ້ອງອືດ",
+                        "value": "ທ້ອງອືດ"
+                      },
+                      {
+                        "label": "ອາຈົມເປັນນ້ຳ",
+                        "value": "ອາຈົມເປັນນ້ຳ"
+                      },
+                      {
+                        "label": "ອາຈົມປົນເລືອດ/ມູກ",
+                        "value": "ອາຈົມປົນເລືອດ/ມູກ"
+                      },
+                      {
+                        "label": "ອາຈົມສີຂາວ",
+                        "value": "ອາຈົມສີຂາວ"
+                      },
+                      {
+                        "label": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ",
+                        "value": "ນ້ຳລາຍໄຫຼຫຼາຍຜິດປົກກະຕິ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ລະບົບຜິວຫນັງ",
+                "fields": [
+                  {
+                    "id": "skin_external_symptoms",
+                    "name": "skin_external_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ",
+                        "value": "ຜິວໜັງແຫ້ງ/ຂົນຫຍອງ"
+                      },
+                      {
+                        "label": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ",
+                        "value": "ມີຕຸ່ມພອງ ຫຼື ບາດແຜຢູ່ປາກ, ຕີນ ຫຼື ເຕົ້ານົມ"
+                      },
+                      {
+                        "label": "ຄໍ ຫຼື ໃບໜ້າບວມ",
+                        "value": "ຄໍ ຫຼື ໃບໜ້າບວມ"
+                      },
+                      {
+                        "label": "ເຍື່ອເມືອກມີສີຊີດຈາງ",
+                        "value": "ເຍື່ອເມືອກມີສີຊີດຈາງ"
+                      },
+                      {
+                        "label": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ",
+                        "value": "ມີບາດແຜຕາມຜິວໜັງ ຫຼື ເຍື່ອບຸ ຫຼື ຊ່ອງປາກເຫຼືອງ"
+                      },
+                      {
+                        "label": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ",
+                        "value": "ຕ່ອມນ້ຳເຫຼືອງບວມ ຫຼື ໃຫຍ່ຂຶ້ນ"
+                      },
+                      {
+                        "label": "ເລືອດອອກໃຕ້ຜິວໜັງ",
+                        "value": "ເລືອດອອກໃຕ້ຜິວໜັງ"
+                      },
+                      {
+                        "label": "ມີກ້ອນນູນຢູ່ຜິວໜັງ",
+                        "value": "ມີກ້ອນນູນຢູ່ຜິວໜັງ"
+                      },
+                      {
+                        "label": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)",
+                        "value": "ສີຜິວປ່ຽນແປງ (ແດງ/ຂຽວຄ້ຳ)"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          },
+          {
+            "label": "ອາການ",
+            "questions": [
+              {
+                "label": "ລະບົບທາງເດີນຫາຍໃຈ",
+                "fields": [
+                  {
+                    "id": "respiratory_symptoms",
+                    "name": "respiratory_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ໄອ/ຈາມ",
+                        "value": "ໄອ/ຈາມ"
+                      },
+                      {
+                        "label": "ມີນ້ຳມູກ",
+                        "value": "ມີນ້ຳມູກ"
+                      },
+                      {
+                        "label": "ຫາຍໃຈລຳບາກ",
+                        "value": "ຫາຍໃຈລຳບາກ"
+                      },
+                      {
+                        "label": "ຫາຍໃຈຕິດຂັດ",
+                        "value": "ຫາຍໃຈຕິດຂັດ"
+                      },
+                      {
+                        "label": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ",
+                        "value": "ຫາຍໃຈຫອບ/ຫາຍໃຈຜືດ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ລະບົບສືບພັນ",
+                "fields": [
+                  {
+                    "id": "reproductive_symptoms",
+                    "name": "reproductive_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ",
+                        "value": "ມີອາການສ່ຽງຕໍ່ການແທງລູກ"
+                      },
+                      {
+                        "label": "ມີລູກຍາກຍາກ",
+                        "value": "ມີລູກຍາກຍາກ"
+                      },
+                      {
+                        "label": "ໄຂ່ຫຳບວມ",
+                        "value": "ໄຂ່ຫຳບວມ"
+                      },
+                      {
+                        "label": "ຍ່ຽວປົນເລືອດ",
+                        "value": "ຍ່ຽວປົນເລືອດ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ລະບົບປະສາດ",
+                "fields": [
+                  {
+                    "id": "nervous_symptoms",
+                    "name": "nervous_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ຍ່າງໂຊເຊ",
+                        "value": "ຍ່າງໂຊເຊ"
+                      },
+                      {
+                        "label": "ຍ່າງຂາຫ້ານ",
+                        "value": "ຍ່າງຂາຫ້ານ"
+                      },
+                      {
+                        "label": "ແຂນຂາແຂງ",
+                        "value": "ແຂນຂາແຂງ"
+                      },
+                      {
+                        "label": "ມີອາການຊັກ/ສັ່ນ",
+                        "value": "ມີອາການຊັກ/ສັ່ນ"
+                      },
+                      {
+                        "label": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ",
+                        "value": "ຕື່ນຕົກໃຈງ່າຍເມື່ອຖືກແສງ ຫຼື ສຽງ"
+                      },
+                      {
+                        "label": "ເສຍການຊົງຕົວ",
+                        "value": "ເສຍການຊົງຕົວ"
+                      },
+                      {
+                        "label": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້",
+                        "value": "ອຳມະພາດ/ເຄື່ອນໄຫວບໍ່ໄດ້"
+                      },
+                      {
+                        "label": "ຍ່າງໝູນໄປໝູນມາ",
+                        "value": "ຍ່າງໝູນໄປໝູນມາ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          },
+          {
+            "label": "ອາການ",
+            "questions": [
+              {
+                "label": "ອາການທົ່ວໄປ",
+                "fields": [
+                  {
+                    "id": "general_symptoms",
+                    "name": "general_symptoms",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ຕາຍກະທັນຫັນ",
+                        "value": "ຕາຍກະທັນຫັນ"
+                      },
+                      {
+                        "label": "ລຸກຢືນບໍ່ໄດ້",
+                        "value": "ລຸກຢືນບໍ່ໄດ້"
+                      },
+                      {
+                        "label": "ມີໄຂ້",
+                        "value": "ມີໄຂ້"
+                      },
+                      {
+                        "label": "ບໍ່ກິນອາຫານ",
+                        "value": "ບໍ່ກິນອາຫານ"
+                      },
+                      {
+                        "label": "ຊຶມ",
+                        "value": "ຊຶມ"
+                      },
+                      {
+                        "label": "ຈ່ອຍຫຼາຍ",
+                        "value": "ຈ່ອຍຫຼາຍ"
+                      },
+                      {
+                        "label": "ເກິດລູກຍາກ",
+                        "value": "ເກິດລູກຍາກ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ລັກສະນະພາຍໃນ",
+                "fields": [
+                  {
+                    "id": "abnormalities_carcass",
+                    "name": "abnormalities_carcass",
+                    "type": "multiplechoices",
+                    "label": "",
+                    "options": [
+                      {
+                        "label": "ເລືອດບໍ່ແຂງຕົວ",
+                        "value": "ເລືອດບໍ່ແຂງຕົວ"
+                      },
+                      {
+                        "label": "ເລືອດອອກພາຍໃນ",
+                        "value": "ເລືອດອອກພາຍໃນ"
+                      },
+                      {
+                        "label": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ",
+                        "value": "ມີຝີກະຈາຍທົ່ວຮ່າງກາຍ"
+                      },
+                      {
+                        "label": "ຕັບ/ມ້າມໃຫຍ່",
+                        "value": "ຕັບ/ມ້າມໃຫຍ່"
+                      },
+                      {
+                        "label": "ຍ່ຽວປົນເລືອດ",
+                        "value": "ຍ່ຽວປົນເລືອດ"
+                      },
+                      {
+                        "label": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ",
+                        "value": "ຊາກສັດຊີດ/ມີອາການເຫຼືອງ"
+                      }
+                    ],
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ບໍ່ຮູ້ອາການ",
+                "fields": [
+                  {
+                    "id": "unknown_symptoms",
+                    "name": "unknown_symptoms",
+                    "rows": 3,
+                    "type": "textarea",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          },
+          {
+            "label": "ຮູບພາບ",
+            "questions": [
+              {
+                "label": "ຖ່າຍຮູບສັດ",
+                "fields": [
+                  {
+                    "id": "animal_photos",
+                    "max": 10,
+                    "name": "animal_photos",
+                    "type": "images",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          },
+          {
+            "label": "ລາຍລະອຽດເຫດການ",
+            "questions": [
+              {
+                "label": "ວັນທີພົບເຫດການ",
+                "fields": [
+                  {
+                    "id": "incident_date",
+                    "name": "incident_date",
+                    "tags": "incident_date",
+                    "type": "date",
+                    "label": "",
+                    "required": false,
+                    "withTime": false,
+                    "separatedFields": false
+                  }
+                ],
+                "description": "ວັນທີສັດເລີ່ມເກິດພະຍາດ"
+              }
+            ]
+          },
+          {
+            "label": "ຈຳນວນສັດ",
+            "questions": [
+              {
+                "label": "ຄອບຄົວທີ່ມີຜົນກະທົບ",
+                "fields": [
+                  {
+                    "id": "num_household",
+                    "min": 0,
+                    "name": "num_household",
+                    "type": "integer",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດທັງໝົດ",
+                "fields": [
+                  {
+                    "id": "num_total_animal",
+                    "min": 0,
+                    "name": "num_total_animal",
+                    "type": "integer",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": "ຈໍານວນສັດທັງໝົດຈາກຄອບຄົວທີ່ຕິດເຊື້ອ"
+              },
+              {
+                "label": "ຈຳນວນສັດປ່ວຍ",
+                "fields": [
+                  {
+                    "id": "num_sick",
+                    "min": 0,
+                    "name": "num_sick",
+                    "type": "integer",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດຕາຍ",
+                "fields": [
+                  {
+                    "id": "num_dead",
+                    "min": 0,
+                    "name": "num_dead",
+                    "type": "integer",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດຫາຍປ່ວຍ",
+                "fields": [
+                  {
+                    "id": "num_recover",
+                    "min": 0,
+                    "name": "num_recover",
+                    "type": "integer",
+                    "label": "",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          }
+        ],
+        "subforms": {}
+      },
+      "followup_definition": {
+        "sections": [
+          {
+            "label": "ຈຳນວນສັດ",
+            "questions": [
+              {
+                "label": "ຄອບຄົວທີ່ມີຜົນກະທົບ",
+                "fields": [
+                  {
+                    "id": "num_household",
+                    "min": 0,
+                    "name": "num_household",
+                    "type": "integer",
+                    "label": "ຄອບຄົວທີ່ມີຜົນກະທົບ",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດທັງໝົດ",
+                "fields": [
+                  {
+                    "id": "num_total_animal",
+                    "min": 0,
+                    "name": "num_total_animal",
+                    "type": "integer",
+                    "label": "ຈຳນວນສັດທັງໝົດ",
+                    "required": false
+                  }
+                ],
+                "description": "ຈຳນວນສັດທັງໝົດຈາກຄອບຄົວທີ່ໄດ້ຮັບຜົນກະທົບ"
+              },
+              {
+                "label": "ຈຳນວນສັດປ່ວຍ",
+                "fields": [
+                  {
+                    "id": "num_sick",
+                    "min": 0,
+                    "name": "num_sick",
+                    "type": "integer",
+                    "label": "ຈຳນວນສັດປ່ວຍ",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດຕາຍ",
+                "fields": [
+                  {
+                    "id": "num_dead",
+                    "min": 0,
+                    "name": "num_dead",
+                    "type": "integer",
+                    "label": "ຈຳນວນສັດຕາຍ",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              },
+              {
+                "label": "ຈຳນວນສັດຫາຍປ່ວຍ",
+                "fields": [
+                  {
+                    "id": "num_recover",
+                    "min": 0,
+                    "name": "num_recover",
+                    "type": "integer",
+                    "label": "ຈຳນວນສັດຫາຍປ່ວຍ",
+                    "required": false
+                  }
+                ],
+                "description": ""
+              }
+            ]
+          }
+        ],
+        "subforms": {}
+      },
+      "metric_accumulation": {
+        "metrics": [
+          {
+            "id": "num_household",
+            "op": "sum",
+            "type": "integer",
+            "label": "ຄອບຄົວທີ່ມີຜົນກະທົບ",
+            "reportField": "num_household",
+            "followupField": "num_household"
+          },
+          {
+            "id": "num_total_animal",
+            "op": "sum",
+            "type": "integer",
+            "label": "ຈຳນວນສັດທັງໝົດ",
+            "reportField": "num_total_animal",
+            "followupField": "num_total_animal"
+          },
+          {
+            "id": "num_sick",
+            "op": "sum",
+            "type": "integer",
+            "label": "ຈຳນວນສັດປ່ວຍ",
+            "reportField": "num_sick",
+            "followupField": "num_sick"
+          },
+          {
+            "id": "num_dead",
+            "op": "sum",
+            "type": "integer",
+            "label": "ຈຳນວນສັດຕາຍ",
+            "reportField": "num_dead",
+            "followupField": "num_dead"
+          },
+          {
+            "id": "num_recover",
+            "op": "sum",
+            "type": "integer",
+            "label": "ຈຳນວນສັດຫາຍປ່ວຍ",
+            "reportField": "num_recover",
+            "followupField": "num_recover"
+          }
+        ],
+        "version": 1
+      },
+      "close_definition": {
+        "id": "animal-sick-death-close",
+        "version": 1,
+        "sections": [
+          {
+            "label": "Close case",
+            "questions": [
+              {
+                "label": "ຜົນການວິໄຈ",
+                "fields": [
+                  {
+                    "id": "test_result",
+                    "name": "test_result",
+                    "rows": 4,
+                    "type": "textarea",
+                    "required": true,
+                    "requiredMessage": "Test result is required to close this case"
+                  }
+                ],
+                "description": "ລະບຸບັນທຶກຈາກຫ້ອງວິໄຈ ຫຼື ເລກອ້າງອີງ ຖ້າຈຳເປັນ. ແນບໄຟລ໌ຈາກຫ້ອງວິໄຈຜ່ານສ່ວນຄຳຄິດເຫັນ (Comments)."
+              },
+              {
+                "label": "ການຂ້າທໍາລາຍ",
+                "fields": [
+                  {
+                    "id": "stamp_out",
+                    "min": 0,
+                    "name": "stamp_out",
+                    "type": "integer",
+                    "required": true,
+                    "minMessage": "Must be 0 or greater",
+                    "requiredMessage": "Stamped out count is required to close this case"
+                  }
+                ],
+                "description": "ໃສ່ຈຳນວນສັດຊະນິດນີ້ທີ່ຖືກຂ້າທຳລາຍ. ຖ້າບໍ່ມີ ໃຫ້ໃສ່ 0."
+              }
+            ],
+            "description": "Complete these fields when finishing the case. Closing saves them and sets the stopped date."
+          }
+        ],
+        "subforms": []
+      },
+      "renderer_data_template": "{% with s=data.animal_species|default:\"ສັດ\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 recovered=data.num_recover|default:0 total=data.num_total_animal|default:0 disease=data.suspected_disease|default:\"\" age_groups=data.animal_age_groups.value sex=data.animal_sex.value hh=data.num_household|default:0 %}{{ s }}{% if data.animal_species_text %} - {{ data.animal_species_text }}{% endif %}: ປ່ວຍ {{ sick }} ໂຕ · ຕາຍ {{ dead }} ໂຕ · ຫາຍປ່ວຍ {{ recovered }} ໂຕ · ທັງໝົດ {{ total }} ໂຕ{% if disease %} · {{ disease }}{% endif %}{% if age_groups %} · ກຸ່ມອາຍຸ {{ age_groups }}{% endif %}{% if sex %} · ເພດ {{ sex }}{% endif %} · ຄອບຄົວທີ່ມີຜົນກະທົບ {{ hh }}{% if data.digestive_symptoms.value %} · {{ data.digestive_symptoms.value }}{% endif %}{% if data.respiratory_symptoms.value %} · {{ data.respiratory_symptoms.value }}{% endif %}{% if data.skin_external_symptoms.value %} · {{ data.skin_external_symptoms.value }}{% endif %}{% if data.general_symptoms.value %} · {{ data.general_symptoms.value }}{% endif %}{% if data.nervous_symptoms.value %} · {{ data.nervous_symptoms.value }}{% endif %}{% if data.reproductive_symptoms.value %} · {{ data.reproductive_symptoms.value }}{% endif %}{% if data.abnormalities_carcass.value %} · {{ data.abnormalities_carcass.value }}{% endif %}{% if data.unknown_symptoms %} · {{ data.unknown_symptoms }}{% endif %} · ວັນທີເກີດເຫດ {{ incident_date|date:\"d/m/Y\" }}{% endwith %}",
+      "renderer_followup_data_template": "{% with s=incident_data.animal_species|default:\"ສັດ\" sick=data.num_sick|default:0 dead=data.num_dead|default:0 recovered=data.num_recover|default:0 total=data.num_total_animal|default:0 hh=data.num_household|default:0 %}{{ s }}{% if incident_data.animal_species_text %} - {{ incident_data.animal_species_text }}{% endif %} ຕິດຕາມ: ປ່ວຍ {{ sick }} ໂຕ · ຕາຍ {{ dead }} ໂຕ · ຫາຍປ່ວຍ {{ recovered }} ໂຕ · ທັງໝົດ {{ total }} ໂຕ · ຄອບຄົວທີ່ມີຜົນກະທົບ {{ hh }}{% endwith %}",
+      "ordering": 10,
+      "published": true,
+      "is_followable": true,
+      "category": "Animal",
+      "state_definition": null,
+      "state_mappings": [
+        "Default case workflow"
+      ],
+      "authority_codes": [
+        "LA"
+      ]
+    }
+  ],
+  "configurations": [
+    {
+      "key": "features.village_enabled",
+      "value": "enable"
+    },
+    {
+      "key": "features.report_use_village_location_fallback",
+      "value": "enable"
+    },
+    {
+      "key": "mobile.consent.msg",
+      "value": "<h3 style=\"color:#0F8A82\">Privacy notice</h3>\n<p><i>LAHIS demo — for local testing and training</i></p>\n<hr />\n<p>\n  This notice explains how the LAHIS / One Health Toolkit mobile app collects and uses\n  personal information when you register and submit animal health reports.\n</p>\n\n<h3 style=\"color:#0F8A82\">Information we collect</h3>\n<p>\n  1. Account details you provide at registration (for example name, telephone, email, village,\n  and optional gender or age when required by your organisation).\n</p>\n<p>\n  2. Report and census data you submit through the app (animal health observations, locations,\n  photos, and related form answers).\n</p>\n<p>\n  3. Technical information needed to keep the service secure (device identifiers used for\n  notifications, and authentication tokens).\n</p>\n\n<h3 style=\"color:#0F8A82\">How we use the information</h3>\n<p>\n  1. To create and manage your reporter account and village assignment.\n</p>\n<p>\n  2. To receive, review, and respond to animal health reports and related follow-up work.\n</p>\n<p>\n  3. To produce aggregated statistics and situation summaries for authorised One Health staff.\n</p>\n<p>\n  4. We use only what is necessary for these purposes. We do not sell your personal information.\n</p>\n\n<h3 style=\"color:#0F8A82\">Sharing and protection</h3>\n<p>\n  1. Information may be shared with authorised officers and partner organisations that operate\n  this surveillance system for your area.\n</p>\n<p>\n  2. Access is limited to people who need it for their role. Communication with the server uses\n  encrypted transport (HTTPS).\n</p>\n<p>\n  3. If external service providers process data on our behalf, they must protect it and must not\n  use it for other purposes.\n</p>\n\n<h3 style=\"color:#0F8A82\">Your agreement</h3>\n<p>\n  By accepting this notice you confirm that you understand how your information is used for\n  community animal health reporting in this demo environment. Contact your local system\n  administrator if you have questions about this policy.\n</p>\n"
+    },
+    {
+      "key": "mobile.consent.accept.msg",
+      "value": "By tapping Agree, you accept the terms above and acknowledge the privacy notice."
+    },
+    {
+      "key": "mobile.register.gender.required",
+      "value": "true"
+    },
+    {
+      "key": "mobile.register.age.required",
+      "value": "true"
+    },
+    {
+      "key": "cases.auto_close_days",
+      "value": "21"
+    },
+    {
+      "key": "integrations.enabled",
+      "value": "enable"
+    },
+    {
+      "key": "integrations.ai_enabled",
+      "value": "enable"
+    },
+    {
+      "key": "integrations.risk_evaluator_enabled",
+      "value": "enable"
+    },
+    {
+      "key": "integrations.cluster_detector_enabled",
+      "value": "enable"
+    },
+    {
+      "key": "integrations.dashboard_risk_window_days",
+      "value": "7"
+    },
+    {
+      "key": "features.report_restrict_to_assigned_scope",
+      "value": "enable"
+    },
+    {
+      "key": "features.animal_census_enabled",
+      "value": "enable"
+    },
+    {
+      "key": "cases.lahis_summarized_report_type_name",
+      "value": "ສັດປ່ວຍ/ຕາຍ"
+    }
+  ],
+  "user_configurations": [
+    {
+      "key": "integrations.ai_default_comment_owner_user_id",
+      "username": "superadmin"
+    }
+  ]
+}

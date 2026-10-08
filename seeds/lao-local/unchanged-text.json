@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/reports/0/close_definition/sections/0/label",
+    "text": "Close case",
+    "status": "OUT OF SCOPE / OPEN Q05"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/0/fields/0/requiredMessage",
+    "text": "Test result is required to close this case",
+    "status": "OUT OF SCOPE / OPEN Q05"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/1/fields/0/minMessage",
+    "text": "Must be 0 or greater",
+    "status": "OUT OF SCOPE / OPEN Q05"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/questions/1/fields/0/requiredMessage",
+    "text": "Stamped out count is required to close this case",
+    "status": "OUT OF SCOPE / OPEN Q05"
+  },
+  {
+    "path": "/reports/0/close_definition/sections/0/description",
+    "text": "Complete these fields when finishing the case. Closing saves them and sets the stopped date.",
+    "status": "OPEN Q02/Q03"
+  }
+]
