@@ -22,6 +22,8 @@ baseline = json.loads(source_bytes)
 candidate = json.loads((ROOT / 'seeds/tot/report-setup.json').read_text())
 loader = runpy.run_path(str(ROOT / 'scripts/apply-report-configuration.py'))['read_seed']
 config = loader(ROOT / 'seeds/tot')
+audit_raw = runpy.run_path(str(ROOT / 'scripts/apply-report-configuration.py'))['read_audit_configuration'](ROOT / 'seeds/tot')
+assert json.loads(audit_raw)['reason'] == 'ເຫດຜົນ'
 settings.configure(USE_I18N=False, USE_L10N=False)
 engine = Engine()
 
@@ -44,7 +46,7 @@ def differences(old, new, path=''):
 actual = list(differences(baseline, candidate))
 recorded = json.loads((SEED / 'property-diff.json').read_text())
 assert actual == [{k: r[k] for k in ['path', 'before', 'after']} for r in recorded]
-assert len(actual) == 13
+assert len(actual) == 14
 assert config['name'] == 'ສັດປ່ວຍ/ຕາຍ'
 # Exact deep equality proves latest vocabulary, IDs, constraints and structure are retained.
 for key in ['definition', 'followup_definition']:
@@ -52,13 +54,13 @@ for key in ['definition', 'followup_definition']:
 for change in actual:
     p = change['path']
     assert p in ['/reports/0/name', '/reports/0/renderer_data_template',
-                 '/reports/0/renderer_followup_data_template', '/configurations/14',
+                 '/reports/0/renderer_followup_data_template', '/configurations/14', '/configurations/15',
                  '/reports/0/close_definition/sections/0/questions/0/description',
                  '/reports/0/close_definition/sections/0/questions/1/description'] or (
                  ('/metric_accumulation/metrics/' in p or '/close_definition/sections/' in p)
                  and p.endswith('/label')), p
 # Full snapshot preserves unrelated workflow, authority/flag and tenant config content.
-assert candidate['configurations'][:-1] == baseline['configurations']
+assert candidate['configurations'][:-2] == baseline['configurations']
 for key in ['source', 'captured_on', 'categories', 'states', 'user_configurations']:
     assert candidate[key] == baseline[key], key
 for key in ['ordering', 'published', 'is_followable', 'category', 'state_definition', 'state_mappings', 'authority_codes']:

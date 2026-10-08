@@ -12,6 +12,7 @@ CONFIG_FIELDS = (
 )
 TEXT_FIELDS = ("name", "renderer_data_template", "renderer_followup_data_template")
 CONFIG_KEY = "cases.lahis_summarized_report_type_name"
+AUDIT_KEY = "cases.close_audit_messages"
 
 
 def read_seed(seed_dir):
@@ -26,6 +27,22 @@ def read_seed(seed_dir):
     if selectors != [{"key": CONFIG_KEY, "value": result["name"]}]:
         raise ValueError("Expected exactly one matching summarized report type selector")
     return result
+
+
+def read_audit_configuration(seed_dir):
+    setup = json.loads((Path(seed_dir) / "report-setup.json").read_text(encoding="utf-8"))
+    rows = [c for c in setup.get("configurations", []) if c.get("key") == AUDIT_KEY]
+    if len(rows) != 1:
+        raise ValueError("Expected exactly one close audit message configuration")
+    raw = rows[0]["value"]
+    messages = json.loads(raw)
+    expected = {"close_case", "false_positive", "automatic_close", "complete_after_auto_close",
+                "superuser_edit", "no_close_data", "reason"}
+    if not isinstance(messages, dict) or set(messages) != expected or any(
+        not isinstance(value, str) or not value.strip() for value in messages.values()
+    ):
+        raise ValueError("Expected all seven nonempty close audit messages")
+    return raw
 
 
 def serialized(value):
@@ -43,6 +60,7 @@ def main(argv=None):
     if args.apply and not args.expected_preview:
         parser.error("--apply requires --expected-preview from a reviewed preview")
     proposed = read_seed(args.seed_dir)
+    proposed_configs = {CONFIG_KEY: proposed["name"], AUDIT_KEY: read_audit_configuration(args.seed_dir)}
 
     from django.db import connection, transaction
     from django.template import Context, Template
@@ -58,20 +76,24 @@ def main(argv=None):
         Template(proposed[key]).render(Context({}))
     with schema_context(args.tenant), transaction.atomic():
         rt = ReportType.objects.select_for_update().get(pk=args.report_type_id)
-        config = Configuration.objects.select_for_update().filter(key=CONFIG_KEY).first()
+        configs = {c.key: c for c in Configuration._base_manager.select_for_update().filter(key__in=proposed_configs)}
         current = {key: getattr(rt, key) for key in proposed}
         # Include identity, flags, workflow, timestamps and authority links in the guard.
         snapshot = {f.attname: getattr(rt, f.attname) for f in rt._meta.concrete_fields}
         snapshot["authorities"] = sorted(str(x) for x in rt.authorities.values_list("pk", flat=True))
-        config_before = None if config is None else config.value
+        config_before = {key: None if key not in configs else {
+            "value": configs[key].value, "deleted_at": configs[key].deleted_at,
+        } for key in proposed_configs}
         guard = {
             "database": connection.settings_dict["NAME"], "tenant": args.tenant,
             "report_type": snapshot, "configuration_before": config_before,
-            "proposed": proposed, "configuration_after": proposed["name"],
+            "proposed": proposed, "configuration_after": proposed_configs,
         }
         digest = hashlib.sha256(serialized(guard).encode()).hexdigest()
-        before = {"report_type": current, "configuration": {CONFIG_KEY: config_before}}
-        after = {"report_type": proposed, "configuration": {CONFIG_KEY: proposed["name"]}}
+        before = {"report_type": current, "configuration": config_before}
+        after = {"report_type": proposed, "configuration": {
+            key: {"value": value, "deleted_at": None} for key, value in proposed_configs.items()
+        }}
         print("database:", guard["database"], "tenant:", args.tenant, "report_type:", rt.pk)
         print("preview_sha256:", digest)
         print("".join(difflib.unified_diff(
@@ -80,9 +102,11 @@ def main(argv=None):
             fromfile="current", tofile="seed",
         )))
         changed = [key for key in proposed if current[key] != proposed[key]]
-        config_changed = config_before != proposed["name"]
+        config_changed = [key for key, value in proposed_configs.items() if
+                          key not in configs or configs[key].value != value or configs[key].deleted_at is not None]
         if not args.apply:
             print("PREVIEW ONLY; changed report fields:", ", ".join(changed) or "none")
+            print("changed configuration keys:", ", ".join(config_changed) or "none")
             return
         if digest != args.expected_preview:
             raise ValueError("Preview changed; inspect a fresh preview before applying")
@@ -90,8 +114,10 @@ def main(argv=None):
             for key in changed:
                 setattr(rt, key, proposed[key])
             rt.save(update_fields=changed + ["updated_at"])
-        if config_changed:
-            Configuration.objects.update_or_create(key=CONFIG_KEY, defaults={"value": proposed["name"]})
+        for key in config_changed:
+            Configuration._base_manager.update_or_create(
+                key=key, defaults={"value": proposed_configs[key], "deleted_at": None}
+            )
         print("APPLIED" if changed or config_changed else "NO CHANGES", "(report identity and relations preserved)")
 
 

@@ -19,15 +19,16 @@ Specification remains `FAO-feature/expectations/lao-language-2026-10-08/expectat
 | Close question helpers | 2 | Q02 / Q03 corrected under delegated translation judgment; independent review pending |
 | Initial / followup templates | 2 | M04 / M06, proposed Lao summary prose |
 | Existing export selector Configuration key | 1 addition | CFG-01 rename dependency |
+| Close audit messages Configuration | 1 addition | User-approved seven-message JSON bundle |
 | States, category, flags, authority codes, other configurations | **0** | Preserved in full snapshot and ignored by scoped apply |
 
-`property-diff.json` records all 13 changes against the immutable latest source. `value-dependencies.json` lists every preserved option at its exact path. `dependency-matrix.md` records conditions/templates/consumers. `unchanged-text.json` lists remaining English definition text without declaring whole-form completion.
+`property-diff.json` records all 14 changes against the immutable latest source. `value-dependencies.json` lists every preserved option at its exact path. `dependency-matrix.md` records conditions/templates/consumers. `unchanged-text.json` lists remaining English definition text without declaring whole-form completion.
 
 Templates retain selected species/disease/age/sex/symptoms and user text. Initial summary adds recovered animals and Other text; both templates display zero counts/households to meet A03 data completeness. Stored numeric semantics and metric formulas are unchanged. Missing optional numbers retain the existing zero-display convention. User text is escaped by Django and never translated. Incident date uses proposed numeric `dd/mm/yyyy` with a Lao prefix. Photos remain in their existing client flow.
 
 ## Scoped local apply
 
-Do not use the full setup importer for this localization apply. The scoped script reads the existing report-setup format but selects only seven fields: name, definition, followup_definition, metric_accumulation, close_definition, renderer_data_template and renderer_followup_data_template. It also selects exactly `cases.lahis_summarized_report_type_name`. Every other snapshot section/property is ignored for writes.
+Do not use the full setup importer for this localization apply. The scoped script reads the existing report-setup format but selects only seven fields: name, definition, followup_definition, metric_accumulation, close_definition, renderer_data_template and renderer_followup_data_template. It also selects exactly `cases.lahis_summarized_report_type_name` and `cases.close_audit_messages`. Every other snapshot section/property is ignored for writes.
 
 From the existing local `ohtk-api` shell:
 
@@ -60,3 +61,9 @@ The check reads the immutable source via Git, verifies its SHA, proves exact def
 Root applied the two reviewed Q02/Q03 helper corrections under user-delegated translation judgment. Exact candidate readback, unchanged UUID/count/41 authorities and all report-row fingerprints, and repeat no-op verified in workspace execution/local-v3-verification.json. Earlier v2 evidence still proves corrected latest-definition import. Runtime UI remains unverified; Q05–Q07 scope is pending.
 
 V4 supersedes only the Q02 helper with plain language for villagers: count animals of this species destroyed; enter0 if none. Independent source review passed. Root applied and verified unchanged constraints/data plus no-op repeat in execution/local-v4-verification.json.
+
+## Close audit message bundle — approved 8 October 2026
+
+`cases.close_audit_messages` stores one JSON object as the Configuration text value. Keys: `close_case`, `false_positive`, `automatic_close`, `complete_after_auto_close`, `superuser_edit`, `no_close_data`, `reason`. This tenant seed supplies Lao text directly; there is no locale nesting or template syntax. The API uses English for missing/blank/non-string entries and logs/falls back to the full English set for malformed JSON or a non-object value. Unknown keys are ignored. The scoped importer requires all seven nonempty strings in this reviewed seed and guards both configuration rows, including soft-delete state, in its preview digest.
+
+Payload field labels come from close_definition (field label, then question label; legacy field labels supported). Unknown labels retain humanized-key fallback. False-positive reason uses the configured reason label. User values are not translated. Only newly created audit comments use this configuration; stored comments are untouched. No API schema/client/generated change or migration is required.

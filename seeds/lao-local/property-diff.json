@@ -79,5 +79,14 @@
       "value": "ສັດປ່ວຍ/ຕາຍ"
     },
     "expectation": "CFG-01 export selector dependency"
+  },
+  {
+    "path": "/configurations/15",
+    "before": null,
+    "after": {
+      "key": "cases.close_audit_messages",
+      "value": "{\"close_case\": \"[ປິດເຄສ] ປິດເຄສ\", \"false_positive\": \"[ປິດເຄສ] ບໍ່ແມ່ນກໍລະນີຈິງ\", \"automatic_close\": \"[ປິດອັດຕະໂນມັດ] ລະບົບປິດເຄສເນື່ອງຈາກບໍ່ມີການເຄື່ອນໄຫວ\", \"complete_after_auto_close\": \"[ຂໍ້ມູນປິດເຄສ] ເພີ່ມຂໍ້ມູນຫຼັງຈາກລະບົບປິດອັດຕະໂນມັດ\", \"superuser_edit\": \"[ຂໍ້ມູນປິດເຄສ] ແກ້ໄຂໂດຍຜູ້ດູແລລະບົບສູງສຸດ\", \"no_close_data\": \"ຍັງບໍ່ມີການບັນທຶກຂໍ້ມູນປິດເຄສ.\", \"reason\": \"ເຫດຜົນ\"}"
+    },
+    "reason": "Approved tenant close-audit message bundle; new comments only."
   }
 ]
