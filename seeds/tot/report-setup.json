@@ -958,6 +958,7 @@
           },
           {
             "id": "num_total_animal",
+            "positiveOnly": true,
             "op": "sum",
             "type": "integer",
             "label": "ຈຳນວນສັດທັງໝົດ",

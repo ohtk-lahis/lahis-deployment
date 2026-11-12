@@ -11,6 +11,7 @@
     },
     {
       "id": "num_total_animal",
+      "positiveOnly": true,
       "label": "Total animals",
       "reportField": "num_total_animal",
       "followupField": "num_total_animal",
