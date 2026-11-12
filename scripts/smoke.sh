@@ -11,6 +11,8 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "${ROOT}"
+# shellcheck source=lib/common.sh
+source "${ROOT}/scripts/lib/common.sh"
 
 if [[ -f .env ]]; then
   # shellcheck disable=SC1091
@@ -86,6 +88,13 @@ if docker compose exec -T api python -c \
   ok "api /health (in-container)"
 else
   bad "api /health (in-container)"
+fi
+
+# A process-presence check alone cannot establish a usable Redis worker.
+if celery_running_ok; then
+  ok "celery worker responds through broker"
+else
+  bad "celery worker does not respond through broker"
 fi
 
 # --- public HTTPS (optional) ---

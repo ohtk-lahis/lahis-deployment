@@ -104,8 +104,11 @@ ms_health_ok() {
 }
 
 celery_running_ok() {
-  compose ps --status running --services 2>/dev/null | grep -qx celery \
-    || compose ps 2>/dev/null | grep -E '[[:space:]]celery[[:space:]]|^celery' | grep -qiE 'up|running'
+  # A restarting worker may briefly be running without consuming broker jobs.
+  # Target this container so a different worker cannot make the probe pass.
+  compose exec -T celery python -c \
+    "import socket; from podd_api.celery import app; node='celery@'+socket.gethostname(); replies=app.control.ping(destination=[node], timeout=5); assert any(reply.get(node, {}).get('ok') == 'pong' for reply in replies)" \
+    >/dev/null 2>&1
 }
 
 # CO3 scheduler (singleton). Required for auto-close; deploy recreates it with api image.
